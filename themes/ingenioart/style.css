@@ -1,0 +1,30 @@
+/*
+Theme Name: INGENIOART Tema Wordpresss
+Theme URI: https://
+Author: IngenioArt 
+Author URI: https://
+Description:  Una web hecha en wordpress
+Version: 1.2
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: 
+Text Domain: sbg
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/* font awesome */
+@import url("css/font-awesome/css/font-awesome.min.css"); 
+/*bootstrap*/
+@import url("css/bootstrap.min.css"); 
+/* owl carousel */
+@import url("css/owl.carousel.css"); 
+/* fancybox */
+@import url("css/fancybox/jquery.fancybox.css"); 
+/* parsley */
+@import url("css/parsley.css"); 
+/* slidebars */
+@import url("css/slidebars.min.css"); 
+/* archivo master */
+@import url("css/master.css");
