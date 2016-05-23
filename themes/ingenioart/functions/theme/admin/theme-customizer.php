@@ -215,20 +215,34 @@ function ingenioart_customize_register($wp_customize) {
 
 	//Customizar celular
 	$wp_customize->add_section('ingenioart_contact_cel', array(
-		'title' => __('Celular de Contacto', LANG),
-		'description' => __('Celular de Contacto', LANG),
+		'title' => __('Celulares de Contacto', LANG),
+		'description' => __('Escribir los números correspondientes', LANG),
 		'priority' => 39
 	));
 	
-	$wp_customize->add_setting('ingenioart_custom_settings[contact_cel]', array(
+	//RPC
+	$wp_customize->add_setting('ingenioart_custom_settings[contact_cel_rpc]', array(
 		'default' => '',
 		'type' => 'option'
 	));
 	
-	$wp_customize->add_control('ingenioart_custom_settings[contact_cel]', array(
-		'label'    => __('Escribe el o los números de celular del contacto separados por comas', LANG),
+	$wp_customize->add_control('ingenioart_custom_settings[contact_cel_rpc]', array(
+		'label'    => __('Número RPC', LANG),
 		'section'  => 'ingenioart_contact_cel',
-		'settings' => 'ingenioart_custom_settings[contact_cel]',
+		'settings' => 'ingenioart_custom_settings[contact_cel_rpc]',
+		'type'     => 'text'
+	));	
+
+	//RPM
+	$wp_customize->add_setting('ingenioart_custom_settings[contact_cel_rpm]', array(
+		'default' => '',
+		'type' => 'option'
+	));
+	
+	$wp_customize->add_control('ingenioart_custom_settings[contact_cel_rpm]', array(
+		'label'    => __('Número RPM', LANG),
+		'section'  => 'ingenioart_contact_cel',
+		'settings' => 'ingenioart_custom_settings[contact_cel_rpm]',
 		'type'     => 'text'
 	));
 
