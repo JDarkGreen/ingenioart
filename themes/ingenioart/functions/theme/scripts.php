@@ -23,7 +23,13 @@ function load_custom_scripts()
 	wp_enqueue_script('bootstrap', THEMEROOT . '/js/bootstrap.min.js', array('jquery'), '3.3.6', true);	
 
 	//cargar fancybox
-	wp_enqueue_script('fancybox', THEMEROOT . '/js/jquery.fancybox.pack.js', array('jquery'), '2.1.5', true);	
+	wp_enqueue_script('fancybox', THEMEROOT . '/js/jquery.fancybox.pack.js', array('jquery'), '2.1.5', true);
+
+	//cargar sliderevolution
+	wp_enqueue_script('revslidertools', THEMEROOT . '/js/jquery.themepunch.plugins.min.js', array('jquery'), '1.0', true);	
+
+	//cargar sliderevolution
+	wp_enqueue_script('revslider', THEMEROOT . '/js/jquery.themepunch.revolution.min.js', array('jquery'), '4.3.6', true);	
 
 	//cargar validador
 	wp_enqueue_script('parsley', THEMEROOT . '/js/parsley.min.js', array('jquery'), '2.3.11', true);

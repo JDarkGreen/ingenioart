@@ -30,84 +30,18 @@ var j = jQuery.noConflict();
 		
 
 		/*|----------------------------------------------------------------------|*/
-		/*|-----  CAROUSEL HOME -----|*/
+		/*|-----  CAROUSEL HOME  LIBRERIA REVslider -----|*/
 		/*|----------------------------------------------------------------------|*/
-		var carousel_home = j("#carousel-home").carousel({
-			interval : 5000
-		});
+		if ( j.fn.cssOriginal!=undefined)   // CHECK IF fn.css already extended
+        j.fn.css =  j.fn.cssOriginal;
 
-		var i = 1;
-
-		//eventos
-		carousel_home.on('slid.bs.carousel', function ( e ) {
-			if( i > 2 ){ i = 1 };
-			
-			var current_item = j(this).find('.active');
-  			//imagen actual
-  			var image_carousel = current_item.find('img');
-  			//animacion de la imagen
-  			if( i == 1 ){
-  				image_carousel.addClass('box-expand');
-  			}else{
-  				image_carousel.addClass('box-contract');
-  			}
-
-  			i++;
-
-  			//animacion de las contenidos
-  			var title = current_item.find('h3');
-  			title
-  				.css('opacity',0)
-  				.animate({ 'opacity' : '1' , 'top' : '-1em' }, 1400 );
-
-  			var k    = 1;
-  			var text = current_item.find('p');
-
-  			text.each( function(){
-
-  				if( k > 2 ){ k = 1 };
-
-  				if( k == 1 ){
-	  				j(this)
-	  					.addClass('box-contract--fast')
-	  					.animate({ 'opacity' : '1' }, 1000 );
-  				}else{
-  					j(this).animate({'left':'0','opacity':'1'}, 1100 );
-  				}
-	  			
-	  			//aumentar k 
-	  			k++;
-  			});
-		});
-
-		carousel_home.on('slide.bs.carousel', function ( e ) {
-			var current_item = j(this).find('.active');
-
-  			//animacion de las contenidos
-  			var title = current_item.find('h3');
-  			title
-  				.css('opacity',0)
-  				.animate({ 'opacity' : '1' , 'top' : '-8em' }, 0 );
-
-  			var k    = 1;
-
-  			var text = current_item.find('p');
-
-  			text.each( function(){
-  				
-  				if( k > 2 ){ k = 1 };
-
-  				if( k == 1 ){
-	  				j(this)
-	  					.css('opacity',0)
-	  					.removeClass('box-contract--fast');
-  				}else{
-  					j(this).css({'left':'50%','opacity':0});
-  				}
-	  			//aumentar k 
-	  			k++;
-  			});
-		});
+		j("#carousel-home").revolution({
+			delay         : 9000, 
+			fullWidth     : "on",
+			navigationType: 'none',
+			onHoverStop   : "off",
+			startheight   : 490,
+		}); 
 
 		/*|----------------------------------------------------------------------|*/
 		/*|-----  CAROUSEL SERVICIOS HOME  -----|*/

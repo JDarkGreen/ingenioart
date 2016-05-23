@@ -61,6 +61,59 @@ function add_banner_page_save_postdata($post_id){
 }
 
 /*|-------------------------------------------------------------------------|*/
+/*|------------ METABOX DE AGREGAR IMAGEN EXTRA PARA BANNER HOME -----------|*/
+/*|-------------------------------------------------------------------------|*/
+add_action( 'add_meta_boxes', 'add_img_banner_extra' );
+
+function add_img_banner_extra() {
+  //add more in here as you see fit
+  $screens = array( 'banner' ); 
+  foreach ($screens as $screen) {
+  	add_meta_box(
+      'attachment_img_banner_home', //this is the id of the box
+      'Imagen Extra Banner Home', //this is the title
+      'add_banner_img_home_meta_box', //the callback
+      $screen, //the post type
+      'side' //the placement
+    );
+  }
+}
+
+function add_banner_img_home_meta_box($post){ 
+	$input_banner = get_post_meta($post->ID, 'input_img_banner_'.$post->ID , true);
+?>
+
+	<!-- Input guarda valor de metabox -->
+	<input type="hidden" id="input_img_banner_<?= $post->ID ?>" name="input_img_banner_<?= $post->ID ?>" value="<?= $input_banner ?>" />
+	
+	<!-- Boton Agregar eliminar banner -->
+	<?php if( $input_banner != -1 && !empty($input_banner) ) : ?>
+		<a id="btn_add_banner" data-id-post="<?= $post->ID; ?>" class="js-link_banner" href="#" style="display: block">
+			<img src="<?= $input_banner; ?>" alt="banner-page" style="width: 200px; height: 100px; margin: 0 auto;" />
+		</a>
+		<a id="delete_banner" data-id-post="<?= $post->ID; ?>" href="#">Quitar Imágen</a>
+	<?php else: ?>
+		<a id="btn_add_banner" data-id-post="<?= $post->ID; ?>" class="js-link_banner" href="#" style="display: block">
+		Insertar Imágen
+		</a>
+	<?php endif; ?>
+
+	<p class="description">Al agregar/eliminar elemento dar click en actualizar</p>
+
+<?php 
+}
+
+/* Guardamos la Data */
+add_action('save_post', 'add_banner_img_save_postdata');
+
+function add_banner_img_save_postdata($post_id){
+	if ( !empty($_POST['input_img_banner_'.$post_id]) ){
+		$data = htmlspecialchars( $_POST['input_img_banner_'.$post_id] );
+ 		update_post_meta($post_id, 'input_img_banner_'.$post_id , $data);
+ 	}
+}
+
+/*|-------------------------------------------------------------------------|*/
 /*|-------------- METABOX DE GALERÍA PARA TODAS LAS PAGINAS -----------------|*/
 /*|-------------------------------------------------------------------------|*/
 
@@ -196,13 +249,6 @@ function cd_meta_box_url_video_save( $post_id )
         update_post_meta( $post_id, 'mb_url_video_text', wp_kses( $_POST['mb_url_video_text'], $allowed ) );
 }
 
-
-/*|-------------------------------------------------------------------------|*/
-/*|-------------- METABOX BANNER CONTENIDO  -----------------|*/
-/*|-------------------------------------------------------------------------|*/
-
-//Este metabox al darle check agrega una clase en el banner Home
-//que permite alinear contenido a la izquierda o derecha respectivamente
 
 /*|-------------------------------------------------------------------------|*/
 /*|-------------- METABOX BANNER CONTENIDO  -----------------|*/

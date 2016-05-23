@@ -54,9 +54,39 @@
 				</h1> <!-- /.lgoo -->				
 			</div> <!-- /.col-xs-6 -->
 			<div class="col-xs-6">
-				
+				<!-- Informacion -->
+				<section class="mainHeader__info text-xs-right">
+					<p>
+						<i class="fa fa-mobile" aria-hidden="true"></i>
+						<!-- Telefono -->
+						<?php if( isset($options['contact_tel']) && !empty($options['contact_tel']) ) : ?> <?= $options['contact_tel'] . " | " ; ?>
+						<?php endif; ?>
+						<!-- RPC -->
+						<?php if( isset($options['contact_cel_rpc']) && !empty($options['contact_cel_rpc']) ) : ?> <?= "RPC: " . $options['contact_cel_rpc'] . " | " ; ?>
+						<?php endif; ?>
+						<!-- RPM -->
+						<?php if( isset($options['contact_cel_rpm']) && !empty($options['contact_cel_rpm']) ) : ?> <?= "RPM: " . $options['contact_cel_rpm']; ?>
+						<?php endif; ?>
+					</p>
+					<!-- Email -->
+					<p>
+						<i class="fa fa-envelope-o" aria-hidden="true"></i>
+						<?php if( isset($options['contact_email']) && !empty($options['contact_email']) ) : ?> <i></i> <?= $options['contact_email']; ?>
+						<?php endif; ?>
+					</p>
+				</section> <!-- /.mainHeader__info -->
 			</div> <!-- /.col-xs-6 -->
 		</div> <!-- /.row -->
+
+		<!-- Navegacion principal -->
+		<nav class="mainNav text-xs-center">
+			<?php wp_nav_menu(
+				array(
+					'menu_class'     => 'main-menu',
+					'theme_location' => 'main-menu'
+				));
+			?>						
+		</nav> <!-- /.mainNav -->  
 		
 		<!-- Solo en version mobile -->
 		<section class="hidden-xs-up">
