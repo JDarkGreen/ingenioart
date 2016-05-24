@@ -22,6 +22,7 @@ $ingenioart_orange: #F26E22
 $ingenioart_blue  : #0075BA
 
 $ingenioart_gray  : #D1D1D1
+$ingenioart_cyan  : #00F1F6
 
 
 /***************************************************************************************/
@@ -54,11 +55,6 @@ body,html
 	100% 
 		+transform( scale(2) translateX( 0% ) )
 
-/***************************************************************************************/
-/**-------------------------- ANIMACIONES CON CLASES ----------------------------------**/
-/***************************************************************************************/
-
-
 
 /***************************************************************************************/
 /**-------------------------- SECCIONES EN COMUN -------------------------------------**/
@@ -73,17 +69,48 @@ body,html
 	display        : flex
 	flex-wrap      : wrap 
 	justify-content: center
-	padding        : 0 !important
 
 //Alinear contenidos
 .align-content
 	align-content: center
 	align-items  : center 
 
+//Botón Leer más
+.btn__read-more
+	background : $ingenioart_orange
+	color      : white 
+	display    : inline-block
+	font-size  : 14px 
+	height     : 48px 
+	line-height: 1em 
+	margin     : 20px auto 0
+	padding    : 17px 0
+	width      : 120px
+	+border-radius( 5px )
+	//Hover
+	&:hover
+		color          : white 
+		text-decoration: none 
+
+//Boton ver más [ Click aquí ]
+.btn__show-more 
+	background: $ingenioart_blue
+	color     : white
+	display   : inline-block 
+	font-size : 14px 
+	padding   : 10px 23px 
+	+border-radius( 5px )
+	+transition( all 400ms cubic-bezier(.21,.84,.45,.96) )
+	&:hover 
+		color          : white  
+		text-decoration: none
+		+scale( 1.2 )
+
 //Mapa
 #canvas-map
 	height: 317px
 	width : 100%
+
 
 /***************************************************************************************/
 /**-------------------------- PAGINAS EN COMUN  -------------------------------------**/
@@ -121,7 +148,18 @@ body,html
 	font-size: 20px
 	margin   : 0 auto 
 
-
+//* Banner Común de Servicios
+.pageCommon__banner-services
+	background     : url("../images/pages/inicio/banner-service-common.jpg") no-repeat
+	background-size: 100% 100% 
+	color          : white
+	padding        : 39px 0  
+	//Titulo
+	h2 
+		font-family: "BloggerSans"
+		font-size  : 48px
+		font-weight: 600
+		margin     : 0 27px
 
 
 /***************************************************************************************/
@@ -291,28 +329,90 @@ body,html
 			font-weight: 700
 			line-height: 1.3em 
 			margin     : 0 auto
-		//Botón Leer más
+		//Sobre escribir estilos botón
 		.btn__read-more
-			background     : $ingenioart_orange
-			bottom         : 27px
-			color          : white 
-			display        : inline-block
-			font-size      : 14px 
-			left           : 0
-			line-height    : 1em 
-			margin         : 20px auto 0
-			padding        : 14px 19px 
-			position       : absolute
-			right          : 0
-			text-decoration: none 
-			width          : 50%
-			+border-radius( 5px )
+			bottom  : 27px
+			left    : 0
+			position: absolute 
+			right   : 0
 
 //Sección Descripción Nosotros
 .pageInicio__our
 	background: $ingenioart_gray
 	margin    : 45px auto 0
 	padding   : 66px 0
+	//Párrafos
+	p 
+		color: black 
+
+//Sección Testimonios
+.pageInicio__testimonio
+	background     : url("../images/pages/inicio/bg-testimonios.jpg") no-repeat
+	background-size: 100% 
+	font-family    : "BloggerSans"
+	padding        : 50px 0
+	//Artículos
+
+	//Titulo
+	h2 
+		color    : white 
+		font-size: 20px 
+		margin   : 0 auto 
+		span 
+			color: $ingenioart_cyan
+
+	//Imagen articulo
+	.articleTestimonio__image
+		margin   : 0 auto 
+		max-width: 130px
+		//before
+		&:before 
+			background   : #1b1b1b
+			border       : 5px solid #e6e6e6
+			border-radius: 50%
+			color        : #dddddd
+			content      : "\f10d"
+			font-family  : FontAwesome
+			font-size    : 17px
+			height       : 40px
+			left         : -11px
+			line-height  : 31px
+			position     : absolute
+			width        : 40px
+			z-index      : 1
+		//image
+		img 
+			border       : 5px solid white 
+			border-radius: 120px
+			margin-bottom: 16px
+			overflow     : hidden
+			position     : relative
+			+transition( all 800ms ease-in )
+			//Hover 
+			&:hover 
+				border: 5px solid $ingenioart_orange 
+	
+	//Texto
+	.articleTestimonio__content
+		margin: 0 auto 25px
+		p 
+			color    : white 
+			font-size: 18px
+			margin   : 0 auto 
+
+	//Sobreescribir carousel dots
+	.owl-controls 
+		text-align: center 
+		.owl-dot
+			+transition( all 500ms ease-in )
+			background: white 
+			display   : inline-block
+			height    : 9px
+			margin    : 0 5px 
+			width     : 28px
+			//hover and active
+			&:hover , &.active 
+				background: $ingenioart_orange
 
 /***************************************************************************************/
 /**-------------------------- PÁGINA NOSOTROS  ---------------------------------------**/

@@ -44,42 +44,22 @@ var j = jQuery.noConflict();
 		}); 
 
 		/*|----------------------------------------------------------------------|*/
-		/*|-----  CAROUSEL SERVICIOS HOME  -----|*/
+		/*|-----  CAROUSEL TESTIMONIOS HOME  -----|*/
 		/*|----------------------------------------------------------------------|*/
-		var carousel_home_service = j('.ContainerSlider__servicios');
-		carousel_home_service.owlCarousel({
-			items          : 4,
+		var carousel_home_testimonio = j('#pageInicio__testimonio__gallery');
+		carousel_home_testimonio.owlCarousel({
+			autoplay       : true,
+			autoplayTimeout: 5000,
+			dots           : true,
+			fluidSpeed     : 2000,
+			items          : 1,
 			lazyLoad       : false,
 			loop           : true,
-			margin         : 20,
-			nav            : false,
-			autoplay       : true,
-			responsiveClass: true,
+			margin         : 0,
 			mouseDrag      : false,
-			autoplayTimeout: 2500,
-			fluidSpeed     : 2000,
-			smartSpeed     : 2000,
-			responsive:{
-		        320:{
-		            items: 2
-		        },
-		      	640:{
-		            items: 4
-		        },
-	    	}			
-		});
-
-		/*--------------- EVENTOS DEL FLECHAS DEL CAROUSEL -----------------------*/
-		j('.ContainerSlider__servicios__arrow').on('click',function(e){
-			e.preventDefault();
-		});
-		//flecha izquierda
-		j("#arrow-service-prev").on('click',function(){
-			carousel_home_service.trigger('prev.owl.carousel', [700]);
-		});		
-		//flecha derecha
-		j("#arrow-service-next").on('click',function(){
-			carousel_home_service.trigger('next.owl.carousel', [700]);
+			nav            : false,
+			responsiveClass: true,
+			smartSpeed     : 2000,		
 		});
 
 		/*|----------------------------------------------------------------------|*/

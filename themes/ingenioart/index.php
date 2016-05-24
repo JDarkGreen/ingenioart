@@ -52,7 +52,7 @@
 <!-- Sección Estrategia y Creatividad -->
 <section class="pageInicio__our">
 	<div class="container">
-		<div class="row container-flex">
+		<div class="row container-flex align-content">
 			<div class="col-xs-12 col-md-6 text-xs-center">
 				<!-- Titulo --> <h2 class="pageCommon__title text-uppercase"> <?php _e( 'estratégia & creatividad' , LANG ); ?> </h2>
 				<!-- Contenido --> 
@@ -76,6 +76,44 @@
 		</div> <!-- /.row -->
 	</div> <!-- /.container -->
 </section> <!-- /.pageInicio__our -->
+
+<!-- Banner Común de Servicios -->
+<section class="pageCommon__banner-services container-flex align-content">
+	<!-- Titulo --> <h2><?php _e('Consulta sobre nuestros servicios' , LANG ); ?></h2>
+	<!-- Boton --> <a href="#" class="btn__show-more"><?php _e('Click aquí' , LANG ); ?></a>
+</section> <!-- /.pageCommon__banner-services -->
+
+<!-- Sección Testimonio -->
+<section class="pageInicio__testimonio">
+	<div class="container">
+		<!-- Contenedor Testimonios -->
+		<div id="pageInicio__testimonio__gallery" class="pageInicio__testimonio__gallery">
+			<?php 
+				$args = array(
+					'order'          => 'ASC',
+					'orderby'        => 'menu_order',
+					'post_status'    => 'publish',
+					'post_type'      => 'testimonio',
+					'posts_per_page' => -1,
+				);
+				$servicios = get_posts( $args );
+				foreach( $servicios as $servicio ) :
+			?>
+				<!-- Artículo -->
+				<article class="articleTestimonio text-xs-center">
+					<!-- Imagen --> <figure class="articleTestimonio__image relative">
+						<?= get_the_post_thumbnail($servicio->ID,'full', array('class'=>'img-fluid center-block') ); ?>
+					</figure>
+					<!-- Mensaje --> <div class="articleTestimonio__content">
+						<?= apply_filters('the_content' , $servicio->post_content ); ?>
+					</div> <!-- /.text-xs-center -->
+					<!-- Título -->
+					<h2> <span><?= $servicio->post_title; ?></span> | <?= $servicio->post_excerpt; ?></h2>
+				</article> <!-- /.article -->
+			<?php endforeach; ?>
+		</div> <!-- /.pageInicio__testimonio__gallery -->
+	</div> <!-- /.container -->
+</section> <!-- /.pageInicio__testimonio -->
 
 <!-- Footer -->
 <?php get_footer(); ?>

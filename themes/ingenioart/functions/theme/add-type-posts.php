@@ -76,18 +76,18 @@ function create_post_type(){
 		'menu_icon'   => 'dashicons-money',
 	);	
 
-	/*|>>>>>>>>>>>>>>>>>>>> FLOTAS  <<<<<<<<<<<<<<<<<<<<|*/
+	/*|>>>>>>>>>>>>>>>>>>>> TESTIMONIOS  <<<<<<<<<<<<<<<<<<<<|*/
 	
 	$labels4 = array(
-		'name'               => __('Galería Flotas'),
-		'singular_name'      => __('Flota'),
-		'add_new'            => __('Nueva Flota'),
-		'add_new_item'       => __('Agregar nueva Flota'),
-		'edit_item'          => __('Editar Flota'),
-		'view_item'          => __('Ver Flota'),
-		'search_items'       => __('Buscar Flota'),
-		'not_found'          => __('Flota no encontrada'),
-		'not_found_in_trash' => __('Flota no encontrada en la papelera'),
+		'name'               => __('Testimonios'),
+		'singular_name'      => __('Testimonio'),
+		'add_new'            => __('Nueva Testimonio'),
+		'add_new_item'       => __('Agregar nueva Testimonio'),
+		'edit_item'          => __('Editar Testimonio'),
+		'view_item'          => __('Ver Testimonio'),
+		'search_items'       => __('Buscar Testimonio'),
+		'not_found'          => __('Testimonio no encontrada'),
+		'not_found_in_trash' => __('Testimonio no encontrad en la papelera'),
 	);
 
 	$args4 = array(
@@ -105,7 +105,7 @@ function create_post_type(){
 	register_post_type( 'banner'   , $args  );
 	register_post_type( 'servicio' , $args2 );
 	register_post_type( 'cliente' , $args3 );
-	register_post_type( 'flota' , $args4 );
+	register_post_type( 'testimonio' , $args4 );
 
 	
 	flush_rewrite_rules();
