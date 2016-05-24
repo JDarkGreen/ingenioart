@@ -99,6 +99,29 @@ function create_post_type(){
 		'taxonomies'  => array('post-tag','category'),
 		'menu_icon'   => 'dashicons-index-card',
 	);
+	/*|>>>>>>>>>>>>>>>>>>>> PROYECTOS  <<<<<<<<<<<<<<<<<<<<|*/
+	
+	$labels5 = array(
+		'name'               => __('Portafolio'),
+		'singular_name'      => __('Proyecto'),
+		'add_new'            => __('Nueva Proyecto'),
+		'add_new_item'       => __('Agregar nuevo Proyecto'),
+		'edit_item'          => __('Editar Proyecto'),
+		'view_item'          => __('Ver Proyecto'),
+		'search_items'       => __('Buscar Proyecto'),
+		'not_found'          => __('Proyecto no encontrado'),
+		'not_found_in_trash' => __('Proyecto no encontrado en la papelera'),
+	);
+
+	$args5 = array(
+		'labels'      => $labels5,
+		'has_archive' => true,
+		'public'      => true,
+		'hierachical' => false,
+		'supports'    => array('title','editor','excerpt','custom-fields','thumbnail','page-attributes'),
+		'taxonomies'  => array('post-tag','category'),
+		'menu_icon'   => 'dashicons-portfolio',
+	);
 
 
 	/*|>>>>>>>>>>>>>>>>>>>> REGISTRAR  <<<<<<<<<<<<<<<<<<<<|*/
@@ -106,6 +129,7 @@ function create_post_type(){
 	register_post_type( 'servicio' , $args2 );
 	register_post_type( 'cliente' , $args3 );
 	register_post_type( 'testimonio' , $args4 );
+	register_post_type( 'proyecto' , $args5 );
 
 	
 	flush_rewrite_rules();

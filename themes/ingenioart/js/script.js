@@ -67,10 +67,10 @@ var j = jQuery.noConflict();
 		/*|----------------------------------------------------------------------|*/
 		var carousel_clientes = j('#carousel-clientes');
 		carousel_clientes.owlCarousel({
-			items          : 8,
+			items          : 4,
 			lazyLoad       : false,
 			loop           : true,
-			margin         : 20,
+			margin         : 100,
 			nav            : false,
 			autoplay       : true,
 			responsiveClass: true,
@@ -83,12 +83,14 @@ var j = jQuery.noConflict();
 		            items: 2
 		        },
 		      	640:{
-		            items: 8
+		            items: 4
 		        },
 	    	}			
 		});
 
 		/* Eventos de flechas */
+		j(".arrow__cliente").on('click',function(e){ e.preventDefault(); });
+
 		j("#arrow__cliente--prev").on('click',function(e){
 			carousel_clientes.trigger('prev.owl.carousel', [700]);
 		});

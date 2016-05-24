@@ -402,6 +402,7 @@ body,html
 
 	//Sobreescribir carousel dots
 	.owl-controls 
+		margin    : 33px auto 0
 		text-align: center 
 		.owl-dot
 			+transition( all 500ms ease-in )
@@ -413,6 +414,32 @@ body,html
 			//hover and active
 			&:hover , &.active 
 				background: $ingenioart_orange
+
+//Sección Clientes
+.pageInicio_clientes
+	padding: 90px 0 80px
+	//Carousel Clientes
+	.pageInicio_clientes__gallery
+		margin : 70px auto 0
+		padding: 0 40px 
+	//Flechas de carousel clientes
+	.arrow__cliente
+		color          : $ingenioart_blue
+		font-size      : 34px 
+		margin         : -22px auto 0
+		position       : absolute
+		text-decoration: none
+		top            : 50% 
+		z-index        : 999
+	.arrow__cliente--prev
+		left: -40px
+	.arrow__cliente--next
+		right: -40px
+
+//Sección Portafolio
+.pageInicio__portafolio
+	background: $ingenioart_gray
+	padding   : 60px 0 0 0
 
 /***************************************************************************************/
 /**-------------------------- PÁGINA NOSOTROS  ---------------------------------------**/
