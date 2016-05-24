@@ -51,7 +51,7 @@
 
 				<!-- Caption Imagen Extra -->
 				<?php $extra_img = get_post_meta($post->ID, 'input_img_banner_'.$post->ID , true); if( !empty($extra_img) ) : ?>
-					<div class="caption sfr big_white" data-x="700" data-y="40" data-speed="3000" data-start="1500" data-easing="easeOutBack">
+					<div class="caption sfr big_white" data-x="550" data-y="40" data-speed="3000" data-start="1500" data-easing="easeOutBack">
 						<figure class="item-slider__extra-img">
 							<img src="<?= $extra_img; ?>" alt="image-extra-ingenioart" class="img-fluid" />
 						</figure> <!-- /.item-slider__extra-img -->
@@ -60,13 +60,15 @@
 
 
 				<!-- Caption Titulo y contenido -->
-				<div class="caption sft big_white" data-x="50" data-y="154" data-speed="3000" data-start="3000" data-easing="easeOutBack">
-					<h2 class="pageInicio__slider__title text-uppercase">
-						<?php _e( get_the_title() , LANG ); ?>
-					</h2> <!-- /.pageInicio__slider__title -->
-					<p class="pageInicio__slider__content">
-						<?php _e( get_the_content() , LANG ); ?>
-					</p> <!-- /.pageInicio__slider__content -->
+				<div class="caption sft big_white" data-x="50" data-y="90" data-speed="3000" data-start="3000" data-easing="easeOutBack">
+					<section class="pageInicio__slider__content">
+						<h2 class="text-uppercase">
+							<?php _e( get_the_title() , LANG ); ?>
+						</h2> <!-- /.pageInicio__slider__title -->
+						<p class="">
+							<?php _e( get_the_content() , LANG ); ?>
+						</p> <!-- /.pageInicio__slider__content -->
+					</section> <!-- /.pageInicio__slider__content -->
 				</div> <!-- /. -->	
 		
 			</li> <!-- /.item-slider -->

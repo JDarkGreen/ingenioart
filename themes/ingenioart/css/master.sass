@@ -8,12 +8,21 @@
 	src: url('../fonts/blogger/blogger_sans.eot')
 	src: url('../fonts/blogger/blogger_sans.eot?#iefix') format('embedded-opentype'), url('../fonts/blogger/blogger_sans.woff2') format('woff2'), url('../fonts/blogger/blogger_sans.woff') format('woff'), url('../fonts/blogger/blogger_sans.ttf')  format('truetype'), url('../fonts/blogger/blogger_sans.svg#svgFontName') format('svg')
 
+//Bebas Neue
+@font-face
+	font-family: 'Bebas' 
+	src: url('../fonts/bebasneue/bebasneue.eot')
+	src: url('../fonts/bebasneue/bebasneue.eot?#iefix') format('embedded-opentype'), url('../fonts/bebasneue/bebasneue.woff2') format('woff2'), url('../fonts/bebasneue/bebasneue.woff') format('woff'), url('../fonts/bebasneue/bebasneue.ttf')  format('truetype'), url('../fonts/bebasneue/blogger_sans.svg#svgFontName') format('svg')
+
 /***************************************************************************************/
 /**-------------------------- VARIABLES ---------------------------------------------**/
 /***************************************************************************************/
 
 $ingenioart_orange: #F26E22
 $ingenioart_blue  : #0075BA
+
+$ingenioart_gray  : #D1D1D1
+
 
 /***************************************************************************************/
 /**-------------------------- RESET --------------------------------------------------**/
@@ -83,7 +92,6 @@ body,html
 //Título Banners
 .pageCommon__banner__title
 
-
 //Galerías EN Común
 .js-carousel-gallery
 	.owl-controls
@@ -101,6 +109,19 @@ body,html
 			width        : 14px
 			//active
 			&.active
+
+//Títulos de Secciones
+.pageCommon__title
+	color      : $ingenioart_blue
+	font-family: "Bebas"
+	font-size  : 45px
+	margin     : 0 auto 10px
+//Subtitulos Secciones
+.pageCommon__subtitle
+	font-size: 20px
+	margin   : 0 auto 
+
+
 
 
 /***************************************************************************************/
@@ -187,7 +208,6 @@ body,html
 						&:hover,&.current-menu-item, &.current_page_item
 							a 
 								
-
 /***************************************************************************************/
 /**--------------------------  SLIDEBAR CONTENEDOR -----------------------------------**/
 /***************************************************************************************/
@@ -206,16 +226,93 @@ body,html
 /***************************************************************************************/
 
 //Contenedor Slider
+.pageInicio__slider
+	.item-slider
+
+//Contenido de Slider
+.pageInicio__slider__content
+	color      : white
+	white-space: normal
+	word-break : break-all
+	h2
+		font-family: 'Bebas'
+		font-size  : 50px
+		line-height: 1em
+		margin     : 0
+		max-width  : 215px
+	p 
+		font-size: 17px
+		margin   : 0 auto 
 
 //Imagen Extra
 .item-slider__extra-img
 	margin: 0 auto 
-	width : 83%
+	width : 72%
 	img 
 		height   : auto !important
 		max-width: 100% !important
 		width    : 100% !important
 
+//Sección de Servicios
+.pageInicio__services
+	margin: 60px auto 0
+
+//Seccion servicios galería de servicios
+.pageInicio__services__gallery
+	display        : flex
+	flex-wrap      : wrap
+	justify-content: space-between
+	margin         : 40px auto 0
+	//Articulos
+	.item-service
+		border    : 1px solid $ingenioart_gray
+		height    : 326px
+		padding   : 26px 40px
+		position  : relative
+		width     : 23.5%
+		word-break: break-word
+		//Imagen
+		figure
+			background-size: 100% 100%
+			border         : 4px solid $ingenioart_gray
+			border-radius  : 50%
+			height         : 150px
+			margin         : 0 auto 20px
+			overflow       : hidden
+			width          : 150px
+			+transition( all 900ms ease )
+			//Hover
+			&:hover 
+				background-size: 150% 150%
+		//Título
+		h2 
+			color      : black 
+			font-size  : 16px
+			font-weight: 700
+			line-height: 1.3em 
+			margin     : 0 auto
+		//Botón Leer más
+		.btn__read-more
+			background     : $ingenioart_orange
+			bottom         : 27px
+			color          : white 
+			display        : inline-block
+			font-size      : 14px 
+			left           : 0
+			line-height    : 1em 
+			margin         : 20px auto 0
+			padding        : 14px 19px 
+			position       : absolute
+			right          : 0
+			text-decoration: none 
+			width          : 50%
+			+border-radius( 5px )
+
+//Sección Descripción Nosotros
+.pageInicio__our
+	background: $ingenioart_gray
+	margin    : 45px auto 0
+	padding   : 66px 0
 
 /***************************************************************************************/
 /**-------------------------- PÁGINA NOSOTROS  ---------------------------------------**/
