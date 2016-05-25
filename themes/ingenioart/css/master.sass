@@ -18,11 +18,12 @@
 /**-------------------------- VARIABLES ---------------------------------------------**/
 /***************************************************************************************/
 
-$ingenioart_orange: #F26E22
-$ingenioart_blue  : #0075BA
+$ingenioart_orange     : #F26E22
+$ingenioart_blue       : #0075BA
 
-$ingenioart_gray  : #D1D1D1
-$ingenioart_cyan  : #00F1F6
+$ingenioart_gray       : #EDEEF0
+$ingenioart_gray_oscuro: #D1D1D1
+$ingenioart_cyan       : #00F1F6
 
 
 /***************************************************************************************/
@@ -531,6 +532,35 @@ body,html
 //Carousel Blog Container
 .pageInicio__blog__carousel
 	padding: 0 30px
+
+//Seccion Miscelaneo
+.pageInicio__miscelaneo
+	background: $ingenioart_gray
+	padding   : 40px 0
+//Formulario 
+.pageInicio__miscelaneo__form
+	background     : url("../images/pages/inicio/inicio_suscribete_fondo.jpg") no-repeat
+	background-size: 100% 100%
+	color          : black 
+	font-family    : "BloggerSans"
+	font-size      : 22px 
+	padding        : 40px 60px
+	//description
+	p.description
+		margin: 0 auto 30px
+	//label
+	label 
+		margin: 0
+	//input
+	input 
+		border   : 1px solid $ingenioart_gray_oscuro
+		display  : block
+		font-size: 1em 
+		margin   : 0 auto 20px 
+		outline  : 0 
+		padding  : 4px 15px 
+		width    : 100% 
+
 
 /***************************************************************************************/
 /**-------------------------- PÁGINA NOSOTROS  ---------------------------------------**/

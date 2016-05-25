@@ -262,5 +262,71 @@
 	</div> <!-- /.container -->
 </section> <!-- /.pageInicio__blog -->
 
+<!-- Sección Miscelanea -->
+<section class="pageInicio__miscelaneo">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-8">
+				<!-- Sección Suscribirse -->
+				<section class="pageInicio__miscelaneo__content">
+					<!-- Título --> <h2 class="pageCommon__title text-xs-center text-uppercase"><?php _e('suscribete',LANG ); ?></h2>
+
+					<!-- Formulario -->
+					<form action="" class="pageInicio__miscelaneo__form">
+						
+						<p class="description"><?php _e('Para obtener promociones e información interesante para tu negocio.', LANG ) ?> </p> 
+
+						<!-- Nombre  -->
+						<label for=""> <?php _e('Nombre:' , LANG ); ?></label>
+						<input type="text" name="input_name" />
+
+						<!-- Email  -->
+						<label for=""> <?php _e('Email:' , LANG ); ?></label>
+						<input type="email" name="input_email" />
+
+						<!-- Boton Suscribirse -->
+						<div class="text-xs-center">
+							<a href="#" class="btn__show-more btn__show-more--orange"><?php _e('Suscríbete', LANG ); ?></a>
+						</div> <!-- /.text-xs-center -->
+
+					</form> <!-- /.pageInicio__miscelaneo__form -->
+				</section> <!-- /.pageInicio__miscelaneo__content -->
+			</div> <!-- /col-xs-9 -->
+			<div class="col-xs-4">
+				<!-- Sección Facebook -->
+				<section class="pageInicio__miscelaneo__content">
+					<!-- Título --> <h2 class="pageCommon__title text-xs-center text-uppercase"><?php _e('facebook',LANG ); ?></h2>
+
+					<!-- Facebook -->
+					<?php $link_facebook = $options['red_social_fb']; 
+						if( !empty($link_facebook) ) :
+					?>
+						<section class="container__facebook">
+							<!-- Contebn -->
+							<div id="fb-root" class=""></div>
+
+							<!-- Script -->
+							<script>(function(d, s, id) {
+								var js, fjs = d.getElementsByTagName(s)[0];
+								if (d.getElementById(id)) return;
+								js = d.createElement(s); js.id = id;
+								js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.5";
+								fjs.parentNode.insertBefore(js, fjs);
+							}(document, 'script', 'facebook-jssdk'));</script>
+
+							<div class="fb-page" data-href="<?= $link_facebook ?>" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-height="380" data-hide-cover="false" data-show-facepile="true">
+							</div> <!-- /. fb-page-->
+						</section> <!-- /.container__facebook -->
+					<?php else: ?>
+						<p class="text-xs-center">Opcion no habilitada temporalmente</p>
+					<?php endif; ?>
+
+
+				</section> <!-- /.pageInicio__miscelaneo__content -->
+			</div>  <!-- /col-xs-4 -->
+		</div> <!-- /.row -->
+	</div> <!-- /.container -->
+</section> <!-- /container -->
+
 <!-- Footer -->
 <?php get_footer(); ?>
