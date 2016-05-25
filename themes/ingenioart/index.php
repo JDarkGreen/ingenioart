@@ -144,11 +144,11 @@
 			</div> <!-- /.pageInicio_clientes__gallery -->
 
 			<!-- Flechas de Carousel  -->
-			<a href="#" id="arrow__cliente--prev" class="arrow__cliente arrow__cliente--prev">
+			<a href="#" id="arrow__cliente--prev" class="arrow__common-slider arrow__common-slider--prev">
 				<i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
 			</a>
 
-			<a href="#" id="arrow__cliente--next" class="arrow__cliente arrow__cliente--next">
+			<a href="#" id="arrow__cliente--next" class="arrow__common-slider arrow__common-slider--next">
 				<i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
 			</a>
 
@@ -165,11 +165,102 @@
 	</div> <!-- /.container -->
 
 	<!-- Obtener todos las imágenes destacadas del Portafolio -->
-	<section class="pageInicio__portafolio__content">
-		
+	<section class="pageInicio__portafolio__content container-flex">
+		<?php 
+			$args = array(
+				'order'          => 'DESC',
+				'orderby'        => 'date',
+				'post_status'    => 'publish',
+				'post_type'      => 'proyecto',
+				'posts_per_page' => -1,
+			);
+			$proyectos = get_posts( $args );
+			if( !empty($proyectos) ) :
+			foreach( $proyectos as $proyecto ) :
+		?>  <!-- Article -->
+		<article class="item-proyecto relative">
+			<!-- Imagen -->
+			<figure>
+				<?= get_the_post_thumbnail($proyecto->ID,'full',array('class'=>'img-fluid')); ?>
+			</figure> <!-- /figure -->
+			<!-- Links del Artículo -->
+			<section class="item-proyecto__links container-flex align-content text-xs-center">
+				<!-- Link de vista --> 
+				<a href="#" class="btn__link"><i class="fa fa-search" aria-hidden="true"></i></a>
+				<!-- Link al proyecto -->
+				<a href="#" class="btn__link"><i class="fa fa-external-link" aria-hidden="true"></i></a>
+				<!-- Titulo del artículo -->
+				<h3 class="text-uppercase"><?php _e( $proyecto->post_title , LANG ); ?></h3>
+			</section> <!-- /.item-proyecto__links -->
+		</article> <!-- /.item-proyecto -->
+		<?php endforeach; else: echo "Actualizando Contenido"; endif; ?>
 	</section> <!-- /.pageInicio__portafolio__content -->
 
 </section> <!-- /.pageInicio__portafolio -->
+
+<!-- Banner A Portafolio -->
+<section class="pageInicio__portafolio__banner container-flex align-content">
+	<!-- Titulo --> <h2 class=""> <strong class="text-uppercase"> <?php _e( 'deseas ver más' , LANG ); ?> </strong>
+	<?php _e( 'de nuestros trabajos realizados' , LANG ); ?> </h2>
+	<!-- Link -->
+	<a href="#" class="btn__show-more btn__show-more--orange"><?php _e('Click aquí' , LANG ); ?></a>
+</section> <!-- /.pageInicio__portafolio__banner -->
+
+<!-- Sección Blog Carousel -->
+<section class="pageInicio__blog">
+	<div class="container">
+		<!-- Titulo --> <h2 class="pageCommon__title text-xs-center text-uppercase"> <?php _e( 'blog' , LANG ); ?></h2>
+
+		<!-- Contenedor Relativo -->
+		<div class="relative">
+			<!-- Contenedor de Carousel -->
+			<section id="carousel-blog" class="pageInicio__blog__carousel">
+				<?php  
+					$args = array(
+						'order'          => 'DESC',
+						'orderby'        => 'date',
+						'post_status'    => 'publish',
+						'post_type'      => 'post',
+						'posts_per_page' => -1,
+					);
+					$articulos = get_posts( $args );
+					foreach( $articulos as $articulo ) :
+				?> <!-- Articulos -->
+				<article class="item-blog">
+					<!-- Imagen Preview --> <figure class="relative"> <?= get_the_post_thumbnail( $articulo->ID ,'full', array('class'=>'img-fluid') ) ?> <!-- Flecha -->
+						<figcaption class="container-flex align-content text-xs-center text-uppercase"><?= mysql2date('j M', $articulo->post_date); ?></figcaption> 
+						</figure> <!-- /figure -->
+
+						<!-- Titulo -->
+						<h2 class="text-uppercase"><?php _e( $articulo->post_title , LANG ); ?></h2>
+						<!-- Extracto -->
+						<div class="item-blog__excerpt"> 
+							<?= apply_filters('the_content' , wp_trim_words( $articulo->post_content , 30 , '' ) ); ?> 
+						</div> <!-- /.item-blog__excerpt -->
+
+						<!-- Boton al articulo [derecha] -->
+						<a href="<?= $articulo->guid; ?>" class="pull-xs-right btn__show-more btn__show-more--orange"><?php _e( 'Ver más', LANG ); ?></a>
+
+						<!-- Limpiar floats --> <div class="clearfix"></div>
+
+				</article> <!-- /.item-blog -->
+				<?php endforeach; ?>
+			</section> <!-- /.pageInicio__blog__carousel -->
+
+			<!-- Flechas de Carousel -->
+			<a href="#" id="arrow__blog--prev" class="arrow__common-slider arrow__common-slider--prev">
+				<i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+			</a>
+
+			<a href="#" id="arrow__blog--next" class="arrow__common-slider arrow__common-slider--next">
+				<i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+			</a>
+
+		</div> <!-- /.relative -->
+
+
+	</div> <!-- /.container -->
+</section> <!-- /.pageInicio__blog -->
 
 <!-- Footer -->
 <?php get_footer(); ?>

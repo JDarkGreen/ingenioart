@@ -44,6 +44,12 @@ var j = jQuery.noConflict();
 		}); 
 
 		/*|----------------------------------------------------------------------|*/
+		/*|-----  EVENTOS FLECHAS CAROUSEL COMUNES  -----|*/
+		/*|----------------------------------------------------------------------|*/		
+		j(".arrow__common-slider").on('click',function(e){ e.preventDefault(); });
+
+
+		/*|----------------------------------------------------------------------|*/
 		/*|-----  CAROUSEL TESTIMONIOS HOME  -----|*/
 		/*|----------------------------------------------------------------------|*/
 		var carousel_home_testimonio = j('#pageInicio__testimonio__gallery');
@@ -89,13 +95,45 @@ var j = jQuery.noConflict();
 		});
 
 		/* Eventos de flechas */
-		j(".arrow__cliente").on('click',function(e){ e.preventDefault(); });
-
 		j("#arrow__cliente--prev").on('click',function(e){
 			carousel_clientes.trigger('prev.owl.carousel', [700]);
 		});
 		j("#arrow__cliente--next").on('click',function(e){
 			carousel_clientes.trigger('next.owl.carousel', [700]);
+		});
+
+		/*|----------------------------------------------------------------------|*/
+		/*|-----  CAROUSEL ARTICULOS - PORTADA  -----|*/
+		/*|----------------------------------------------------------------------|*/
+		var carousel_blog = j('#carousel-blog');
+		carousel_blog.owlCarousel({
+			items          : 3,
+			lazyLoad       : false,
+			loop           : true,
+			margin         : 19,
+			nav            : false,
+			autoplay       : true,
+			responsiveClass: true,
+			mouseDrag      : false,
+			autoplayTimeout: 2500,
+			fluidSpeed     : 2000,
+			smartSpeed     : 2000,
+			responsive:{
+		        320:{
+		            items: 1
+		        },
+		      	640:{
+		            items: 3
+		        },
+	    	}			
+		});
+
+		/* Eventos de flechas */
+		j("#arrow__blog--prev").on('click',function(e){
+			carousel_blog.trigger('prev.owl.carousel', [700]);
+		});
+		j("#arrow__blog--next").on('click',function(e){
+			carousel_blog.trigger('next.owl.carousel', [700]);
 		});
 
 		/*|----------------------------------------------------------------------|*/
