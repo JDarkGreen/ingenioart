@@ -23,7 +23,9 @@ $ingenioart_blue       : #0075BA
 
 $ingenioart_gray       : #EDEEF0
 $ingenioart_gray_oscuro: #D1D1D1
+
 $ingenioart_cyan       : #00F1F6
+$ingenioart_turquesa   : #A9EBF0
 
 
 /***************************************************************************************/
@@ -561,6 +563,31 @@ body,html
 		padding  : 4px 15px 
 		width    : 100% 
 
+//Seccion de Contacto
+.pageInicio__contact
+	background: url("../images/pages/inicio/inicio_fondo_inferior_formulario.jpg") no-repeat
+	padding   : 40px 0
+//Imagen Contacto
+.pageInicio__contact__image
+	margin   : 0 auto 
+	max-width: 353px 
+//Formulario de Contacto
+.pageInicio__contact__form
+	//descripcion
+	p.description
+		color      : black 
+		font-family: "BloggerSans"
+		font-size  : 22px 
+	//input y textarea
+	input,textarea
+		border : 1px solid $ingenioart_gray_oscuro
+		margin : 0 auto 11px 
+		outline: 0
+		padding: 7px 15px 
+		width  : 100%
+	textarea 
+		height    : 167px
+		min-height: 167px
 
 /***************************************************************************************/
 /**-------------------------- PÁGINA NOSOTROS  ---------------------------------------**/
@@ -597,7 +624,59 @@ body,html
 
 .mainFooter
 
+//Seccion Contenido
+.mainFooter__content
+	background     : url("../images/footer/inicio_fondo_inferior_footer.jpg") no-repeat
+	background-size: 100% 100%
+	min-height     : 490px
+	padding        : 80px 0 0 0
+//Lista de redes sociales en el footer -ul
+.mainFooter__social-links
+	list-style-type: none 
+	li 
+		display: inline-block
+		padding: 0 5px 
 
+//Informacion de Empresa
+.mainFooter__information
+	color      : white 
+	font-family: "BloggerSans"
+	font-size  : 18px 
+	//Titulo
+	h3 
+		display    : block 
+		font-size  : 20px 
+		font-weight: 700
+		margin     : 0 auto 
+	//Parrafos
+	p 
+		line-height: 1.3em 
+		margin     : 0 auto
+	//texto destacado
+	.text-featured
+		font-size: 21px
+	//texto web
+	.text-featured--web
+		color      : white 
+		display    : inline-block 
+		font-size  : 24px 
+		font-weight: 600 
+		margin     : 32px auto 0
+		+transition( all 500ms ease )
+		&:hover 
+			color          : white 
+			text-decoration: none
+			+scale( 1.1 )
+
+//Sección Desarrollo
+.mainFooter__develop
+	background : $ingenioart_turquesa
+	color      : $ingenioart_blue
+	font-family: "BloggerSans"
+	padding    : 11px 0
+	a 
+		color          : $ingenioart_blue
+		text-decoration: none 
 
 
 /************************************************************************************/

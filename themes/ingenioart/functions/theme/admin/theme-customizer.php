@@ -225,6 +225,7 @@ function ingenioart_customize_register($wp_customize) {
 		'priority' => 39
 	));
 	
+	//Telefono 1 Surco Principal
 	$wp_customize->add_setting('ingenioart_custom_settings[contact_tel]', array(
 		'default' => '',
 		'type' => 'option'
@@ -235,6 +236,19 @@ function ingenioart_customize_register($wp_customize) {
 		'section'  => 'ingenioart_contact_tel',
 		'settings' => 'ingenioart_custom_settings[contact_tel]',
 		'type'     => 'text'
+	));	
+
+	//Telefono 2 Centrolima secundario
+	$wp_customize->add_setting('ingenioart_custom_settings[contact_tel_2]', array(
+		'default' => '',
+		'type' => 'option'
+	));
+	
+	$wp_customize->add_control('ingenioart_custom_settings[contact_tel_2]', array(
+		'label'    => __('Escribe el numero de teléfono - Centro Lima', LANG),
+		'section'  => 'ingenioart_contact_tel',
+		'settings' => 'ingenioart_custom_settings[contact_tel_2]',
+		'type'     => 'text'
 	));
 
 	//Customizar Direccion
@@ -244,15 +258,29 @@ function ingenioart_customize_register($wp_customize) {
 		'priority' => 40
 	));
 	
-	$wp_customize->add_setting('ingenioart_custom_settings[contact_address]', array(
+	/* Surco */
+	$wp_customize->add_setting('ingenioart_custom_settings[contact_address_surco]', array(
 		'default' => '',
 		'type' => 'option'
 	));
 	
-	$wp_customize->add_control('ingenioart_custom_settings[contact_address]', array(
-		'label'    => __('Escribe la Direccion del contacto ', LANG),
+	$wp_customize->add_control('ingenioart_custom_settings[contact_address_surco]', array(
+		'label'    => __('Escribe la Direccion del contacto Surco', LANG),
 		'section'  => 'ingenioart_contact_address',
-		'settings' => 'ingenioart_custom_settings[contact_address]',
+		'settings' => 'ingenioart_custom_settings[contact_address_surco]',
+		'type'     => 'textarea'
+	));	
+
+	/* Centrolima */
+	$wp_customize->add_setting('ingenioart_custom_settings[contact_address_centrolima]', array(
+		'default' => '',
+		'type' => 'option'
+	));
+	
+	$wp_customize->add_control('ingenioart_custom_settings[contact_address_centrolima]', array(
+		'label'    => __('Escribe la Direccion del contacto Centrolima', LANG),
+		'section'  => 'ingenioart_contact_address',
+		'settings' => 'ingenioart_custom_settings[contact_address_centrolima]',
 		'type'     => 'textarea'
 	));
 

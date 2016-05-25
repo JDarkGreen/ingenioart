@@ -321,12 +321,62 @@
 						<p class="text-xs-center">Opcion no habilitada temporalmente</p>
 					<?php endif; ?>
 
-
 				</section> <!-- /.pageInicio__miscelaneo__content -->
 			</div>  <!-- /col-xs-4 -->
 		</div> <!-- /.row -->
 	</div> <!-- /.container -->
 </section> <!-- /container -->
+
+<!-- Sección Formulario de Contacto -->
+<section class="pageInicio__contact">
+	<div class="container">
+		<div class="col-xs-6">
+			<!-- Imagen -->
+			<figure class="pageInicio__contact__image">
+				<img src="<?= IMAGES ?>/pages/inicio/inicio_vector_formulario.png" alt="inicio-formulario-contacto-ingenioart" class="img-fluid" />
+			</figure> <!-- /.pageInicio__contact__image -->
+		</div> <!-- /col-xs-6 -->
+		<div class="col-xs-6">
+			<section class="pageInicio__contact__content">
+				<!-- Titulo --> <h2 class="pageCommon__title text-xs-center text-uppercase"><?php _e('formulario',LANG ); ?></h2>
+				<!-- Formulario -->
+				<form action="" class="pageInicio__contact__form">
+					<p class="description"><?php _e('Para mayor información comuníquese con nosotros', LANG ); ?></p>
+
+					<div class="row">
+
+						<!-- Nombre --> 
+						<div class="col-xs-12">
+							<input type="text" name="input_nombre" placeholder="<?php _e('Nombre',LANG); ?>" />
+						</div> <!-- /col-xs-12 -->						
+
+						<!-- Correo --> 
+						<div class="col-xs-6">
+							<input type="email" name="input_email" placeholder="<?php _e('Correo',LANG); ?>" />
+						</div> <!-- /col-xs-12 -->						
+
+						<!-- Telefono --> 
+						<div class="col-xs-6">
+							<input type="text" name="input_phone" placeholder="<?php _e('Teléfono',LANG); ?>" />
+						</div> <!-- /col-xs-12 -->						
+
+						<!-- Mensaje --> 
+						<div class="col-xs-12">
+							<textarea name="input_message" id="" placeholder="<?php _e('Mensaje',LANG); ?>" ></textarea>
+						</div> <!-- /col-xs-12 -->
+
+					</div> <!-- /.row -->
+					
+					<!-- Boton Enviar -->
+					<div class="text-xs-center">
+						<a href="#" class="btn__show-more btn__show-more--orange"><?php _e('Enviar',LANG); ?></a>
+					</div> <!-- /.text-xs-center -->
+
+				</form> <!-- /.pageInicio__contact__form -->
+			</section>	
+		</div>  <!-- /col-xs-6 -->
+	</div> <!-- /.container -->
+</section> <!-- /.pageInicio__contact -->
 
 <!-- Footer -->
 <?php get_footer(); ?>
