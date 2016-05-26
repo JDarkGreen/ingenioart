@@ -136,6 +136,38 @@ var j = jQuery.noConflict();
 			carousel_blog.trigger('next.owl.carousel', [700]);
 		});
 
+
+		/*|----------------------------------------------------------------------|*/
+		/*|-----  ISOTOPE DE PROYECTOS   -----|*/
+		/*|----------------------------------------------------------------------|*/
+
+		var container_proyectos = j("#portafolio-proyectos");
+		if( container_proyectos.length ){
+			//Isotope
+			container_proyectos.isotope({
+				// options
+				itemSelector: '.item-proyecto',
+				layoutMode  : 'fitRows',
+			});
+
+			//Filtros
+			j('.filter-button-group').on( 'click', 'button', function() {
+			 	var filterValue = j(this).attr('data-filter');
+				container_proyectos.isotope({ filter: filterValue });
+				//activar elemento actual
+				j('.filter-button-group button').removeClass('active');
+				j(this).addClass('active');
+
+				//Si no encuentra contenido
+				if ( !container_proyectos.data('isotope').filteredItems.length ) {
+				    j('#message-proyecto').fadeIn('slow');
+				} else { j('#message-proyecto').fadeOut('fast'); }
+				
+			});
+		}
+
+
+
 		/*|----------------------------------------------------------------------|*/
 		/*|-----  CAROUSEL DE GALERÍAS   -----|*/
 		/*|----------------------------------------------------------------------|*/		

@@ -1,40 +1,43 @@
 <?php /* Archivo que contiene el partial de carousel clientes */ ?>
 
-<!-- Sección de Clientes -->
-<div class="container">
-	<section class="pageWrapper__clientes">
+<!-- Seccion Clientes  -->
+<section class="pageInicio_clientes">
+	<div class="container">
+		<!-- Titulo --> <h2 class="pageCommon__title text-xs-center text-uppercase"> <?php _e( 'nuestros clientes' , LANG ) ?></h2>
+		<!-- Subtitle --> <h3 class="pageCommon__subtitle text-xs-center"> Les ofrecemos el mejor servicio en todas las áreas de <strong>DISEÑO</strong> y <strong>PROGRAMACIÓN DIGITAL</strong> </h3>		
+
+		<!-- Contenedor relativo -->
 		<div class="relative">
-			<!-- Contenedor -->
-			<div id="carousel-clientes" class="pageWrapper__clientes__content">
-				<?php //extraer todos los clientes 
+
+			<!-- Wrapper de clientes -->
+			<div id="carousel-clientes" class="pageInicio_clientes__gallery">
+				<?php /*Extraer los clientes*/ 
 					$args = array(
 						'order'          => 'ASC',
 						'orderby'        => 'menu_order',
 						'post_status'    => 'publish',
 						'post_type'      => 'cliente',
-						'posts_per_type' => -1,
+						'posts_per_page' => -1,
 					);
-					$query = new WP_Query( $args );
-					if( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post();
-				?>
-					<article class="item">
-						<?php if( has_post_thumbnail() ) : ?>
-						<?php the_post_thumbnail('full', array('class'=>'img-responsive') ); ?>
-						<?php else: ?> <p>Image no disponible</p>
-						<?php endif; ?>
-					</article> <!-- /.item -->
-				<?php endwhile; endif; wp_reset_postdata(); ?>
-			</div> <!-- /.pageWrapper__clientes__content -->
+					$clientes = get_posts( $args );
+					foreach( $clientes as $cliente ) :
+				?> <!-- Imagen -->
+					<figure>
+						<?= get_the_post_thumbnail( $cliente->ID,'full',array('class'=>'img-fluid') ); ?>
+					</figure> <!-- /figure -->
+				<?php endforeach; ?> 
+			</div> <!-- /.pageInicio_clientes__gallery -->
 
-			<!-- Flechas -->
-			<div id="arrow__cliente--prev" class="arrow__cliente arrow__cliente--prev">
-				<i class="fa fa-chevron-left" aria-hidden="true"></i>
-			</div> <!-- /.arrow__cliente -->
+			<!-- Flechas de Carousel  -->
+			<a href="#" id="arrow__cliente--prev" class="arrow__common-slider arrow__common-slider--prev">
+				<i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+			</a>
 
-			<div id="arrow__cliente--next" class="arrow__cliente arrow__cliente--next">
-				<i class="fa fa-chevron-right" aria-hidden="true"></i>
-			</div> <!-- /.arrow__cliente -->
+			<a href="#" id="arrow__cliente--next" class="arrow__common-slider arrow__common-slider--next">
+				<i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+			</a>
 
 		</div> <!-- /.relative -->
-	</section> <!-- /.pageWrapper__clientes -->
-</div> <!-- /.container -->
+
+	</div> <!-- /.container -->
+</section> <!-- /.pageInicio_clientes -->

@@ -189,8 +189,9 @@ body,html
 	margin     : 0 auto 10px
 //Subtitulos Secciones
 .pageCommon__subtitle
-	font-size: 20px
-	margin   : 0 auto 
+	font-family: "BloggerSans"
+	font-size  : 20px
+	margin     : 0 auto 
 
 //* Banner Común de Servicios
 .pageCommon__banner-services
@@ -701,15 +702,96 @@ body,html
 			img 
 				+opacity( 0.8 )
 
-
 /***************************************************************************************/
 /**-------------------------- PÁGINA SERVICIOS ---------------------------------------**/
 /***************************************************************************************/
 
+//Artículos de Servicios
+.pageServicios__item
+	border-bottom: 3px solid $ingenioart_gray_oscuro
+	padding      : 75px 0 65px 
+
+	//Imagen destacada
+	.pageServicios__item__image
+		display  : inline-block
+		float    : right
+		margin   : 0 0 0 42px 
+		max-width: 662px
+		overflow : hidden
+		width    : 60%
+		//Variacion
+		&.image-left 
+			float : left
+			margin: 0 42px 0 0
+		//Imagen
+		img 
+			+transform( scale(1.0) translateZ(0) )
+			+transition( all 900ms ease-in )
+			backface-visibility: hidden
+		//Hover de Imagen
+		&:hover 
+			img 
+				+scale( 1.2 )
+
+	//Detalles de Artículo
+	.pageServicios__item__details
+		display    : inline-block
+		font-family: "BloggerSans"
+		width      : 36%
+		//Parrafo
+		p 
+			color      : black
+			font-size  : 1em 
+			line-height: 1.3em 
+
+	//Variacion Primer Elemento
+	&.first-item
+		padding: 0 0 75px
+		//Imagen Destacada
+		.pageServicios__item__image
+			display  : block
+			float    : inherit
+			margin   : 0 auto 37px 
+			max-width: 525px 
+			width    : 100%
+		//Sobreescribir detalles 
+		.pageServicios__item__details
+			display: block 
+			width  : 100%
+		//Sobrescribir titulo
+		.pageCommon__title
+			text-align: center
+		//Sobreescribir boton ver mas 
+		.btn__show-more
+			display  : block
+			margin   : 0 auto 
+			max-width: 95px
 
 /***************************************************************************************/
-/**------------------------ --- PÁGINA CLIENTES  -------------------------------------**/
+/**------------------------ --- PÁGINA PORTAFOLIO ------------------------------------**/
 /***************************************************************************************/
+
+//Sección Contenedora 
+.pagePortafolio__content
+	//Sección Botones y Filtros
+	.filter-button-group
+		margin: 70px auto 40px
+		//Botones
+		button 	
+			+border-radius( 5px ) 
+			+transition( color 600ms ease , box-shadow 500ms ease-in-out )
+			+box-shadow( inset 0 0 0 0 white )
+			background    : transparent
+			border        : 0
+			color         : gray
+			outline       : 0
+			padding       : 10px 30px
+			text-transform: uppercase
+			//Elemento activo y hover 
+			&:hover , &.active
+				+box-shadow( inset 400px 0 0 0 $ingenioart_blue )
+				color     : white
+
 
 
 
@@ -784,7 +866,6 @@ body,html
 	a 
 		color          : $ingenioart_blue
 		text-decoration: none 
-
 
 /************************************************************************************/
 /*-- MEDIA QUERIES ---------------------------------------------------------*/

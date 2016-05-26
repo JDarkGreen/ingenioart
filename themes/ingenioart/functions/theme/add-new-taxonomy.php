@@ -57,6 +57,31 @@ function create_category_taxonomy() {
     'rewrite'          => array( 'slug' => 'cliente-category' ),
   ));
 
+  /* categorias portafolio */
+  $labels3 = array(
+    'name'             => __( 'Categoría Portafolio'),
+    'singular_name'    => __( 'Categoría Portafolio'),
+    'search_items'     => __( 'Buscar Categoría Portafolio'),
+    'all_items'        => __( 'Todas Categorías del Portafolio' ),
+    'parent_item'      => __( 'Categoría padre del Portafolio' ),
+    'parent_item_colon'=> __( 'Categoría padre:' ),
+    'edit_item'        => __( 'Editar categoría de Portafolio' ), 
+    'update_item'      => __( 'Actualizar categoría de Portafolio' ),
+    'add_new_item'     => __( 'Agregar nueva categoría de Portafolio' ),
+    'new_item_name'    => __( 'Nuevo nombre categoría de Portafolio' ),
+    'menu_name'        => __( 'Categoria Portafolio' ),
+  ); 
+
+  // Now register the taxonomy
+  register_taxonomy('portafolio_category',array('proyecto'), array(
+    'hierarchical'     => true,
+    'labels'           => $labels3,
+    'show_ui'          => true,
+    'show_admin_column'=> true,
+    'query_var'        => true,
+    'rewrite'          => array( 'slug' => 'portafolio-category' ),
+  ));
+
 }
 
 
