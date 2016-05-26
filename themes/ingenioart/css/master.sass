@@ -127,6 +127,17 @@ body,html
 .arrow__common-slider--next
 	right: -40px
 
+/************  TEXTOS *************/
+
+//Texto Destacado color azul
+.text-featured--blue 
+	color      : $ingenioart_blue
+	font-family: "BloggerSans"
+	font-size  : 24px 
+	//span 
+	span 
+		font-weight: 600
+
 
 //Mapa
 #canvas-map
@@ -138,9 +149,20 @@ body,html
 /**-------------------------- PAGINAS EN COMUN  -------------------------------------**/
 /***************************************************************************************/
 
+//Contenedor banner de Páginas
+.pageCommon__banner
+	margin: 20px auto 0
 //Título Banners
 .pageCommon__banner__title
-
+	bottom         : 0
+	color          : white
+	font-family    : "Bebas"
+	font-size      : 3.125em /*50px*/
+	justify-content: center
+	left           : 0
+	position       : absolute
+	right          : 0
+	top            : 0
 //Galerías EN Común
 .js-carousel-gallery
 	.owl-controls
@@ -278,7 +300,9 @@ body,html
 /**--------------------------  WRAPPER GENERAL ---------------------------------------**/
 /***************************************************************************************/
 
-
+//Wrapper General
+.pageWrapper
+	margin: 50px auto 0
 
 
 /***************************************************************************************/
@@ -589,10 +613,93 @@ body,html
 		height    : 167px
 		min-height: 167px
 
+
 /***************************************************************************************/
 /**-------------------------- PÁGINA NOSOTROS  ---------------------------------------**/
 /***************************************************************************************/
 
+//Sección Descripción
+.pageNosotros__description
+	color      : black 
+	font-family: "BloggerSans"
+	font-size  : 20px
+	line-height: 1.3em 
+	margin     : 50px auto
+
+//Sección Aptitudes
+.pageNosotros__aptitudes
+	background : $ingenioart_gray
+	font-family: "BloggerSans"
+	padding    : 47px 0
+	//Articulo
+	.item-aptitud
+		margin: 0 auto 70px
+	//Imagen Articulo
+	.item-aptitud__image
+		background: $ingenioart_blue
+		height    : 174px
+		margin    : 0 auto 33px
+		max-width : 274px
+		width     : 100%
+		+border-radius( 5px )
+		//after
+		&:after
+			background: url("../images/icon/droparrow-blue-icon.png") no-repeat
+			bottom    : -16px
+			content   : ""
+			height    : 19px
+			left      : 0
+			margin    : 0 auto
+			position  : absolute
+			right     : 0
+			width     : 51px
+
+	//Titulo Articulo
+	.item-aptitud__title 
+		color      : black 
+		font-size  : 22px 
+		font-weight: 700
+	//Párrafos
+	p 
+		color      : black  
+		font-size  : 17px 
+		font-weight: 600 
+
+//Sección Frases
+.pageNosotros__frase
+	//Author
+	.text-author
+		color    : $ingenioart_blue
+		font-size: 19px 
+
+//Sección Equipo
+.pageNosotros__team
+	font-family: "BloggerSans"
+	padding    : 55px 0 70px 
+//Contenedor team
+.pageNosotros__team__content
+	margin: 30px auto 0
+	//artículo
+	.item-team
+		overflow: hidden
+		width   : 25%
+		//Imagen
+		img 
+			+transform( scale(1.0) translateZ(0) )
+			+transition( all 500ms ease-in )
+			backface-visibility: hidden
+		//Nombre
+		h2
+			font-size: 20px 
+			margin   : 5px auto 0
+		//Cargo
+		p 
+			color : black 
+			margin: 0 auto
+		//Hover article 
+		&:hover 
+			img 
+				+opacity( 0.8 )
 
 
 /***************************************************************************************/

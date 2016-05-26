@@ -72,15 +72,15 @@ function ingenioart_customize_register($wp_customize) {
 		'settings' => 'ingenioart_custom_settings[text_vision]',
 		'type'     => 'textarea'
 	));	
-	/* PILARES ESTRATÉGICOS */
-	$wp_customize->add_setting('ingenioart_custom_settings[text_pilares]', array(
+	/* VALORES */
+	$wp_customize->add_setting('ingenioart_custom_settings[text_valores]', array(
 		'default' => '',
 		'type' => 'option'
 	));
-	$wp_customize->add_control('ingenioart_custom_settings[text_pilares]', array(
-		'label'    => __('Escribe el texto PILARES ESTRATÉGICOS', LANG),
+	$wp_customize->add_control('ingenioart_custom_settings[text_valores]', array(
+		'label'    => __('Escribe el texto VALORES', LANG),
 		'section'  => 'ingenioart_mision_vision',
-		'settings' => 'ingenioart_custom_settings[text_pilares]',
+		'settings' => 'ingenioart_custom_settings[text_valores]',
 		'type'     => 'textarea'
 	));
 

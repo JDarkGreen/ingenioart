@@ -11,21 +11,19 @@
 			?>
 				<img src="<?= $img_banner ?>" alt="banner-nosotros-empresa-pbg" class="img-responsive" />
 			<?php else: ?>
-				<img src="http://placekitten.com/1920/316" alt="banner-nosotros-empresa-pbg" class="img-responsive" />
+				<img src="http://placekitten.com/1920/236" alt="banner-nosotros-empresa-pbg" class="img-responsive" />
 			<?php endif; ?>
 		</figure>
 
 		<!-- Título de la pagina posicion absoluta -->
-		<h2 class="pageCommon__banner__title text-uppercase">
-			<strong> 
-				<?php
-					if( isset($banner_title) && !empty($banner_title) ){
-					 _e(  $banner_title , LANG ); 
-					}else{
-					 _e(  $banner->post_title , LANG ); 
-					}
-				?>
-			</strong>
+		<h2 class="pageCommon__banner__title text-uppercase container-flex align-content"> 
+			<?php
+				if( isset($banner_title) && !empty($banner_title) ){
+				 _e(  $banner_title , LANG ); 
+				}else{
+				 _e(  $banner->post_title , LANG ); 
+				}
+			?>
 		</h2>
 
 	</section> <!-- /.pageCommon__banner -->

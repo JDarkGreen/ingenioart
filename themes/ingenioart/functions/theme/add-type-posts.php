@@ -82,12 +82,12 @@ function create_post_type(){
 		'name'               => __('Testimonios'),
 		'singular_name'      => __('Testimonio'),
 		'add_new'            => __('Nueva Testimonio'),
-		'add_new_item'       => __('Agregar nueva Testimonio'),
+		'add_new_item'       => __('Agregar nuevo Testimonio'),
 		'edit_item'          => __('Editar Testimonio'),
 		'view_item'          => __('Ver Testimonio'),
 		'search_items'       => __('Buscar Testimonio'),
-		'not_found'          => __('Testimonio no encontrada'),
-		'not_found_in_trash' => __('Testimonio no encontrad en la papelera'),
+		'not_found'          => __('Testimonio no encontrado'),
+		'not_found_in_trash' => __('Testimonio no encontrado en la papelera'),
 	);
 
 	$args4 = array(
@@ -122,6 +122,52 @@ function create_post_type(){
 		'taxonomies'  => array('post-tag','category'),
 		'menu_icon'   => 'dashicons-portfolio',
 	);
+	/*|>>>>>>>>>>>>>>>>>>>> FRASES  <<<<<<<<<<<<<<<<<<<<|*/
+	
+	$labels6 = array(
+		'name'               => __('Frases'),
+		'singular_name'      => __('Frase'),
+		'add_new'            => __('Nueva Frase'),
+		'add_new_item'       => __('Agregar nueva Frase'),
+		'edit_item'          => __('Editar Frase'),
+		'view_item'          => __('Ver Frase'),
+		'search_items'       => __('Buscar Frase'),
+		'not_found'          => __('Frase no encontrada'),
+		'not_found_in_trash' => __('Frase no encontrada en la papelera'),
+	);
+
+	$args6 = array(
+		'labels'      => $labels6,
+		'has_archive' => true,
+		'public'      => true,
+		'hierachical' => false,
+		'supports'    => array('title','editor','excerpt','custom-fields','thumbnail','page-attributes'),
+		'taxonomies'  => array('post-tag','category'),
+		'menu_icon'   => 'dashicons-portfolio',
+	);	
+	/*|>>>>>>>>>>>>>>>>>>>> TEAM  <<<<<<<<<<<<<<<<<<<<|*/
+	
+	$labels7 = array(
+		'name'               => __('Team'),
+		'singular_name'      => __('Miembro'),
+		'add_new'            => __('Nuevo Miembro'),
+		'add_new_item'       => __('Agregar nuevo Miembro'),
+		'edit_item'          => __('Editar Miembro'),
+		'view_item'          => __('Ver Miembro'),
+		'search_items'       => __('Buscar Miembro'),
+		'not_found'          => __('Miembro no encontrado'),
+		'not_found_in_trash' => __('Miembro no encontrado en la papelera'),
+	);
+
+	$args7 = array(
+		'labels'      => $labels7,
+		'has_archive' => true,
+		'public'      => true,
+		'hierachical' => false,
+		'supports'    => array('title','editor','excerpt','custom-fields','thumbnail','page-attributes'),
+		'taxonomies'  => array('post-tag','category'),
+		'menu_icon'   => 'dashicons-id',
+	);
 
 
 	/*|>>>>>>>>>>>>>>>>>>>> REGISTRAR  <<<<<<<<<<<<<<<<<<<<|*/
@@ -130,6 +176,8 @@ function create_post_type(){
 	register_post_type( 'cliente' , $args3 );
 	register_post_type( 'testimonio' , $args4 );
 	register_post_type( 'proyecto' , $args5 );
+	register_post_type( 'frase' , $args6 );
+	register_post_type( 'team' , $args7 );
 
 	
 	flush_rewrite_rules();
