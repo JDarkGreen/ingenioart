@@ -793,13 +793,43 @@ body,html
 				color     : white
 
 
-
-
 /***************************************************************************************/
-/**------------------------------- PÁGINA BLOG  -------------------------------------**/
+/**------------------------------- PÁGINA MEDIA  -------------------------------------**/
 /***************************************************************************************/
 
+//Contenedor Sección
+.pageMedia__multimedia
+	padding: 55px 0
+.pageMedia__multimedia--bg-gray
+	background: $ingenioart_gray
 
+//Contenedor Artículos
+.pageMedia__multimedia__content 
+	justify-content: space-between
+//Artículos
+.multimedia__item
+	color      : black 
+	font-family: "Bebas"
+	margin     : 0 auto 20px
+	width      : 32.5%
+
+	//Iframe - videos
+	iframe 
+		height: 245px
+		margin: 0 auto 15px
+		width : 100% 
+//Redes Sociales
+.multimedia__item__share
+	//a 
+	a 
+		color          : gray 
+		display        : inline-block
+		margin         : 0 12px 
+		text-decoration: none
+		+transition( all 500ms ease )
+		//Hover 
+		&:hover 
+			+rotateY( 360deg )
 
 /***************************************************************************************/
 /**------------------------------- PÁGINA CONTACTO -----------------------------------**/

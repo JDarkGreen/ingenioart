@@ -167,6 +167,54 @@ function create_post_type(){
 		'supports'    => array('title','editor','excerpt','custom-fields','thumbnail','page-attributes'),
 		'taxonomies'  => array('post-tag','category'),
 		'menu_icon'   => 'dashicons-id',
+	);	
+
+	/*|>>>>>>>>>>>>>>>>>>>> GALERÍA IMAGENES  <<<<<<<<<<<<<<<<<<<<|*/
+	
+	$labels8 = array(
+		'name'               => __('Gal. Imágenes'),
+		'singular_name'      => __('Imagen'),
+		'add_new'            => __('Nueva Imagen'),
+		'add_new_item'       => __('Agregar nueva Imagen'),
+		'edit_item'          => __('Editar Imagen'),
+		'view_item'          => __('Ver Imagen'),
+		'search_items'       => __('Buscar Imagen'),
+		'not_found'          => __('Imagen no encontrada'),
+		'not_found_in_trash' => __('Imagen no encontrada en la papelera'),
+	);
+
+	$args8 = array(
+		'labels'      => $labels8,
+		'has_archive' => true,
+		'public'      => true,
+		'hierachical' => false,
+		'supports'    => array('title','editor','excerpt','custom-fields','thumbnail','page-attributes'),
+		'taxonomies'  => array('post-tag','category'),
+		'menu_icon'   => 'dashicons-images-alt2',
+	);	
+
+	/*|>>>>>>>>>>>>>>>>>>>> GALERÍA VIDEOS  <<<<<<<<<<<<<<<<<<<<|*/
+	
+	$labels9 = array(
+		'name'               => __('Gal. Videos'),
+		'singular_name'      => __('Video'),
+		'add_new'            => __('Nuevo Video'),
+		'add_new_item'       => __('Agregar nuevo Video'),
+		'edit_item'          => __('Editar Video'),
+		'view_item'          => __('Ver Video'),
+		'search_items'       => __('Buscar Video'),
+		'not_found'          => __('Video no encontrado'),
+		'not_found_in_trash' => __('Video no encontrado en la papelera'),
+	);
+
+	$args9 = array(
+		'labels'      => $labels9,
+		'has_archive' => true,
+		'public'      => true,
+		'hierachical' => false,
+		'supports'    => array('title','editor','excerpt','custom-fields','thumbnail','page-attributes'),
+		'taxonomies'  => array('post-tag','category'),
+		'menu_icon'   => 'dashicons-video-alt',
 	);
 
 
@@ -178,6 +226,8 @@ function create_post_type(){
 	register_post_type( 'proyecto' , $args5 );
 	register_post_type( 'frase' , $args6 );
 	register_post_type( 'team' , $args7 );
+	register_post_type( 'galery-images' , $args8 );
+	register_post_type( 'galery-videos' , $args9 );
 
 	
 	flush_rewrite_rules();
