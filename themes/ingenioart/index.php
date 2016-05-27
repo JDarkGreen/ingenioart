@@ -165,14 +165,14 @@
 </section> <!-- /.pageInicio__portafolio__banner -->
 
 <!-- Sección Blog Carousel -->
-<section class="pageInicio__blog">
+<section class="pageCommon__preview-blog">
 	<div class="container">
 		<!-- Titulo --> <h2 class="pageCommon__title text-xs-center text-uppercase"> <?php _e( 'blog' , LANG ); ?></h2>
 
 		<!-- Contenedor Relativo -->
 		<div class="relative">
 			<!-- Contenedor de Carousel -->
-			<section id="carousel-blog" class="pageInicio__blog__carousel">
+			<section id="carousel-blog" class="pageCommon__preview-blog__carousel">
 				<?php  
 					$args = array(
 						'order'          => 'DESC',
@@ -203,7 +203,7 @@
 
 				</article> <!-- /.item-blog -->
 				<?php endforeach; ?>
-			</section> <!-- /.pageInicio__blog__carousel -->
+			</section> <!-- /.pageCommon__preview-blog__carousel -->
 
 			<!-- Flechas de Carousel -->
 			<a href="#" id="arrow__blog--prev" class="arrow__common-slider arrow__common-slider--prev">
@@ -216,9 +216,8 @@
 
 		</div> <!-- /.relative -->
 
-
 	</div> <!-- /.container -->
-</section> <!-- /.pageInicio__blog -->
+</section> <!-- /.pageCommon__preview-blog -->
 
 <!-- Sección Miscelanea -->
 <section class="pageInicio__miscelaneo">

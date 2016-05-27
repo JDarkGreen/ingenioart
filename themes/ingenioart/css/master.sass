@@ -23,6 +23,7 @@ $ingenioart_blue       : #0075BA
 
 $ingenioart_gray       : #EDEEF0
 $ingenioart_gray_oscuro: #D1D1D1
+$ingenioart_gray_claro : #F8F8F8
 
 $ingenioart_cyan       : #00F1F6
 $ingenioart_turquesa   : #A9EBF0
@@ -146,7 +147,7 @@ body,html
 
 
 /***************************************************************************************/
-/**-------------------------- PAGINAS EN COMUN  -------------------------------------**/
+/**-------------------- SECCIONES - PAGINAS EN COMUN  --------------------------------**/
 /***************************************************************************************/
 
 //Contenedor banner de Páginas
@@ -205,6 +206,39 @@ body,html
 		font-size  : 48px
 		font-weight: 600
 		margin     : 0 27px
+
+//Sección Blog Comun
+.pageCommon__preview-blog
+	padding: 35px 0 33px
+	//Articulos
+	.item-blog
+		padding    : 0 0 10px 
+		//Fecha 
+		figcaption 
+			background : $ingenioart_blue
+			color      : white 
+			font-family: "Bebas"
+			font-size  : 30px
+			height     : 90px
+			line-height: 1em
+			padding    : 0 4%
+			position   : absolute
+			top        : 0
+			width      : 90px
+		//Titulo
+		h2 
+			font-family: "Bebas"
+			color      : $ingenioart_blue
+	//Extracto de articulo
+	.item-blog__excerpt
+		font-family: "BloggerSans"
+		p 
+			color      : black 
+			line-height: 1.4em
+
+//Carousel Blog Container
+.pageCommon__preview-blog__carousel
+	padding: 0 30px
 
 
 /***************************************************************************************/
@@ -332,7 +366,7 @@ body,html
 //Imagen Extra
 .item-slider__extra-img
 	margin: 0 auto 
-	width : 72%
+	width : 100%
 	img 
 		height   : auto !important
 		max-width: 100% !important
@@ -526,39 +560,6 @@ body,html
 	h2 
 		font-size: 1.75em /*28px*/ 
 		margin   : 0 39px
-
-//Sección Blog
-.pageInicio__blog
-	padding: 35px 0 33px
-	//Articulos
-	.item-blog
-		padding    : 0 0 10px 
-		//Fecha 
-		figcaption 
-			background : $ingenioart_blue
-			color      : white 
-			font-family: "Bebas"
-			font-size  : 30px
-			height     : 90px
-			line-height: 1em
-			padding    : 0 4%
-			position   : absolute
-			top        : 0
-			width      : 90px
-		//Titulo
-		h2 
-			font-family: "Bebas"
-			color      : $ingenioart_blue
-	//Extracto de articulo
-	.item-blog__excerpt
-		font-family: "BloggerSans"
-		p 
-			color      : black 
-			line-height: 1.4em
-
-//Carousel Blog Container
-.pageInicio__blog__carousel
-	padding: 0 30px
 
 //Seccion Miscelaneo
 .pageInicio__miscelaneo
@@ -831,10 +832,109 @@ body,html
 		&:hover 
 			+rotateY( 360deg )
 
+
 /***************************************************************************************/
-/**------------------------------- PÁGINA CONTACTO -----------------------------------**/
+/**------------------------------- PÁGINA BLOG ---------------------------------------**/
 /***************************************************************************************/
 
+//Sección General
+.pageBlog
+	/* Sobreescribir Contenedor preview */
+	.pageCommon__preview-blog
+		padding: 0
+		/* Sobreescribir Artículos preview */
+		.item-blog
+			padding: 0 0 60px
+
+//Seccion Categorías
+.pageBlog__sidebar__categories
+	margin: 0 auto 60px
+	//Titulo
+	h2 
+		font-size: 16px
+		margin   : 0 auto 20px 
+	//Categorías
+	.item-category
+		background : $ingenioart_gray_claro
+		border     : 1px solid $ingenioart_gray_oscuro
+		border-left: 3px solid $ingenioart_blue
+		margin     : 0 auto 8px 
+		padding    : 8px 24px
+		a 
+			color          : gray  
+			font-size      : 14px 
+			line-height    : 1em 
+			text-decoration: none
+			+transition( all 300ms ease-in )
+			//Hover u active
+			&:hover , &.active
+				color: $ingenioart_blue
+
+//Sección Articulos Destacados
+.pageBlog__sidebar__features
+	//Tabs
+	.group-buttons-tabs
+		a 
+			background     : $ingenioart_gray
+			border         : 1px solid $ingenioart_gray_oscuro
+			color          : gray
+			display        : inline-block
+			font-size      : 14px 
+			font-weight    : 700
+			padding        : 3px 15px 
+			text-decoration: none
+			+transition( all 500ms ease )
+			/* active u hover*/
+			&.active , &:hover
+				background   : white 
+				border-bottom: 1px solid transparent
+				color        : black
+
+	//Contenedor General de seccion 
+	.articles-features
+		border       : 1px solid $ingenioart_gray_oscuro		
+		border-bottom: none
+		min-height   : 300px
+
+		/* Contenedor de cada Sección */
+		.articles-features__item
+			display: none
+			/* activo */
+			&.active 
+				display: block
+
+		/* Articulos */
+		.item-article 
+			align-items  : center 
+			border-bottom: 1px solid $ingenioart_gray_oscuro
+			display      : flex 
+			flex-wrap    : wrap
+			margin       : 0 14px 
+			padding      : 13px 0
+			//Imagen
+			figure 
+				margin   : 0 12px 0 0
+				max-width: 98px
+				overflow : hidden
+				img 
+					+transform( scale(1.0) translateZ(0) )
+					+transition( all 500ms ease-in-out )
+					-webkit-backface-visibility: hidden
+					backface-visibility        : hidden
+				//Hover
+				&:hover 
+					img 
+						+scale( 1.2 )
+
+			//Titulo 
+			h3
+				color    : $ingenioart_blue
+				font-size: 16px 
+				margin   : 0 auto
+			//Fecha
+			p 
+				font-size: 13px 
+				margin   : 0 auto 
 
 
 /***************************************************************************************/

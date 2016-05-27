@@ -36,7 +36,7 @@ var j = jQuery.noConflict();
         j.fn.css =  j.fn.cssOriginal;
 
 		j("#carousel-home").revolution({
-			delay         : 9000, 
+			delay         : 100000, 
 			fullWidth     : "on",
 			navigationType: 'none',
 			onHoverStop   : "off",
@@ -166,8 +166,6 @@ var j = jQuery.noConflict();
 			});
 		}
 
-
-
 		/*|----------------------------------------------------------------------|*/
 		/*|-----  CAROUSEL DE GALERÍAS   -----|*/
 		/*|----------------------------------------------------------------------|*/		
@@ -189,6 +187,26 @@ var j = jQuery.noConflict();
 				smartSpeed     : 2000,
 			});			
 		}
+
+		/*|----------------------------------------------------------------------|*/
+		/*|-----  TABS SECCION BLOG ARTICULOS   -----|*/
+		/*|----------------------------------------------------------------------|*/
+
+		j(".group-buttons-tabs a").on('click',function(e){
+			e.preventDefault();
+
+			/* Activar elemento activo */
+			j(".group-buttons-tabs a").removeClass('active');
+			j(this).addClass('active');
+
+			/* Mostrar contenedor respectivo */
+			var container = j(this).attr('href');
+			if( container.length ){
+				/* Ocultar los otros contenedores */
+				j(".articles-features__item").slideUp( 'fast' );
+				j(container).delay(300).fadeIn(900);
+			}
+		});
 
 		/*|----------------------------------------------------------------------|*/
 		/*|-----  GALERIAS FANCYBOX DE FLOTAS   -----|*/

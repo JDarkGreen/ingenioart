@@ -1,7 +1,9 @@
+<?php /* Categoría Plantilla */ ?>
+
 <!-- Global Post -->
 <?php 
-	$options  = get_option('constructec_custom_settings'); 
 	$category = get_queried_object(); #var_dump($category);
+	$options  = get_option('ingenioart_custom_settings'); 
 ?>
 
 <!-- Get Header -->
@@ -9,20 +11,21 @@
 
 <!-- Incluir banner de la página -->
 <?php  
-	$banner       = $category;
-	$banner_title = $category->name;
-	include( locate_template("partials/banner-common-pages.php") );
+	$banner       = $category; 
+	$banner_title = $category->name; 
+	include( locate_template("partials/banner-common-pages.php") ); 
 ?>
 
-<!-- Contenido Principal -->
-<section class="pageBlog">
+<!-- Contenedor Global -->
+<main class="pageWrapper pageBlog">
+	
 	<div class="container">
 		<div class="row">
-			<!-- Seccion de Blogs -->
-			<div class="col-xs-12 col-sm-8">
-				<section class="pageBlog__content">
-					<!-- Extraer los posts -->
-					<?php //el query
+			<!--  Sección Artículos - Previews  -->
+			<div class="col-xs-8">
+				<div class="row pageCommon__preview-blog">
+					<!-- Artículos -->
+					<?php  
 						$args = array(
 							'order'          => 'DESC',
 							'orderby'        => 'date',
@@ -31,81 +34,47 @@
 							'posts_per_page' => -1,
 							'category_name'  => $category->slug,
 						);
-						$query = new WP_Query( $args );
-
-						if( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post();
+						$articulos = get_posts( $args );
+						if( !empty($articulos) ) : foreach( $articulos as $articulo ) :
 					?>
-					<!-- Artículo flexible -->
-					<article class="pageBlog__content__article container-flex-center">
-						<!-- Imagen -->
-						<figure>
-						<?php if( has_post_thumbnail() ) : the_post_thumbnail('full',array('class'=>'img-fluid')); ?>
-						<?php else: ?>
-							<img src="<?= IMAGES ?>/no-disponible.jpg" alt="no-disponible" class="img-fluid" />
-						<?php endif; ?>	
-						</figure>
-						<!-- Extracto o contenido -->
-						<div class="pageBlog__content__article__text">
-							<h2 class="sectionCommon__subtitle text-uppercase">
-								<strong><?php _e( get_the_title() , LANG ); ?></strong>
-							</h2><!-- /.sectionCommon__subtitle --> <br/>
-							<!-- Contenido -->
-							<?= wp_trim_words( get_the_content() , 30 , '...' ) . "<br/>"; ?>
-							<!-- Botón ver más -->
-							<a href="<?php the_permalink() ?>" class="btn__show-more-post text-uppercase">
-								<?php _e('leer más' , LANG ); ?>
-							</a>
-						</div> <!-- /.pageBlog__content__article__text -->
-					</article> <!-- /.pageBlog__content__article -->
-					<?php endwhile; endif; wp_reset_postdata(); ?>
-				</section> <!-- /.pageBlog__content -->
+					<div class="col-xs-6">
+						<!-- Articulo -->
+						<article class="item-blog">
+							<!-- Imagen Preview --> <figure class="relative"> <?= get_the_post_thumbnail( $articulo->ID ,'full', array('class'=>'img-fluid') ) ?> <!-- Flecha -->
+								<figcaption class="container-flex align-content text-xs-center text-uppercase"><?= mysql2date('j M', $articulo->post_date); ?></figcaption> 
+								</figure> <!-- /figure -->
+
+								<!-- Titulo -->
+								<h2 class="text-uppercase"><?php _e( $articulo->post_title , LANG ); ?></h2>
+								<!-- Extracto -->
+								<div class="item-blog__excerpt"> 
+									<?= apply_filters('the_content' , wp_trim_words( $articulo->post_content , 30 , '' ) ); ?> 
+								</div> <!-- /.item-blog__excerpt -->
+
+								<!-- Boton al articulo [derecha] -->
+								<a href="<?= $articulo->guid; ?>" class="pull-xs-right btn__show-more btn__show-more--orange"><?php _e( 'Ver más', LANG ); ?></a>
+
+								<!-- Limpiar floats --> <div class="clearfix"></div>
+
+						</article> <!-- /.item-blog -->
+					</div> <!-- /.col-xs-6 -->
+
+					<?php endforeach; else: echo "Actualizando Contenido"; endif; ?>
+				</div> <!-- /.row -->
 			</div> <!-- /.col-xs-8 -->
-			<!-- Aside de red social -->
-			<div class="col-xs-12 col-sm-4">
 
-				<!-- Incluir las categorias de los posts -->
-				<?php 
-					$category_slug = $category->slug;
-					include( locate_template("partials/categories-post.php") ); 
-				?>		
-
-				<!-- Facebook -->
-				<?php $link_facebook = $options['red_social_fb']; 
-					if( !empty($link_facebook) ) :
-				?>
-				<section class="pageInicio__miscelaneo__facebook">
-					<!-- Contebn -->
-					<div id="fb-root" class=""></div>
-
-					<!-- Script -->
-					<script>(function(d, s, id) {
-						var js, fjs = d.getElementsByTagName(s)[0];
-						if (d.getElementById(id)) return;
-						js = d.createElement(s); js.id = id;
-						js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.5";
-						fjs.parentNode.insertBefore(js, fjs);
-					}(document, 'script', 'facebook-jssdk'));</script>
-
-					<div class="fb-page" data-href="<?= $link_facebook ?>" data-tabs="timeline" data-small-header="false"  data-adapt-container-width="true" data-height="420" data-hide-cover="false" data-show-facepile="true">
-						<div class="fb-xfbml-parse-ignore">
-							<blockquote cite="<?= $link_facebook ?>">
-								<a href="<?= $link_facebook ?>"><?php bloginfo('name'); ?></a>
-							</blockquote>
-						</div>
-					</div>
-				</section> <!-- /.pageInicio__miscelaneo__facebook text-xs-center -->
-
-				<?php endif; ?>
+			<!-- Aside Categorías-->
+			<div class="col-xs-4">
+				<!-- Incluir template categorias -->
+				<?php include( locate_template("partials/sidebar-categories.php" ) ); ?>
 			</div> <!-- /.col-xs-4 -->
 		</div> <!-- /.row -->
 	</div> <!-- /.container -->
-</section> <!-- /.pageBlog -->
 
-<!-- Incluir Banner de Servicios -->
+</main> <!-- /.pageWrapper -->
+
+<!-- Incluir Seccion banner de servicios -->
 <?php include(locate_template('partials/banner-services.php')); ?>
-
-<!-- Incluir template de carousel clientes -->
-<?php include( locate_template("partials/carousel-clientes.php") ); ?>
 
 <!-- Get Footer -->
 <?php get_footer(); ?>

@@ -12,6 +12,7 @@
 
 	$i = 0; 
 	$transition = ""; //para las transiciones control que guarda una variable
+	$from       = ""; //para las transiciones control que guarda una variable
 	// The Loop
 	if ( $the_query->have_posts() ) : 
 
@@ -29,16 +30,19 @@
 				switch ( $i ) {
 					case 0:
 						$transition = "boxslide";
+						$from       = "sfr";
 						break;
 					case 1:
 						$transition = "curtain-3";
+						$from       = "sft";
 						break;
-
 					case 2:
 						$transition = "curtain-2";
+						$from       = "sfb";
 						break;
 					default:
-						$transition = "slideright";
+						$transition = "papercut";
+						$from       = "sfl";
 						break;
 				}
 			?>
@@ -50,8 +54,18 @@
 				<?php endif; ?>
 
 				<!-- Caption Imagen Extra -->
-				<?php $extra_img = get_post_meta($post->ID, 'input_img_banner_'.$post->ID , true); if( !empty($extra_img) ) : ?>
-					<div class="caption sfr big_white" data-x="550" data-y="40" data-speed="3000" data-start="1500" data-easing="easeOutBack">
+				<?php 
+					$extra_img = get_post_meta($post->ID, 'input_img_banner_'.$post->ID , true); 
+					if( !empty($extra_img) ) : 
+
+					/* Posicion de Imagen extra */
+					$pos_x_img = get_post_meta($post->ID, 'input_posx_img_'.$post->ID , true);
+					$pos_x_img = !empty( $pos_x_img ) ? $pos_x_img : "550";					
+
+					$pos_y_img = get_post_meta($post->ID, 'input_posy_img_'.$post->ID , true);
+					$pos_y_img = !empty( $pos_y_img ) ? $pos_y_img : "40";
+				?>
+					<div class="caption <?= $from ?> big_white" data-x="<?= $pos_x_img; ?>" data-y="<?= $pos_y_img; ?>" data-speed="3000" data-start="1500" data-easing="easeOutBack">
 						<figure class="item-slider__extra-img">
 							<img src="<?= $extra_img; ?>" alt="image-extra-ingenioart" class="img-fluid" />
 						</figure> <!-- /.item-slider__extra-img -->
