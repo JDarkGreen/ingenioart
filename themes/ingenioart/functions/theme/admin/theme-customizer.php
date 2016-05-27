@@ -305,8 +305,8 @@ function ingenioart_customize_register($wp_customize) {
 
 	//Customizar WIDGET NOSOTROS
 	$wp_customize->add_section('ingenioart_widget_nosotros', array(
-		'title' => __('Sección NOSOTROS', LANG),
-		'description' => __('Sección NOSOTROS', LANG),
+		'title' => __('Sección Nosotros', LANG),
+		'description' => __('Sección Nosotros', LANG),
 		'priority' => 40
 	));
 	
@@ -352,6 +352,64 @@ function ingenioart_customize_register($wp_customize) {
 		'section'  => 'ingenioart_widget_footer',
 		'settings' => 'ingenioart_custom_settings[widget_footer]',
 		'type'     => 'textarea'
+	));
+
+	//Customizar Cuentas Bancarias
+	$wp_customize->add_section('ingenioart_bank', array(
+		'title' => __('Cuentas Bancarias', LANG),
+		'description' => __('Sección de Cuentas Bancarias', LANG),
+		'priority' => 42
+	));
+	
+	//Interbank
+	$wp_customize->add_setting('ingenioart_custom_settings[ingenioart_bank_interbank_dolars]', array(
+		'default' => '',
+		'type' => 'option'
+	));
+	
+	$wp_customize->add_control('ingenioart_custom_settings[ingenioart_bank_interbank_dolars]', array(
+		'label'    => __('Interbank Cuenta en dólares:', LANG),
+		'section'  => 'ingenioart_bank',
+		'settings' => 'ingenioart_custom_settings[ingenioart_bank_interbank_dolars]',
+		'type'     => 'text'
+	));	
+
+	$wp_customize->add_setting('ingenioart_custom_settings[ingenioart_bank_interbank_soles]', array(
+		'default' => '',
+		'type' => 'option'
+	));
+	
+	$wp_customize->add_control('ingenioart_custom_settings[ingenioart_bank_interbank_soles]', array(
+		'label'    => __('Interbank Cuenta en soles:', LANG),
+		'section'  => 'ingenioart_bank',
+		'settings' => 'ingenioart_custom_settings[ingenioart_bank_interbank_soles]',
+		'type'     => 'text'
+	));
+
+	//BCP
+	$wp_customize->add_setting('ingenioart_custom_settings[ingenioart_bank_bcp]', array(
+		'default' => '',
+		'type' => 'option'
+	));
+	
+	$wp_customize->add_control('ingenioart_custom_settings[ingenioart_bank_bcp]', array(
+		'label'    => __('BCP Cuenta en soles:', LANG),
+		'section'  => 'ingenioart_bank',
+		'settings' => 'ingenioart_custom_settings[ingenioart_bank_bcp]',
+		'type'     => 'text'
+	));	
+
+	//BBVA
+	$wp_customize->add_setting('ingenioart_custom_settings[ingenioart_bank_bbva]', array(
+		'default' => '',
+		'type' => 'option'
+	));
+	
+	$wp_customize->add_control('ingenioart_custom_settings[ingenioart_bank_bbva]', array(
+		'label'    => __('BBVA Cuenta en soles:', LANG),
+		'section'  => 'ingenioart_bank',
+		'settings' => 'ingenioart_custom_settings[ingenioart_bank_bbva]',
+		'type'     => 'text'
 	));
 	
 }	

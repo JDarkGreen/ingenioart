@@ -839,6 +839,7 @@ body,html
 
 //Sección General
 .pageBlog
+	margin-bottom: 50px
 	/* Sobreescribir Contenedor preview */
 	.pageCommon__preview-blog
 		padding: 0
@@ -936,6 +937,40 @@ body,html
 				font-size: 13px 
 				margin   : 0 auto 
 
+/***************************************************************************************/
+/**------------------------------- PÁGINA CONTACTO -----------------------------------**/
+/***************************************************************************************/
+
+
+//Contenedor de Información
+.pageContacto__information
+	margin: 0 auto 62px
+//Subseccion
+.pageContacto__information__content
+	color      : black 
+	font-family: "BloggerSans"
+	margin     : 50px auto 0
+	//Subtitulos
+	h3
+		font-size  : 20px
+		font-weight: 700
+		margin     : 0 auto 5px 
+	//Párrafos
+	p 
+		font-size  : 19px 
+		line-height: 1.3em
+		margin     : 0 auto
+	//Texto destacado web
+	.text-featured--web
+		+transition( all 500ms ease )
+		color          : $ingenioart_blue
+		font-size      : 22px
+		text-decoration: none 
+
+//Contenedor Consulta
+.pageContacto__consulta
+	background: $ingenioart_gray_claro
+	padding   : 50px 0 118px
 
 /***************************************************************************************/
 /**-------------------------------  MAIN FOOTER  -------------------------------------**/
@@ -952,6 +987,8 @@ body,html
 //Lista de redes sociales en el footer -ul
 .mainFooter__social-links
 	list-style-type: none 
+	margin         : 24px auto
+	padding        : 0 
 	li 
 		display: inline-block
 		padding: 0 5px 
