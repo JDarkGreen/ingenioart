@@ -291,15 +291,29 @@ function ingenioart_customize_register($wp_customize) {
 		'priority' => 41
 	));
 	
+	//CentroLima
 	$wp_customize->add_setting('ingenioart_custom_settings[contact_mapa]', array(
 		'default' => '',
 		'type' => 'option'
 	));
 	
 	$wp_customize->add_control('ingenioart_custom_settings[contact_mapa]', array(
-		'label'    => __('Escribe latitud y longitud de mapa sepador por coma', LANG),
+		'label'    => __('CentroLima: Escribe latitud y longitud de mapa sepador por coma', LANG),
 		'section'  => 'ingenioart_contact_mapa',
 		'settings' => 'ingenioart_custom_settings[contact_mapa]',
+		'type'     => 'text'
+	));	
+
+	//Surco
+	$wp_customize->add_setting('ingenioart_custom_settings[contact_mapa_surco]', array(
+		'default' => '',
+		'type' => 'option'
+	));
+	
+	$wp_customize->add_control('ingenioart_custom_settings[contact_mapa_surco]', array(
+		'label'    => __('Surco: Escribe latitud y longitud de mapa sepador por coma', LANG),
+		'section'  => 'ingenioart_contact_mapa',
+		'settings' => 'ingenioart_custom_settings[contact_mapa_surco]',
 		'type'     => 'text'
 	));
 

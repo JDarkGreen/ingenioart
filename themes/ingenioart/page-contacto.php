@@ -160,6 +160,42 @@
 				<div class="col-xs-6">
 					<section class="center-block">
 						<!-- Titulo  --><h2 class="pageCommon__title text-xs-center text-uppercase"> <?php _e('cuentas bancarias' , LANG ); ?></h2>
+
+						<!-- Lista de Cuentas bancarias  -->
+						<ul class="pageContacto__list-bank">
+							
+						<!-- Interbank -->
+						<?php if( ( isset($options['ingenioart_bank_interbank_dolars']) && !empty($options['ingenioart_bank_interbank_dolars']) ) || ( isset($options['ingenioart_bank_interbank_soles']) && !empty($options['ingenioart_bank_interbank_soles']) )  ) : ?>
+							<li>
+								<!-- Imagen -->
+								<img src="<?= IMAGES ?>/cuentas-bancarias/interbank-ingenioart.jpg" alt="interbank-ingenioart" class="img-fluid" />
+								
+								<p><?= !empty($options['ingenioart_bank_interbank_dolars']) ? "Cuenta en dólares: " . $options['ingenioart_bank_interbank_dolars'] : ""; ?>	</p>
+
+								<p><?= !empty($options['ingenioart_bank_interbank_soles']) ? "Cuenta en soles: " . $options['ingenioart_bank_interbank_soles'] : ""; ?> </p>
+							</li>	
+						<?php endif; ?>					
+
+						<!-- BCP -->
+						<?php if( isset($options['ingenioart_bank_bcp']) && !empty($options['ingenioart_bank_bcp']) ) : ?>
+							<li>
+								<!-- Imagen -->
+								<img src="<?= IMAGES ?>/cuentas-bancarias/via-bcp-ingenioart.jpg" alt="via-bcp-ingenioart" class="img-fluid" />
+								<p><?= "Cuenta en soles: " . $options['ingenioart_bank_bcp']; ?></p>
+							</li>
+						<?php endif; ?>								
+
+						<!-- BBVA -->
+						<?php if( isset($options['ingenioart_bank_bbva']) && !empty($options['ingenioart_bank_bbva']) ) : ?>
+							<li>
+								<!-- Imagen -->
+								<img src="<?= IMAGES ?>/cuentas-bancarias/continental-ingenioart.jpg" alt="continental-ingenioart" class="img-fluid" />
+								<p><?= "Cuenta en soles: " . $options['ingenioart_bank_bbva']; ?> </p>
+							</li>
+						<?php endif; ?>					
+						
+						</ul> <!-- /.pageContacto__list-bank -->
+
 					</section> <!-- /.center-block -->
 				</div> <!-- /.col-xs-6 -->
 
@@ -167,8 +203,134 @@
 		</div> <!-- /.container -->
 	</section> <!-- /.pageContacto__consulta -->
 
+	<!-- Sección de Mapas -->
+	<section class="pageContacto__maps">
+		<!-- Titulo --> <h2 class="pageCommon__title text-xs-center text-uppercase"><?php _e('mapa' ); ?></h2>
+		<!-- Contenedor de Mapas -->
+
+		<!-- Surco -->
+		<section class="pageContacto__maps__container">
+			<div class="container">
+			<!-- Titulo --> <h2 class="text-uppercase">Surco</h2>
+			</div> <!-- /.container -->
+
+			<!-- Mapa --> <div id="canvas-map" class="canvas-map"></div>
+		</section> <!-- /.pageContacto__maps__container -->
+
+		<!-- CentroLima -->
+		<section class="pageContacto__maps__container">
+			<div class="container">
+				<!-- Titulo --> <h2 class="text-uppercase">Centro Lima</h2>
+			</div> <!-- /.container -->
+
+			<!-- Mapa --> <div id="canvas-map2" class="canvas-map"></div>
+		</section> <!-- /.pageContacto__maps__container -->
+
+	</section> <!-- /.pageContacto__maps -->
+
 </main> <!-- /.pageWrapper -->
 
+<!-- Script Google Mapa -->
+<?php 
+	if( !empty($options['contact_mapa']) ) : 
+	$mapa = explode(',', $options['contact_mapa'] ); 
+?>
+	<script type="text/javascript">	
+
+		<?php  
+			$lat = $mapa[0];
+			$lng = $mapa[1];
+		?>
+
+	    var map;
+	    var lat = <?= $lat ?>;
+	    var lng = <?= $lng ?>;
+
+	    function initialize() {
+	      //crear mapa
+	      map = new google.maps.Map(document.getElementById('canvas-map'), {
+	        center: {lat: lat, lng: lng},
+	        zoom  : 16
+	      });
+
+	      //infowindow
+	      var infowindow    = new google.maps.InfoWindow({
+	        content: '<?= "IngenioArt" ?>'
+	      });
+
+	      //icono
+	      //var icono = "<?= IMAGES ?>/icon/contacto_icono_mapa.jpg";
+
+	      //crear marcador
+	      marker = new google.maps.Marker({
+	        map      : map,
+	        draggable: false,
+	        animation: google.maps.Animation.DROP,
+	        position : {lat: lat, lng: lng},
+	        title    : "<?php _e(bloginfo('name') , LANG )?>",
+	        icon     : "<?= IMAGES . '/icon/ingenioart_map.png' ?>",
+	      });
+	      //marker.addListener('click', toggleBounce);
+	      marker.addListener('click', function() {
+	        infowindow.open( map, marker);
+	      });
+	    }
+
+	    google.maps.event.addDomListener(window, "load", initialize);
+
+	</script>
+<?php endif; ?>
+
+<!-- Script Google Mapa 2 -->
+<?php 
+	if( !empty($options['contact_mapa_surco']) ) : 
+	$mapa = explode(',', $options['contact_mapa_surco'] ); 
+?>
+	<script type="text/javascript">	
+
+		<?php  
+			$lat = $mapa[0];
+			$lng = $mapa[1];
+		?>
+
+	    var map;
+	    var lat = <?= $lat ?>;
+	    var lng = <?= $lng ?>;
+
+	    function initialize() {
+	      //crear mapa
+	      map = new google.maps.Map(document.getElementById('canvas-map2'), {
+	        center: {lat: lat, lng: lng},
+	        zoom  : 16
+	      });
+
+	      //infowindow
+	      var infowindow    = new google.maps.InfoWindow({
+	        content: '<?= "IngenioArt" ?>'
+	      });
+
+	      //icono
+	      //var icono = "<?= IMAGES ?>/icon/contacto_icono_mapa.jpg";
+
+	      //crear marcador
+	      marker = new google.maps.Marker({
+	        map      : map,
+	        draggable: false,
+	        animation: google.maps.Animation.DROP,
+	        position : {lat: lat, lng: lng},
+	        title    : "<?php _e(bloginfo('name') , LANG )?>",
+	        icon     : "<?= IMAGES . '/icon/ingenioart_map.png' ?>",
+	      });
+	      //marker.addListener('click', toggleBounce);
+	      marker.addListener('click', function() {
+	        infowindow.open( map, marker);
+	      });
+	    }
+
+	    google.maps.event.addDomListener(window, "load", initialize);
+
+	</script>
+<?php endif; ?>
 
 <!-- Get Footer -->
 <?php get_footer(); ?>
