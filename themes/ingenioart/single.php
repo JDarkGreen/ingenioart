@@ -1,61 +1,75 @@
+<?php /* Pagina Single */ ?>
+
 <!-- Global Post -->
 <?php 
 	global $post; 
-	$options = get_option('constructec_custom_settings'); 
+	$options = get_option('ingenioart_custom_settings'); 
 ?>
 
 <!-- Get Header -->
 <?php get_header(); ?>
 
 <!-- Incluir banner de la página -->
-<?php  
-	$banner       = $post;
-	$banner_title = "artículo";
-	include( locate_template("partials/banner-common-pages.php") );
+<?php  $banner = $post; 
+	$banner_title = "Artículo";
+	include( locate_template("partials/banner-common-pages.php") ); 
 ?>
 
-<!-- Incluir contenido Principal -->
-<main class="pageBlog__article">
-
+<!-- Contenedor Global -->
+<main class="pageWrapper pageBlog">
+	
 	<div class="container">
-		<div class="row">
-			<div class="col-xs-12 col-md-8">
-				<!-- Article -->
-				<article class="pageArticle__content">
-					<!-- Titulo -->
-					<h2 class="sectionCommon__subtitle text-uppercase">
-					<strong><?php _e( $post->post_title , LANG ); ?></strong>
-					</h2>
-
+		<div class="row pageCommon__preview-blog">
+			<!--  Sección Artículo  -->
+			<div class="col-xs-8">
+				<article class="item-blog">
 					<!-- Imagen -->
-					<?php if( has_post_thumbnail( $post->ID )) : ?>
-						<figure class="pageArticle__image">
-							<?php the_post_thumbnail('full',array('class'=>'img-responsive') ); ?>
-						</figure> <!-- /.pageArticle__image -->
-					<?php endif;?>
+					<figure class="pageBlog__image-featured">
+						<?= get_the_post_thumbnail( $post->ID ,'full', array('class'=>'img-fluid') ); ?>
+						<!-- Figcaption fecha -->
+						<figcaption class="container-flex align-content text-xs-center text-uppercase"><?= mysql2date('j M', $post->post_date); ?></figcaption>
+					</figure> <!-- /.pageBlog__image-featured -->
+
+					<!-- Titulo -->
+					<h2 class="pageCommon__title text-uppercase"> <?php _e( $post->post_title , LANG ); ?></h2>
 
 					<!-- Contenido -->
-					<?php if( !empty( $post->post_content )) :  ?>
+					<div class="item-blog__content">
 						<?= apply_filters('the_content', $post->post_content ); ?>
-					<?php endif; ?>
-				</article> <!-- /.pageArticle__content -->
-			</div> <!-- /.col-xs-12 col-md-8 -->
-			<div class="col-md-4 hidden-xs">
-				<aside class="pageBlog__categories">
-					<!-- Incluir template categorias -->
-					<?php include( locate_template('partials/content-category-post.php') ) ?>
-				</aside><!-- /.pageBlog__categories -->
-			</div> <!-- /.col-xs-12 col-md-4 -->
-		</div> <!--/.row -->
+					</div> <!-- /.item-blog__content -->
+
+					<!-- Sección Compartir Noticia -->
+					<section class="item-blog__share">
+						<!-- Titulo --> <h3 class="text-uppercase"><?php _e('comparte esta noticia'  , LANG ); ?></h3>
+						<!-- Compartir --> 
+						<div class="multimedia__item__share">
+							<!-- Facebook -->
+							<a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
+							<!-- Twitter -->
+							<a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>	
+						</div>
+					</section> <!-- /.item-blog__share -->
+
+					<!-- Sección Comentarios -->
+					<section class="item-blog__comments-area" id="comments">
+						<?php comments_template('', true); ?>
+					</section> <!-- end comments-area -->
+
+				</article> <!-- /.article -->
+			</div> <!-- /.col-xs-8 -->
+
+			<!-- Aside Categorías-->
+			<div class="col-xs-4">
+				<!-- Incluir template categorias -->
+				<?php include( locate_template("partials/sidebar-categories.php" ) ); ?>
+			</div> <!-- /.col-xs-4 -->
+		</div> <!-- /.row -->
 	</div> <!-- /.container -->
 
-</main> <!-- /pageBlog__article -->
+</main> <!-- /.pageWrapper -->
 
-<!-- Incluir Banner de Servicios -->
+<!-- Incluir Seccion banner de servicios -->
 <?php include(locate_template('partials/banner-services.php')); ?>
-
-<!-- Incluir template de carousel clientes -->
-<?php include( locate_template("partials/carousel-clientes.php") ); ?>
 
 <!-- Get Footer -->
 <?php get_footer(); ?>

@@ -788,7 +788,6 @@ body,html
 				+box-shadow( inset 400px 0 0 0 $ingenioart_blue )
 				color     : white
 
-
 /***************************************************************************************/
 /**------------------------------- PÁGINA MEDIA  -------------------------------------**/
 /***************************************************************************************/
@@ -841,6 +840,73 @@ body,html
 		/* Sobreescribir Artículos preview */
 		.item-blog
 			padding: 0 0 60px
+
+	//Contenido Artículos
+	.item-blog__content
+		color      : black 
+		font-family: "BloggerSans"
+		font-size  : 17px 
+
+	//Sección Compartir
+	.item-blog__share
+		font-family: "Bebas"
+		margin     : 40px auto 
+		h3 
+			color         : $ingenioart_blue
+			display       : inline-block
+			margin        : 0 auto 
+			vertical-align: middle
+		//Sobreescribir compartir links
+		.multimedia__item__share
+			display  : inline-block
+			font-size: 18px 
+	
+	//Sección Comentarios
+	.item-blog__comments-area
+		//Titulo
+		h3 
+			color      : $ingenioart_blue
+			font-family: "Bebas"
+		//Lista de Comentarios - ul 
+		.commentslist
+			list-style-type: none
+			//Artículo
+			article.comment
+				margin: 0 auto 15px
+				.comment-avatar, .comment__content
+					display       : inline-block
+					vertical-align: middle
+				//Imagen
+				.comment-avatar
+					margin   : 0 28px 0 0
+				//Contenido 
+				.comment__content
+					font-size: 14px
+					h4 
+						font-size  : 14px
+						font-weight: 600
+						margin     : 0 auto 
+						a 
+							color : black
+					//Parrafo
+					p 
+						margin: 0 auto
+				//Esperando Moderación
+				.awaiting-moderation
+					color    : $ingenioart_blue
+					font-size: 16px 
+					margin   : 10px auto 
+		//Formulario
+		form 
+			font-family: "BloggerSans"
+			input 
+				display: block
+			textarea
+				height    : 180px
+				max-height: 180px
+				padding   : 5px 10px
+				width     : 320px
+
 
 //Seccion Categorías
 .pageBlog__sidebar__categories
@@ -932,10 +998,67 @@ body,html
 				font-size: 13px 
 				margin   : 0 auto 
 
+/************************************************************************************/
+/**------------------------- PÁGINA PREGUNTAS -------------------------------------**/
+/************************************************************************************/
+
+//Sección General
+.pagePreguntas
+	margin: 0 auto 60px
+
+//Secciones Contenido
+.pagePreguntas__section
+	margin: 60px auto 0
+	//Panel Tabs
+	.panel
+		font-family: "BloggerSans"
+		margin     : 0 auto 20px 
+		//Heading
+		.panel-heading
+			//Title
+			.panel-title
+				margin: 0
+				a 
+					background     : $ingenioart_blue 
+					color          : white
+					display        : block
+					line-height    : 1em 
+					margin         : 0 
+					padding        : 12px 
+					text-decoration: none
+					+transition( all 500ms ease ) 
+					//Active u hover
+					&:hover, &.active
+						background: $ingenioart_orange
+					//Before
+					&:before 
+						+rotate(-90deg)
+						border-radius: 50%
+						color        : $ingenioart_blue
+						content      : "\f137"
+						display      : inline-block
+						font-family  : FontAwesome
+						font-size    : 32px
+						height       : 32px
+						left         : -40px
+						overflow     : hidden
+						padding      : 2px 0px 0 1px
+						position     : absolute
+						text-align   : center
+						top          : 8px
+						width        : 32px
+
+		// Panel Collapse
+		.panel-collapse 
+			border    : 1px solid gray
+			border-top: 0 
+			color     : black 
+			font-size : 17px 
+			padding   : 20px 30px 
+
 /***************************************************************************************/
 /**------------------------------- PÁGINA CONTACTO -----------------------------------**/
 /***************************************************************************************/
-
 
 //Contenedor de Información
 .pageContacto__information

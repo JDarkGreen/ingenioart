@@ -217,6 +217,30 @@ function create_post_type(){
 		'menu_icon'   => 'dashicons-video-alt',
 	);
 
+	/*|>>>>>>>>>>>>>>>>>>>> PREGUNTAS  <<<<<<<<<<<<<<<<<<<<|*/
+	
+	$labels10 = array(
+		'name'               => __('Preguntas'),
+		'singular_name'      => __('Pregunta'),
+		'add_new'            => __('Nueva Pregunta'),
+		'add_new_item'       => __('Agregar nueva Pregunta'),
+		'edit_item'          => __('Editar Pregunta'),
+		'view_item'          => __('Ver Pregunta'),
+		'search_items'       => __('Buscar Pregunta'),
+		'not_found'          => __('Pregunta no encontrada'),
+		'not_found_in_trash' => __('Pregunta no encontrada en la papelera'),
+	);
+
+	$args10 = array(
+		'labels'      => $labels10,
+		'has_archive' => true,
+		'public'      => true,
+		'hierachical' => false,
+		'supports'    => array('title','editor','excerpt','custom-fields','thumbnail','page-attributes'),
+		'taxonomies'  => array('post-tag'),
+		'menu_icon'   => 'dashicons-portfolio',
+	);
+
 
 	/*|>>>>>>>>>>>>>>>>>>>> REGISTRAR  <<<<<<<<<<<<<<<<<<<<|*/
 	register_post_type( 'banner'   , $args  );
@@ -228,8 +252,8 @@ function create_post_type(){
 	register_post_type( 'team' , $args7 );
 	register_post_type( 'galery-images' , $args8 );
 	register_post_type( 'galery-videos' , $args9 );
+	register_post_type( 'pregunta' , $args10 );
 
-	
 	flush_rewrite_rules();
 }
 

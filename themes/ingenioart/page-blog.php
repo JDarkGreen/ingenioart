@@ -35,7 +35,7 @@
 					<div class="col-xs-6">
 						<!-- Articulo -->
 						<article class="item-blog">
-							<!-- Imagen Preview --> <figure class="relative"> <?= get_the_post_thumbnail( $articulo->ID ,'full', array('class'=>'img-fluid') ) ?> <!-- Flecha -->
+							<!-- Imagen Preview --> <figure class="relative"> <?= get_the_post_thumbnail( $articulo->ID ,'full', array('class'=>'img-fluid') ) ?> <!-- Fecha -->
 								<figcaption class="container-flex align-content text-xs-center text-uppercase"><?= mysql2date('j M', $articulo->post_date); ?></figcaption> 
 								</figure> <!-- /figure -->
 
@@ -47,7 +47,7 @@
 								</div> <!-- /.item-blog__excerpt -->
 
 								<!-- Boton al articulo [derecha] -->
-								<a href="<?= $articulo->guid; ?>" class="pull-xs-right btn__show-more btn__show-more--orange"><?php _e( 'Ver más', LANG ); ?></a>
+								<a href="<?= get_permalink( $articulo->ID  ); ?>" class="pull-xs-right btn__show-more btn__show-more--orange"><?php _e( 'Ver más', LANG ); ?></a>
 
 								<!-- Limpiar floats --> <div class="clearfix"></div>
 

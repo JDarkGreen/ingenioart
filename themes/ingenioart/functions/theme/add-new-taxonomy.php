@@ -80,6 +80,31 @@ function create_category_taxonomy() {
     'show_admin_column'=> true,
     'query_var'        => true,
     'rewrite'          => array( 'slug' => 'portafolio-category' ),
+  ));  
+
+  /* categorias preguntas */
+  $labels4 = array(
+    'name'             => __( 'Categoría Preguntas'),
+    'singular_name'    => __( 'Categoría Preguntas'),
+    'search_items'     => __( 'Buscar Categoría Preguntas'),
+    'all_items'        => __( 'Todas Categorías de Preguntas' ),
+    'parent_item'      => __( 'Categoría padre de Preguntas' ),
+    'parent_item_colon'=> __( 'Categoría padre:' ),
+    'edit_item'        => __( 'Editar categoría de Preguntas' ), 
+    'update_item'      => __( 'Actualizar categoría de Preguntas' ),
+    'add_new_item'     => __( 'Agregar nueva categoría de Preguntas' ),
+    'new_item_name'    => __( 'Nuevo nombre categoría de Preguntas' ),
+    'menu_name'        => __( 'Categoria Preguntas' ),
+  ); 
+
+  // Now register the taxonomy
+  register_taxonomy('preguntas_category',array('pregunta'), array(
+    'hierarchical'     => true,
+    'labels'           => $labels4,
+    'show_ui'          => true,
+    'show_admin_column'=> true,
+    'query_var'        => true,
+    'rewrite'          => array( 'slug' => 'preguntas-category' ),
   ));
 
 }

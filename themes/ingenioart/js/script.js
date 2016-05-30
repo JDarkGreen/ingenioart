@@ -36,7 +36,7 @@ var j = jQuery.noConflict();
         j.fn.css =  j.fn.cssOriginal;
 
 		j("#carousel-home").revolution({
-			delay         : 100000, 
+			delay         : 6000, 
 			fullWidth     : "on",
 			navigationType: 'none',
 			onHoverStop   : "off",
@@ -208,17 +208,18 @@ var j = jQuery.noConflict();
 			}
 		});
 
-		/*|----------------------------------------------------------------------|*/
-		/*|-----  GALERIAS FANCYBOX DE FLOTAS   -----|*/
-		/*|----------------------------------------------------------------------|*/
+		/*|-------------------------------------------------------------|*/
+		/*|-----  TABS SECCIÓN PREGUNTAS  ------|*/
+		/*|--------------------------------------------------------------|*/	
 
-		j("a.gallery-fancybox").fancybox({
-			'overlayShow'  :	false,
-			'speedIn'      :	600, 
-			'speedOut'     :	200, 
-			'transitionIn' :	'elastic',
-			'transitionOut':	'elastic',
-		});
+		j(".pagePreguntas__section .panel .panel-heading .panel-title a")
+		.on('click',function(){
+			//Quitar todas las clases activas
+			j(".pagePreguntas__section .panel .panel-heading .panel-title a")
+			.removeClass('active');
+			//Agregar la clase activa al elemento actual
+			j(this).addClass('active');
+		});	
 
 		/*|-------------------------------------------------------------|*/
 		/*|-----  VALIDADOR FORMULARIO.  ------|*/
@@ -226,7 +227,7 @@ var j = jQuery.noConflict();
 
 		j('#form-contacto').parsley();
 
-		j(document).on('submit', j('#form-contacto') , function(e){
+		/*j(document).on('submit', j('#form-contacto') , function(e){
 			e.preventDefault();
 			//Subir el formulario mediante ajax
 			j.post( url + '/email/enviar.php', 
@@ -241,7 +242,7 @@ var j = jQuery.noConflict();
 				j("#input_email").val("");
 				j("#input_consulta").val("");
 			});			
-		});
+		});*/
 
 
 	});

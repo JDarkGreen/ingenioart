@@ -45,6 +45,11 @@ include_once("functions/theme/add-new-taxonomy.php");
 include_once("functions/theme/add-new-metabox.php");
 
 /***********************************************************************************************/
+/* Customizar Sección de Comentarios  */
+/***********************************************************************************************/
+include_once("functions/theme/custom-comments.php");
+
+/***********************************************************************************************/
 /* Localization Support */
 /***********************************************************************************************/
 function custom_theme_localization() {
