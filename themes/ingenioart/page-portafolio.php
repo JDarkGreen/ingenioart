@@ -75,7 +75,7 @@
 					<!-- Link de vista --> 
 					<a href="#" class="btn__link"><i class="fa fa-search" aria-hidden="true"></i></a>
 					<!-- Link al proyecto -->
-					<a href="#" class="btn__link"><i class="fa fa-external-link" aria-hidden="true"></i></a>
+					<a href="<?= get_permalink( $proyecto->ID ); ?>" class="btn__link"><i class="fa fa-external-link" aria-hidden="true"></i></a>
 					<!-- Titulo del artículo -->
 					<h3 class="text-uppercase"><?php _e( $proyecto->post_title , LANG ); ?></h3>
 				</section> <!-- /.item-proyecto__links -->

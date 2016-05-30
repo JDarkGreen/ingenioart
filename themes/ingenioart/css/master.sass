@@ -138,6 +138,9 @@ body,html
 	//span 
 	span 
 		font-weight: 600
+	//a
+	a 
+		text-decoration: none
 
 
 
@@ -788,6 +791,23 @@ body,html
 				+box-shadow( inset 400px 0 0 0 $ingenioart_blue )
 				color     : white
 
+//* Single Portafolio
+
+//Detalles de Portafolio
+.pagePortafolio__details
+	font-family: "BloggerSans"
+	//Titulo
+	h2 
+		color      : $ingenioart_blue
+		font-size  : 25px 
+		font-weight: 700
+		margin     : 0 auto 29px
+	//Párrafos
+	p 
+		color    : black
+		font-size: 18px 
+		margin   : 0 auto 
+
 /***************************************************************************************/
 /**------------------------------- PÁGINA MEDIA  -------------------------------------**/
 /***************************************************************************************/
@@ -868,7 +888,7 @@ body,html
 			color      : $ingenioart_blue
 			font-family: "Bebas"
 		//Lista de Comentarios - ul 
-		.commentslist
+		.commentslist  
 			list-style-type: none
 			//Artículo
 			article.comment
@@ -896,6 +916,10 @@ body,html
 					color    : $ingenioart_blue
 					font-size: 16px 
 					margin   : 10px auto 
+			//Lista Hija
+			.children
+				list-style-type: none 
+
 		//Formulario
 		form 
 			font-family: "BloggerSans"
