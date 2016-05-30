@@ -13,6 +13,12 @@ define('LANG', 'timco-framework');
 
 include_once("functions/theme/scripts.php");
 
+/******************************************************************************************/
+/* Marcar la navegacion del padre activo cuanto se encuentra en un single post type */
+/******************************************************************************************/
+
+require_once("functions/theme/nav-active-parent.php");
+
 /***********************************************************************************************/
 /* Agregar formatos al tema  */
 /***********************************************************************************************/
@@ -35,9 +41,10 @@ include_once("functions/theme/add-sidebars.php");
 include_once("functions/theme/add-type-posts.php");
 
 /***********************************************************************************************/
-/* Registrar nuevas taxomomias  */
+/* Registrar nuevas taxomomias y crear campos personalizados */
 /***********************************************************************************************/
 include_once("functions/theme/add-new-taxonomy.php");
+include_once("functions/theme/custom-fields-taxonomy.php");
 
 /***********************************************************************************************/
 /* Registrar nuevos metabox  */

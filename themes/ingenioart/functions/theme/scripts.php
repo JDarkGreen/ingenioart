@@ -59,8 +59,12 @@ add_action('wp_enqueue_scripts', 'load_custom_scripts');
 
 /* Add the media uploader script */
 function load_admin_custom_enqueue() {
-  //upload gallery banner  
+	//upload media
+	wp_enqueue_media();
+
+	//upload gallery banner  
 	wp_enqueue_script('upload-banner-page', THEMEROOT . '/js/admin/media-lib-banner.js', array('jquery'), '', true);  
+	
 	//upload gallery a todas la paginas
 	wp_enqueue_script('upload-gallery', THEMEROOT . '/js/admin/metabox-gallery.js', array('jquery'), '', true);
 

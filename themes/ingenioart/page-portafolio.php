@@ -72,9 +72,13 @@
 				</figure> <!-- /figure -->
 				<!-- Links del Artículo -->
 				<section class="item-proyecto__links container-flex align-content text-xs-center">
+					<?php  
+						//Obtener url de la imagen 
+						$feat_img = wp_get_attachment_url( get_post_thumbnail_id( $proyecto->ID ) );
+					?>
 					<!-- Link de vista --> 
-					<a href="#" class="btn__link"><i class="fa fa-search" aria-hidden="true"></i></a>
-					<!-- Link al proyecto -->
+					<a href="<?= $feat_img; ?>" content="<?= $proyecto->post_title ?>" class="gallery-fancybox btn__link"><i class="fa fa-search" aria-hidden="true"></i></a>
+					<!-- Link al proyecto --> 
 					<a href="<?= get_permalink( $proyecto->ID ); ?>" class="btn__link"><i class="fa fa-external-link" aria-hidden="true"></i></a>
 					<!-- Titulo del artículo -->
 					<h3 class="text-uppercase"><?php _e( $proyecto->post_title , LANG ); ?></h3>

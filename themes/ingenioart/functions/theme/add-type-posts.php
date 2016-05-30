@@ -48,7 +48,7 @@ function create_post_type(){
 		'public'      => true,
 		'hierachical' => false,
 		'supports'    => array('title','editor','excerpt','custom-fields','thumbnail','page-attributes'),
-		'taxonomies'  => array('post-tag','category','servicio_category'),
+		'taxonomies'  => array('post-tag','servicio_category'),
 		'menu_icon'   => 'dashicons-exerpt-view',
 	);	
 

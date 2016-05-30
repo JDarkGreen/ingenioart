@@ -47,12 +47,49 @@ var j = jQuery.noConflict();
 			var post_id = j(this).attr('data-id-post');
 
 			var campo_field = j("#input_img_banner_"+post_id);
-      //setea el campo
-      campo_field.val("-1");
-      //ocultar imagen
-      j('.js-link_banner').slideUp();
-    });
+	      	//setea el campo
+	      	campo_field.val("-1");
+	      	//ocultar imagen
+	      	j('.js-link_banner').slideUp();
+    	});
 
+		//SECCIÓN SUBIR IMAGENES A TAXONOMÍAS
+	    if( j(".js-add-img-tax").length ){ 
+	    	var btn_add_img_tax = j(".js-add-img-tax");
+
+	    	btn_add_img_tax.on('click', function(e){
+	    		//Prevenir accion por defecto
+	    		e.preventDefault();
+			
+				var input_img_tax = j(this).attr('data-input');
+				var Uploader;
+
+				if ( Uploader) {
+					mediaUploader.open(); 
+					return; 
+				}
+
+				Uploader = wp.media.frames.file_frame = wp.media({
+					title: 'Escoge Image',
+					button: {
+						text: 'Escoge Image'
+					}, multiple: false 
+				}); 
+
+				Uploader.on('select', function() {
+					attachment = Uploader.state().get('selection').first().toJSON();
+
+					var campo_field = j("input[name='"+input_img_tax + "']");
+					console.log(campo_field);
+	          		//setea el campo
+	          		campo_field.val(attachment.url);
+	          	});
+
+	        	// Open the uploader dialog
+	        	Uploader.open();
+	    	});
+	    }
+	/*---------------------------- LIMITE ------------------------------*/
 	});
 
 })(jQuery);

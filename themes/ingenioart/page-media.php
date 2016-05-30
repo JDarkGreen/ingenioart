@@ -40,9 +40,15 @@
 					?> <!-- Artículos -->
 						
 						<article class="multimedia__item text-xs-center">
-							<!-- Imagen --> <figure> 
-								<?= get_the_post_thumbnail($imagen->ID,'full',array('class'=>'img-fluid') ); ?>
-							</figure>
+							<?php  
+								//Obtener url de la imagen 
+								$feat_img = wp_get_attachment_url( get_post_thumbnail_id( $imagen->ID ) );
+							?>
+							<a href="<?= $feat_img; ?>" rel="group" class="gallery-fancybox">
+								<!-- Imagen --> <figure> 
+									<?= get_the_post_thumbnail($imagen->ID,'full',array('class'=>'img-fluid') ); ?>
+								</figure>
+							</a>
 							<!-- Título -->
 							<h2 class="multimedia__item__title"><?php _e( $imagen->post_title, LANG ); ?></h2>
 							<!-- Compartir Links -->

@@ -287,41 +287,43 @@ body,html
 					+transition( all 500ms ease )
 
 				//hover u active
-				&.current-menu-ancestor,&.current-menu-parent
-					a 
-				&:hover,&.current-menu-item, &.current_page_item,
+				&.current-menu-ancestor,&.current-menu-parent, &:hover,&.current-menu-item, &.current_page_item,
 					a 
 						border-bottom: 4px solid $ingenioart_orange
 						color        : $ingenioart_blue
+				&:hover
 					//submenu
 					ul.sub-menu
 						+opacity( 1 )
 						top       : 110%
-						z-index   : 9
+						z-index   : 999999
 						visibility: visible
 
 				//SUBMENU
 				ul.sub-menu
 					background   : rgba( 0,0,0,.8 )
-					border-bottom: 4px solid white
-					border-top   : 4px solid white
-					left         : 0
+					border-bottom: 4px solid $ingenioart_orange
+					border-top   : 4px solid $ingenioart_orange
+					left         : -20px
 					padding      : 10% 0
+					padding      : 10px
 					position     : absolute
+					right        : -20px
 					top          : 250%
 					visibility   : hidden
 					z-index      : -5
 					+opacity( 0 )
 					+transition( all 800ms ease )
-
+					//li 
 					li 
-						padding: 0 !important
 						a 
-							color  : white
-							padding: 6px 15px 
-						//hover u active
-						&:hover,&.current-menu-item, &.current_page_item
+							border: none
+						//active u hover
+						&.current-menu-item , &:hover
 							a 
+								color: $ingenioart_orange
+
+
 								
 /***************************************************************************************/
 /**--------------------------  SLIDEBAR CONTENEDOR -----------------------------------**/

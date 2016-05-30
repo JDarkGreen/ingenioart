@@ -36,7 +36,7 @@
 	?>
 
 <!-- Header -->
-<header class="mainHeader sb-slide <?= $admin_bar ?>">
+<header class="mainHeader <?= $admin_bar ?>">
 	<div class="container">
 		
 		<!-- Solo en version de escritorio -->
