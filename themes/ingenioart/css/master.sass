@@ -768,6 +768,77 @@ body,html
 			margin   : 0 auto 
 			max-width: 95px
 
+//** Single del Servicio
+
+//Tabs de Detalles del Servicio
+.pageServicios__single-tabs
+	//Sobreescribir estilos bootstrap
+	.nav-tabs
+		border: none 
+		.nav-item
+			.nav-link
+				+border-radius( 0 )
+				+transition( all 400ms ease-in-out )
+				background : $ingenioart_gray
+				color      : gray 
+				font-size  : 14px
+				font-weight: 700 
+				//active and hover
+				&.active , &:hover
+					background: $ingenioart_blue 
+					color     : white 
+	//Contenedor Panel
+	.tab-content
+		background : $ingenioart_gray
+		color      : rgba( 0,0, 0, 0.7 ) 
+		font-family: "BloggerSans"
+		margin     : 5px auto 0
+		padding    : 21px 28px
+		font-weight: 600
+
+//Servicios Relacionados
+.pageService__related
+	//Titulo
+	h3 
+		color      : gray 
+		font-size  : 16px 
+		font-weight: 600  
+	//Item relacionado
+	.item-related
+		border-bottom  : 1px solid $ingenioart_gray_oscuro
+		color          : $ingenioart_blue
+		line-height    : 1em 
+		padding        : 14px 0 
+		text-decoration: none 
+		+transition( all 500ms ease )
+		&:hover 
+			color: $ingenioart_orange
+
+//Ejemplos y demos de la página
+.pageServicio__demos
+	margin: 37px auto 0
+	//Titulo
+	.demo__title
+		color      : $ingenioart_blue
+		font-family: "Bebas"
+	//Contenido
+	.demo__content
+		color      : rgba( 0,0,0,.8 ) 
+		font-family: "BloggerSans"
+		font-size  : 18px 
+		font-weight: 600
+	//Flechas de Carousel
+	.demo__arrows--prev
+		left: 0
+	.demo__arrows--next
+		left: 35px
+
+//Contenedor carousel de servicios
+.pageServicio__demos-carousel
+	//Imagenes
+	figure
+		background: black 
+		 
 /***************************************************************************************/
 /**------------------------ --- PÁGINA PORTAFOLIO ------------------------------------**/
 /***************************************************************************************/

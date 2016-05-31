@@ -1,21 +1,10 @@
-<?php /* Single Servicios Plantilla */ ?>
+<?php /* Single Servicios Plantilla */ 
+	
+	global $post;
 
-<!-- Global Post -->
-<?php 
-	global $post; 
-	$options = get_option('timco_custom_settings'); 
-
-	//Conseguir el id de su pagina padre servicios
-	//$parent_page  = get_page_by_title( 'Servicios' ); #var_dump($parent_page);
-
-	$banner = $post;
-
-	//Comprobar si el except esta vacio si no colocar como nombre el titulo de la página
-	if( !empty($post->post_excerpt) ):  
-		$banner_title = $post->post_excerpt;
-	else: 
-		$banner_title = $post->post_title;
-	endif; 
+	/* Opciones de Banner */ 
+	$banner       = $post; 
+	$banner_title = $post->post_title;
 ?>
 
 <!-- Get Header -->
@@ -24,104 +13,181 @@
 <!-- Incluir banner de la página -->
 <?php include( locate_template("partials/banner-common-pages.php") ); ?>
 
-<!-- CONTENEDOR COMUN -->
-<div class="container">
-	<main class="pageCommon__wrapper pageServices">
+<!-- Contenedor Global -->
+<main class="pageWrapper">
+	<div class="container">
+
+		<!-- Sección De Descripción -->
+		<div class="row">
+			<!-- Descripción -->
+			<div class="col-xs-12 col-md-6">
+				<!-- Titulo --> <h2 class="pageCommon__title text-uppercase"><?php _e( $post->post_title , LANG ); ?></h2>
+				<!-- Descripción Completa -->
+				<div class="text-justify">
+					<?= apply_filters('the_content' , $post->post_content ); ?>
+				</div> <!-- /."text-justify -->
+			</div> <!-- /.col-xs-12 col-md-6 -->
+			<!-- Imagen -->
+			<div class="col-xs-12 col-md-6">
+				<!-- Imagen -->
+				<?php if( has_post_thumbnail( $post->ID ) ) : ?>
+					<figure class="pageServicio__image">
+						<?= get_the_post_thumbnail($post->ID , 'full' , array('class'=>'img-fluid') ); ?>
+					</figure> <!-- /.pageServicio__image -->
+				<?php else: echo "Imagen Actualmente No Disponible"; endif; ?>
+			</div><!-- /.col-xs-12 col-md-6 -->
+		</div> <!-- /.row -->
+		
+		<!-- Separación  -->
+		<br><br>
+
+		<!-- Sección Relacionados -->
+		<div class="row">
+
+			<!-- Seccion Tabs Descripción detallada de servicio -->
+			<div class="col-xs-12 col-md-8">
+				<section class="pageServicios__single-tabs">
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs text-uppercase" role="tablist">
+						<li class="nav-item">
+							<a class="nav-link active" data-toggle="tab" href="#serv-characters" role="tab">
+								<?php _e( 'características' , LANG ); ?>
+							</a>
+						</li> <!-- /.nav-item --> 
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="tab" href="#serv-requirements" role="tab">
+								<?php _e( 'requerimientos' , LANG ); ?>
+							</a>
+						</li> <!-- /.nav-item --> 
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="tab" href="#serv-estimated-time" role="tab">
+								<?php _e( 'tiempo estimado' , LANG ); ?>
+							</a>
+						</li> <!-- /.nav-item --> 
+					</ul> <!-- /.nav nav-tabs -->
+
+					<!-- Tab panes -->
+					<div class="tab-content">
+						<!-- Caracteristicas -->
+						<div class="tab-pane fade in active" id="serv-characters" role="tabpanel">
+							<?php $characters = get_post_meta( $post->ID , 'custom_theme_'.$post->ID.'_characters' , true ); 
+								if( !empty($characters) ) : echo apply_filters('the_content' , $characters );
+								else : echo "Actualizando Contenido"; endif;
+							?>
+						</div> <!-- /.tab-pane -->
+						<!-- Requerimientos -->
+						<div class="tab-pane fade" id="serv-requirements" role="tabpanel">
+							<?php $requirements = get_post_meta( $post->ID , 'custom_theme_'.$post->ID.'_requirements' , true ); 
+								if( !empty($requirements) ) : echo apply_filters('the_content' , $requirements );
+								else : echo "Actualizando Contenido"; endif;
+							?>							
+						</div> <!-- /.tab-pane -->
+						<!-- Tiempo estimado -->
+					  <div class="tab-pane fade" id="serv-estimated-time" role="tabpanel">
+							<?php $time = get_post_meta( $post->ID , 'custom_theme_'.$post->ID.'_time' , true ); 
+								if( !empty($time) ) : echo apply_filters('the_content' , $time );
+								else : echo "Actualizando Contenido"; endif;
+							?>						  	
+					  </div> <!-- /.tab-pane -->
+					</div> <!-- /.tab-content -->
+					
+				</section> <!-- /.pageServicios__single-tabs" -->
+			</div> <!-- /.col-xs-12 col-md-8 -->	
+
+			<!-- Seccion Servicios Relacionados -->
+			<div class="col-xs-12 col-md-4">
+				<section class="pageService__related text-xs-center">
+					<!-- Titulo --> <h3 class="text-uppercase"><?php _e('servicios relacionados' , LANG ); ?></h3>
+
+					<!-- Obtener los servicios relacionados por tags -->
+					<?php 
+						$tags    = wp_get_post_tags( $post->ID ); 
+						$tag_ids = array();
+						if( !empty($tags) ) : 
+							foreach( $tags as $tag ){ $tag_ids[] = $tag->term_id; };
+
+							//Obtener el query
+							$args = array(
+								'order'          => 'ASC',
+								'orderby'        => 'menu_order',
+								'post__not_in'   => array( $post->ID ),
+								'post_status'    => 'publish',
+								'post_type'      => 'servicio',
+								'posts_per_page' => -1,
+								'tag__in'        => $tag_ids,
+							);
+
+							$relacionados = get_posts( $args ); #var_dump($relacionados); 
+
+							if( !empty($relacionados) ) :
+							foreach( $relacionados as $rel ) : 
+					?>
+						<a class="item-related center-block text-capitalize" href="<?= get_permalink( $rel->ID ); ?>"><?= $rel->post_title; ?></a>
+					<?php endforeach; else: ?> 
+						<p class="text-featured--blue"><?= _e("Ningún Servicio relacionado Actualmente", LANG); ?> </p> 
+					<?php endif; endif; ?> 
+
+				</section> <!-- /.pageService__related" -->
+			</div> <!-- /.col-xs-12 col-md-4 -->
+
+		</div> <!-- /.row -->
+
+		<!-- Carousel Ejemplos de Servicio -->
+		<section class="pageServicio__demos">
 			<div class="row">
 
-				<!-- SECCION DE CONTENEDORA DE INFORMACION -->
-				<div class="col-xs-12 col-md-8">
+				<!-- Información -->
+				<div class="col-xs-12 col-md-3">
+					<!-- Titulo --> <h3 class="demo__title"> <?php _e('algunos ejemplos de ' . $post->post_title , LANG ); ?></h3>
+					<!-- Descripcion --> <p class="demo__content"><?php _e('Estos son algunos ejemplos de ' . $post->post_title . ' en el portafolio de la empresa realizados para nuestros clientes.' ); ?></p>
+					<!-- Flechas de Carousel -->
+					<section class="demo__arrows relative">
+						<!--  -->
+						<a href="#" id="demo__arrows--prev" class="arrow__common-slider demo__arrows--prev">
+							<i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+						</a> 						
+						<!--  -->
+						<a href="#" id="demo__arrows--next" class="arrow__common-slider demo__arrows--next">
+							<i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+						</a> 
+					</section>
+				</div> <!-- /.col-xs-12 col-md-3 -->
 
-					<!-- Información -->
-					<div class="pageServicio__text text-justify">
-						<?= apply_filters('the_content', $post->post_content ); ?>
-					</div> <!-- /.pageServicio__article__text -->
-
-					<!-- Galería de Imágenes -->
-					<section class="relative">
-
-						<!-- Imagenes Galeria -->
-						<section id="carousel-gallery-service" class="js-carousel-gallery pageServicio__gallery">
-							<?php  
-								//Obtener imagenes de la galería
-								$input_ids_img  = get_post_meta( $post->ID, 'imageurls_'.$post->ID , true);
-								//convertir en arreglo
-								$input_ids_img  = explode(',', $input_ids_img );
-								//eliminar valores duplicados - sigue siendo array
-								$input_ids_img  = array_unique( $input_ids_img );
-								//colocar en una sola cadena para el input
-								$string_ids_img = "";
-								$string_ids_img = implode(',', $input_ids_img);
-
-								$args  = array(
-									'post_type'      => 'attachment',
-									'post__in'       => $input_ids_img,
-									'posts_per_page' => -1,
-								);
-								$attachment = get_posts($args);
-								
-								if( !empty($attachment) ) :
-								foreach( $attachment as $atta ) :
-
-								/* Datos de la imgen */
-								$contenido = $atta->post_content;					
-							?>
-								<div class="item">
-									<img src="<?= $atta->guid; ?>" alt="<?= $atta->post_title; ?>" class="img-responsive" />
-								</div><!-- /.item -->
-	
-							<?php endforeach; else: ?>
-								<p><?php _e( 'No imágenes para mostrar' , LANG ); ?></p>
-							<?php endif;  ?>
-
-						</section> <!-- ./pageEmpresa__gallery -->
-
-					</section> <!-- /.relative -->
-
-				</div> <!-- /.col-xs-9 -->
-
-				<!-- ASIDE DE SERVICIOS -->
-				<div class="col-md-4 hidden-xs">
-					<aside class="pageServicio__sidebar">
-						<!-- Título --> <h2 class="text-uppercase pageCommon__title-sidebar">
-							<?php _e('servicios', LANG ); ?>
-						</h2> <!-- /. pageCommon__title-sidebar -->
-						<!-- Obtener la query-->
-						<ul class="pageServicio__sidebar__menu">
-							<?php  
-								$args = array(
-									'order'          => 'ASC',
-									'orderby'        => 'menu_order',
-									'post_status'    => 'publish',
-									'post_type'      => 'servicio',
-									'posts_per_page' => -1,
-								);
-								$servicios = get_posts( $args );
-								foreach( $servicios as $servicio ) :
-							?>
-								<li class="<?= $post->ID == $servicio->ID ? 'active' : '' ?> ">
-									<a href="<?= $servicio->guid ?>"><?php  
-										if( !empty( $servicio->post_excerpt ) ) : echo $servicio->post_excerpt;
-										else: echo $servicio->post_title;
-										endif;
-									?></a>
-								</li>
-							<?php endforeach; ?>
-						</ul> <!-- /.pageServicio__sidebar__menu -->
-
-					</aside> <!-- /.pageServicio__sidebar -->
- 				</div> <!-- /.col-xs-3 -->
+				<!-- Carousel -->
+				<div class="col-xs-12 col-md-9">
+					<!-- Carousel seccion -->
+					<section id="carousel-single-servicio" class="pageServicio__demos-carousel">
+						<?php  
+							$input_ids_img  = get_post_meta( $post->ID, 'imageurls_'.$post->ID , true);
+							//convertir en arreglo
+							$input_ids_img  = explode(',', $input_ids_img ); 
+							//Hacer loop por cada item de arreglo
+							foreach ( $input_ids_img as $item_img ) : 
+								//Conseguir todos los datos de este item
+								$item = get_post( $item_img  ); 
+								//Si es diferente de null o tiene elementos
+								if( !is_null( $item ) ) :  
+						?> <!-- Imagen -->
+							<a href="<?= $item->guid; ?>" rel="group" class="gallery-fancybox" >
+								<figure>	
+									<img src="<?= $item->guid; ?>" alt="<?= $item->post_name; ?>" class="img-fluid" />
+								</figure> <!-- /figure -->
+							</a>
+						<?php endif; endforeach; ?>
+					</section> <!-- /.pageServicio__demos-carousel -->
+				</div><!-- /.col-xs-12 col-md-9 -->
 
 			</div> <!-- /.row -->
-	</main> <!-- /.pageCommon__wrapper -->
-</div> <!-- /.container -->
+		</section> <!-- /. pageServicio__demos -->
 
+	</div> <!-- /.container -->
+</main> <!-- /.pageWrapper -->
+
+<!-- Incluir Seccion de Clientes -->
+<?php include(locate_template("partials/carousel-clientes.php") ); ?>
 
 <!-- Incluir Banner de Servicios -->
 <?php include(locate_template('partials/banner-services.php')); ?>
-
-<!-- Incluir template de carousel clientes -->
-<?php include( locate_template("partials/carousel-clientes.php") ); ?>
 
 <!-- Get Footer -->
 <?php get_footer(); ?>

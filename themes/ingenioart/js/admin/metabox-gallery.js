@@ -117,7 +117,7 @@ var j = jQuery.noConflict();
         var valores_array = input_data.val();
 
         //buscar y eliminar elemento id de imagen  del arreglo
-        valores_array = valores_array.replace( data_id_img , '-1' );
+        valores_array = valores_array.replace( ',' + data_id_img , '' );
         input_data.val( valores_array );
         /*var i = imageArray.indexOf(data_id_img);
         if(i != -1 ) { 
@@ -132,6 +132,18 @@ var j = jQuery.noConflict();
 
         //console.log(imageArray);
 
+    });
+
+    //Eliminar todas las imágenes modo seguro
+    j("#remove_all_image_btn").on('click',function(e){
+        e.preventDefault();
+        //variable input data
+        var post_data = j(this).attr('data-id-post');
+        //remover todos sus elementos y quedar valor -1
+        j("#imageurls_"+post_data).val('-1');
+
+        //Actualizar con botón
+        if( j("#publish").length ){ j("#publish").trigger( "click" ); }
     });
 
 })(jQuery)

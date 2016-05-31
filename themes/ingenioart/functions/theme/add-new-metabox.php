@@ -167,40 +167,31 @@ function attached_images_meta_box($post){
 	$input_ids_img  = -1;
 	$input_ids_img  = get_post_meta($post->ID, 'imageurls_'.$post->ID , true);
 	//convertir en arreglo
-	$input_ids_img  = explode(',', $input_ids_img );
+	$input_ids_img  = explode(',', $input_ids_img ); 
 	//eliminar valores duplicados - sigue siendo array
-	$input_ids_img  = array_unique( $input_ids_img );
+	#$input_ids_img  = array_unique( $input_ids_img );
 	//colocar en una sola cadena para el input
 	$string_ids_img = "";
 	$string_ids_img = implode(',', $input_ids_img);
 
-	$args  = array(
-		'post_type'      => 'attachment',
-		'post__in'       => $input_ids_img,
-		'posts_per_page' => -1,
-	);
-	$attachment = get_posts($args);
-
-	#var_dump($attachment);
-
-	//var_dump($attachment);
 	echo "<section style='display:flex; flex-wrap: wrap;'>";
 
-	foreach ($attachment as $atta ) : ?>
-
+	//Hacer loop por cada item de arreglo
+	foreach ( $input_ids_img as $item_img ) : 
+		//Conseguir todos los datos de este item
+		$item = get_post( $item_img  ); #var_dump($item);
+		//Si es diferente de null o tiene elementos
+		if( !is_null( $item ) ) : 
+	?>
 		<figure style="width: 25%;height: 120px; margin: 0 10px 20px; display: inline-block; vertical-align: top; position: relative;">
-			<a href="#" class="js-delete-image" data-id-post="<?= $post->ID; ?>" data-id-img="<?= $atta->ID ?>" style="border-radius: 50%; width: 20px;height: 20px; border: 2px solid red; color: red; position: absolute; top: -10px; right: -8px; text-decoration: none; text-align: center; background: black; font-weight: 700;">X</a>
+			<a href="#" class="js-delete-image" data-id-post="<?= $post->ID; ?>" data-id-img="<?= $item->ID ?>" style="border-radius: 50%; width: 20px;height: 20px; border: 2px solid red; color: red; position: absolute; top: -10px; right: -8px; text-decoration: none; text-align: center; background: black; font-weight: 700;">X</a>
 			
 			<!-- Abrir frame del contenedor de imagen -->
-			<a href="#" class="js-update-image" data-id-post="<?= $post->ID; ?>" data-id-img="<?= $atta->ID ?>" style="display: block; height: 100%; width: 100%;">
-			<img src="<?= $atta->guid; ?>" alt="<?= $atta->post_title; ?>" class="" style="width: 100%; height: 100%; margin: 0 auto;" />
-			</a>
+			<a href="#" class="js-update-image" data-id-post="<?= $post->ID; ?>" data-id-img="<?= $item->ID ?>" style="display: block; height: 100%; width: 100%;">
+				<img src="<?= $item->guid; ?>" alt="<?= $item->post_title; ?>" class="" style="width: 100%; height: 100%; margin: 0 auto;" />
+			</a> 
 		</figure>
-
-	<?php 
-
-	endforeach;
-
+	<?php endif; endforeach;
 	echo "</section>";
 
 	/*----------------------------------------------------------------------------------------------*/
@@ -208,7 +199,10 @@ function attached_images_meta_box($post){
 	/*----------------------------------------------------------------------------------------------*/
 	echo '<input id="imageurls_'.$post->ID.'" type="hidden" name="imageurls_'.$post->ID.'" value="'.$string_ids_img. '" />';
 
-    echo '<a id="add_image_btn" data-id-post="'.$post->ID.'" href="#" class="button button-primary button-large" data-editor="content">Agregar Imagen</a>';
+    echo '<a id="add_image_btn" data-id-post="'.$post->ID.'" href="#" class="button button-primary button-large" data-editor="content">Agregar Imagen</a>'; 
+
+    echo '<a id="remove_all_image_btn" data-id-post="'.$post->ID.'" href="#" class="button button-primary" style="margin: 0 10px;" >Eliminar Todo </a>';
+
     echo "<p class='description'>Después de Agregar/Eliminar elemento dar click en actualizar<p>";
 }
 
@@ -325,6 +319,58 @@ function cd_banner_text_save( $post_id )
     update_post_meta( $post_id, 'banner_text_check', $chk );
 }
 
+
+/*|-------------------------------------------------------------------------|*/
+/*|------------ METABOX EDITOR WYSIWYG PARA CADA SERVICIO  -----------------|*/
+/*|-------------------------------------------------------------------------|*/
+
+//Este metabox permite obtener campos personalizados para 
+//editar los servicios como las características, el requerimiento y el
+//tiempo estimado
+
+add_action('add_meta_boxes', 'theme_register_add_editors');
+
+function theme_register_add_editors(){
+	add_meta_box('WYSIWG_THEME_PERF' , __('Información Servicio: Detalles' , LANG ) , 'custom_theme_cb' , array('servicio') );
+}
+
+function custom_theme_cb(){
+	global $post;
+	$option_content = array('editor_height'=>'200');
+
+	echo "<h2><strong> Características de Servicio: </strong></h2>";
+	$text1 = get_post_meta( $post->ID , 'custom_theme_'.$post->ID.'_characters' , true );
+	wp_editor( htmlspecialchars_decode( $text1 ), 'custom_theme_'.$post->ID.'_characters' , $option_content );	
+
+	echo "<h2><strong> Requerimientos de Servicio: </strong></h2>";
+	$text2 = get_post_meta( $post->ID , 'custom_theme_'.$post->ID.'_requirements' , true );
+	wp_editor( htmlspecialchars_decode( $text2 ), 'custom_theme_'.$post->ID.'_requirements' , $option_content );	
+
+	echo "<h2><strong> Tiempo Estimado de Servicio: </strong></h2>";
+	$text3 = get_post_meta( $post->ID , 'custom_theme_'.$post->ID.'_time' , true );
+	wp_editor( htmlspecialchars_decode( $text3 ), 'custom_theme_'.$post->ID.'_time' , $option_content );
+}
+
+function custom_theme_save_postdata( $post_id ){
+
+	if( !empty( $_POST['custom_theme_'.$post_id.'_characters'] ) ){
+		$data = htmlspecialchars( $_POST['custom_theme_'.$post_id.'_characters'] );
+		update_post_meta( $post_id, 'custom_theme_'.$post_id.'_characters' , $data );
+	}	
+
+	if( !empty( $_POST['custom_theme_'.$post_id.'_requirements'] ) ){
+		$data = htmlspecialchars( $_POST['custom_theme_'.$post_id.'_requirements'] );
+		update_post_meta( $post_id, 'custom_theme_'.$post_id.'_requirements' , $data );
+	}	
+
+	if( !empty( $_POST['custom_theme_'.$post_id.'_time'] ) ){
+		$data = htmlspecialchars( $_POST['custom_theme_'.$post_id.'_time'] );
+		update_post_meta( $post_id, 'custom_theme_'.$post_id.'_time' , $data );
+	}
+}
+
+//Save the Data
+add_action( 'save_post', 'custom_theme_save_postdata' );
 
 
 ?>

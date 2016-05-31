@@ -138,6 +138,42 @@ var j = jQuery.noConflict();
 
 
 		/*|----------------------------------------------------------------------|*/
+		/*|-----  CAROUSEL SERVICIOS - PAGINA SERVICIOS  -----|*/
+		/*|----------------------------------------------------------------------|*/
+		var carousel_service = j('#carousel-single-servicio');
+		carousel_service.owlCarousel({
+			items          : 3,
+			lazyLoad       : false,
+			loop           : true,
+			margin         : 7,
+			nav            : false,
+			autoplay       : true,
+			responsiveClass: true,
+			mouseDrag      : false,
+			autoplayTimeout: 2500,
+			fluidSpeed     : 2000,
+			smartSpeed     : 2000,
+			responsive:{
+		        320:{
+		            items: 1
+		        },
+		      	640:{
+		            items: 3
+		        },
+	    	}			
+		});
+
+		/* Eventos de flechas */
+		j("#demo__arrows--prev").on('click',function(e){
+			carousel_service.trigger('prev.owl.carousel', [900]);
+		});
+		j("#demo__arrows--next").on('click',function(e){
+			carousel_service.trigger('next.owl.carousel', [900]);
+		});
+
+
+
+		/*|----------------------------------------------------------------------|*/
 		/*|-----  ISOTOPE DE PROYECTOS   -----|*/
 		/*|----------------------------------------------------------------------|*/
 

@@ -22,7 +22,7 @@ pertenece la pagina actual a un custom post type */
 		#var_dump($menu_slug );
 
 		// If the menu item URL contains the current post types slug add the current-menu-item class
-		if (strpos($menu_slug,$current_post_type_slug) !== false) {
+		if (strpos($menu_slug, $current_post_type_slug) !== false) {
 		
 		   $classes[] = 'current-menu-item';
 		
