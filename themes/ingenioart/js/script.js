@@ -329,7 +329,18 @@ var j = jQuery.noConflict();
 		{
 			j("#form__suscribirse").on('submit',function(e){
 				e.preventDefault(); //prevenir evento default
-				alert( 'ok');
+j.post( url + '/email/enviar.php', 
+			{ 
+				nombre : j("#input_name").val(),
+				email  : j("#input_email").val(),
+				message: j("#input_consulta").val(),
+			},function(data){
+				alert( data );
+
+				j("#input_name").val("");
+				j("#input_email").val("");
+				j("#input_consulta").val("");
+			});	
 			});
 		}
 
