@@ -44,9 +44,9 @@
 						<!-- Compartir --> 
 						<div class="multimedia__item__share">
 							<!-- Facebook -->
-							<a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
+							<a href="javascript:window.open('https://www.facebook.com/sharer/sharer.php?u=<?= get_permalink( $post->ID ); ?>' , '_blank' , 'width=400 , height=500' ); void(0);"><i class="fa fa-facebook" aria-hidden="true"></i></a>
 							<!-- Twitter -->
-							<a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>	
+							<a href="javascript:window.open('https://twitter.com/intent/tweet?text=<?= '!Hola! este artículo me pareció interesante: ' . get_permalink( $post->ID ) . ' !Visítalo!' ; ?>' , '_blank' , 'width=400 , height=500' ); void(0);"><i class="fa fa-twitter" aria-hidden="true"></i></a>	
 						</div>
 					</section> <!-- /.item-blog__share -->
 

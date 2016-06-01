@@ -68,8 +68,14 @@
 			<article class="item-proyecto <?= $terminos_project; ?> relative">
 				<!-- Imagen -->
 				<figure>
-					<?= get_the_post_thumbnail($proyecto->ID,'full',array('class'=>'img-fluid')); ?>
+					<?php if( has_post_thumbnail( $proyecto->ID ) ) :  
+						echo get_the_post_thumbnail($proyecto->ID,'full',array('class'=>'img-fluid'));
+						else : 
+					?>
+						<img src="<?= IMAGES ?>/actualizando-info.jpg" alt="actualizando-ingenioart-info" class="img-fluid" />
+					<?php endif;  ?>
 				</figure> <!-- /figure -->
+
 				<!-- Links del Artículo -->
 				<section class="item-proyecto__links container-flex align-content text-xs-center">
 					<?php  
@@ -77,15 +83,19 @@
 						$feat_img = wp_get_attachment_url( get_post_thumbnail_id( $proyecto->ID ) );
 					?>
 					<!-- Link de vista --> 
-					<a href="<?= $feat_img; ?>" content="<?= $proyecto->post_title ?>" class="gallery-fancybox btn__link"><i class="fa fa-search" aria-hidden="true"></i></a>
+					<a href="<?= !empty($feat_img) ? $feat_img : IMAGES . '/actualizando-info.jpg' ; ?>" content="<?= $proyecto->post_title ?>" class="gallery-fancybox btn__link"><i class="fa fa-search" aria-hidden="true"></i></a>
 					<!-- Link al proyecto --> 
 					<a href="<?= get_permalink( $proyecto->ID ); ?>" class="btn__link"><i class="fa fa-external-link" aria-hidden="true"></i></a>
 					<!-- Titulo del artículo -->
 					<h3 class="text-uppercase"><?php _e( $proyecto->post_title , LANG ); ?></h3>
 				</section> <!-- /.item-proyecto__links -->
+				
 			</article> <!-- /.item-proyecto -->
 			<?php endforeach; else: echo "Actualizando Contenido"; endif; ?>
+
 		</section> <!-- /.pageInicio__portafolio__content -->
+
+		<!-- Limpiar floats --><div class="clearfix"></div>
 
 		<!-- Mensaje Isotope en caso no se haya encontrado elementos -->
 		<div id="message-proyecto" style="display:none;">

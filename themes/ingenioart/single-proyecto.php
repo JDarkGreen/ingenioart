@@ -33,7 +33,13 @@
 				<!-- Imagen de Proyecto -->
 				<div class="col-xs-8">
 					<figure class="pagePortafolio__featured-image">
-						<?= get_the_post_thumbnail( $post->ID ,'full', array('class'=>'img-fluid') ); ?>
+						<?php 
+							if( has_post_thumbnail( $post->ID ) ) : 
+							echo get_the_post_thumbnail( $post->ID ,'full', array('class'=>'img-fluid') ); 
+							else: 
+						?>
+							<img src="<?= IMAGES ?>/actualizando-info.jpg" alt="actualizando-ingenioart-info" class="img-fluid" />
+						<?php endif; ?>
 					</figure> <!-- /.pagePortafolio__featured-image -->
 				</div> <!-- /.col-xs-7 -->
 				<!-- Detalles de Proyecto -->

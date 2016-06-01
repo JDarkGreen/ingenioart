@@ -17,6 +17,7 @@
 	<div class="container">
 		<!-- Titulo --> <h2 class="pageCommon__title text-xs-center text-uppercase"> <?php _e( 'nuestros servicios' , LANG ) ?></h2>
 		<!-- Subtitle --> <h3 class="pageCommon__subtitle text-xs-center"> Les ofrecemos el mejor servicio en todas las áreas de <strong>DISEÑO</strong> y <strong>PROGRAMACIÓN DIGITAL</strong> </h3>
+
 		<!-- Contenedor de Servicios -->
 		<section class="relative">
 			<div id="pageInicio__services__gallery" class="pageInicio__services__gallery">
@@ -41,10 +42,20 @@
 							
 						</figure>
 						<!-- Titulo --> <h2 class="text-uppercase"><?= $servicio->post_title ?></h2>
-						<!-- Botón ver Detalle --> <a href="<?= $servicio->guid ?>" class="btn__read-more">Leer más</a>
+						<!-- Botón ver Detalle --> <a href="<?= get_permalink($servicio->ID); ?>" class="btn__read-more">Leer más</a>
 					</article> <!-- /.item-service -->
 				<?php endforeach; ?>
 			</div> <!-- /.pageInicio__services__gallery -->
+
+			<!-- Flechas de Carousel -->
+			<a href="#" id="arrow__serv--prev" class="arrow__common-slider arrow__common-slider--prev">
+				<i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+			</a>
+
+			<a href="#" id="arrow__serv--next" class="arrow__common-slider arrow__common-slider--next">
+				<i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+			</a>
+
 		</section> <!-- /.relative -->
 	</div> <!-- /.container -->
 </section> <!-- /.pageInicio__services -->
@@ -55,6 +66,7 @@
 		<div class="row container-flex align-content">
 			<div class="col-xs-12 col-md-6 text-xs-center">
 				<!-- Titulo --> <h2 class="pageCommon__title text-uppercase"> <?php _e( 'estratégia & creatividad' , LANG ); ?> </h2>
+
 				<!-- Contenido --> 
 				<div class="">
 					<?php if( isset($options['widget_nosotros']) && !empty($options['widget_nosotros']) ) : echo apply_filters('the_content' , $options['widget_nosotros'] ); else: echo "Actualizando Contenido";
@@ -62,7 +74,12 @@
 					?>
 				</div> <!-- /.text-xs-center -->
 
-				<!-- Boton leer más --> <a href="#" class="btn__read-more"><?php _e('Leer más', LANG ); ?></a>
+				<?php  
+					/* Obtener páginas nosotros */
+					$page_nosotros = get_page_by_title('Nosotros');
+				?>
+
+				<!-- Boton leer más --> <a href="<?= get_permalink( $page_nosotros->ID ); ?>" class="btn__read-more"><?php _e('Leer más', LANG ); ?></a>
 
 			</div> <!-- /.col-xs-12 -->
 			<div class="col-xs-12 col-md-6">
@@ -149,9 +166,13 @@
 			<!-- Links del Artículo -->
 			<section class="item-proyecto__links container-flex align-content text-xs-center">
 				<!-- Link de vista --> 
-				<a href="#" class="btn__link"><i class="fa fa-search" aria-hidden="true"></i></a>
+				<?php  
+					//Obtener url de la imagen 
+					$feat_img = wp_get_attachment_url( get_post_thumbnail_id( $proyecto->ID ) );
+				?>
+				<a href="<?= $feat_img; ?>" class="gallery-fancybox btn__link"><i class="fa fa-search" aria-hidden="true"></i></a>
 				<!-- Link al proyecto -->
-				<a href="#" class="btn__link"><i class="fa fa-external-link" aria-hidden="true"></i></a>
+				<a href="<?= get_permalink( $proyecto->ID ); ?>" class="btn__link"><i class="fa fa-external-link" aria-hidden="true"></i></a>
 				<!-- Titulo del artículo -->
 				<h3 class="text-uppercase"><?php _e( $proyecto->post_title , LANG ); ?></h3>
 			</section> <!-- /.item-proyecto__links -->
@@ -166,7 +187,11 @@
 	<!-- Titulo --> <h2 class=""> <strong class="text-uppercase"> <?php _e( 'deseas ver más' , LANG ); ?> </strong>
 	<?php _e( 'de nuestros trabajos realizados' , LANG ); ?> </h2>
 	<!-- Link -->
-	<a href="#" class="btn__show-more btn__show-more--orange"><?php _e('Click aquí' , LANG ); ?></a>
+	<?php  
+		/* Obtener pagina portafolio */
+		$page_portafolio = get_page_by_title('Portafolio');
+	?>
+	<a href="<?= get_permalink($page_portafolio->ID); ?>" class="btn__show-more btn__show-more--orange"><?php _e('Click aquí' , LANG ); ?></a>
 </section> <!-- /.pageInicio__portafolio__banner -->
 
 <!-- Sección Blog Carousel -->
@@ -202,7 +227,7 @@
 						</div> <!-- /.item-blog__excerpt -->
 
 						<!-- Boton al articulo [derecha] -->
-						<a href="<?= $articulo->guid; ?>" class="pull-xs-right btn__show-more btn__show-more--orange"><?php _e( 'Ver más', LANG ); ?></a>
+						<a href="<?= get_permalink($articulo->ID); ?>" class="pull-xs-right btn__show-more btn__show-more--orange"><?php _e( 'Ver más', LANG ); ?></a>
 
 						<!-- Limpiar floats --> <div class="clearfix"></div>
 
@@ -234,7 +259,7 @@
 					<!-- Título --> <h2 class="pageCommon__title text-xs-center text-uppercase"><?php _e('suscribete',LANG ); ?></h2>
 
 					<!-- Formulario -->
-					<form action="" class="pageInicio__miscelaneo__form">
+					<form id="form__suscribirse" action="" class="pageInicio__miscelaneo__form">
 						
 						<p class="description"><?php _e('Para obtener promociones e información interesante para tu negocio.', LANG ) ?> </p> 
 
@@ -248,7 +273,7 @@
 
 						<!-- Boton Suscribirse -->
 						<div class="text-xs-center">
-							<a href="#" class="btn__show-more btn__show-more--orange"><?php _e('Suscríbete', LANG ); ?></a>
+							<button type="submit" class="btn__show-more btn__show-more--orange"><?php _e('Suscríbete', LANG ); ?></button>
 						</div> <!-- /.text-xs-center -->
 
 					</form> <!-- /.pageInicio__miscelaneo__form -->

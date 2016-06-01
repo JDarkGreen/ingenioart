@@ -4,8 +4,11 @@
 	$taxonomy = get_queried_object();
 	$options  = get_option('ingenioart_custom_settings');
 
+	/* Obtener página servicio */
+	$page_servicio = get_page_by_title('Servicios');
+
 	/* Opciones de Banner */ 
-	$banner       = $taxonomy; #var_dump($taxonomy);
+	$banner       = $page_servicio; #var_dump($taxonomy);
 	$banner_title = __('Servicios - ') . __( $taxonomy->name , LANG );
 ?>
 

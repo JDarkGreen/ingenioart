@@ -46,7 +46,8 @@
 							?>
 							<a href="<?= $feat_img; ?>" rel="group" class="gallery-fancybox">
 								<!-- Imagen --> <figure> 
-									<?= get_the_post_thumbnail($imagen->ID,'full',array('class'=>'img-fluid') ); ?>
+									<?= get_the_post_thumbnail($imagen->ID,'full',array('class'=>'img-fluid') ); 
+									?>
 								</figure>
 							</a>
 							<!-- Título -->
@@ -54,9 +55,9 @@
 							<!-- Compartir Links -->
 							<div class="multimedia__item__share">
 								<!-- Facebook -->
-								<a href="" ><i class="fa fa-facebook" aria-hidden="true"></i></a>
+								<a href="javascript:window.open('https://www.facebook.com/sharer/sharer.php?u=<?= $feat_img; ?>' , '_blank' , 'width=400 , height=500' ); void(0);"><i class="fa fa-facebook" aria-hidden="true"></i></a>
 								<!-- Twitter -->
-								<a href="" ><i class="fa fa-twitter" aria-hidden="true"></i></a>							
+								<a href="javascript:window.open('https://twitter.com/intent/tweet?text=<?= '!Hola! ésta imagen me pareció interesante: ' . $feat_img; ?>' , '_blank' , 'width=400 , height=500' ); void(0);" ><i class="fa fa-twitter" aria-hidden="true"></i></a>							
 								<!-- Mensajes -->
 								<a href="" ><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
 							</div> <!-- /.multimedia__item__share -->
@@ -102,9 +103,11 @@
 							<!-- Compartir Links -->
 							<div class="multimedia__item__share">
 								<!-- Facebook -->
-								<a href="" ><i class="fa fa-facebook" aria-hidden="true"></i></a>
+								<a href="javascript:window.open('https://www.facebook.com/sharer/sharer.php?u=<?= $video->post_content; ?>' , '_blank' , 'width=400 , height=500' ); void(0);" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+
 								<!-- Twitter -->
-								<a href="" ><i class="fa fa-twitter" aria-hidden="true"></i></a>							
+								<a href="javascript:window.open('https://twitter.com/intent/tweet?text=<?= '!Hola! ésta video me pareció interesante: ' . $video->post_content; ?>' , '_blank' , 'width=400 , height=500' ); void(0);"><i class="fa fa-twitter" aria-hidden="true"></i></a>					
+
 								<!-- Mensajes -->
 								<a href="" ><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
 							</div> <!-- /.multimedia__item__share -->

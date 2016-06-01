@@ -69,6 +69,34 @@ var j = jQuery.noConflict();
 		});
 
 		/*|----------------------------------------------------------------------|*/
+		/*|-----  CAROUSEL SERVICIOS HOME  -----|*/
+		/*|----------------------------------------------------------------------|*/
+
+		var carousel_home_service = j('#pageInicio__services__gallery');
+		carousel_home_service.owlCarousel({
+			autoplay       : true,
+			autoplayTimeout: 5000,
+			dots           : true,
+			fluidSpeed     : 2000,
+			items          : 4,
+			lazyLoad       : false,
+			loop           : true,
+			margin         : 27,
+			mouseDrag      : false,
+			nav            : false,
+			responsiveClass: true,
+			smartSpeed     : 2000,		
+		});
+
+		/* Eventos de flechas */
+		j("#arrow__serv--prev").on('click',function(e){
+			carousel_home_service.trigger('prev.owl.carousel', [700]);
+		});
+		j("#arrow__serv--next").on('click',function(e){
+			carousel_home_service.trigger('next.owl.carousel', [700]);
+		});
+
+		/*|----------------------------------------------------------------------|*/
 		/*|-----  CAROUSEL CLIENTES  -----|*/
 		/*|----------------------------------------------------------------------|*/
 		var carousel_clientes = j('#carousel-clientes');
@@ -170,7 +198,6 @@ var j = jQuery.noConflict();
 		j("#demo__arrows--next").on('click',function(e){
 			carousel_service.trigger('next.owl.carousel', [900]);
 		});
-
 
 
 		/*|----------------------------------------------------------------------|*/
@@ -292,6 +319,19 @@ var j = jQuery.noConflict();
 				j("#input_consulta").val("");
 			});			
 		});*/
+
+		/*|-------------------------------------------------------------|*/
+		/*|-----  ENVIAR FORMULARIO.  ------|*/
+		/*|--------------------------------------------------------------|*/
+
+		/* Formulario de Suscripción */
+		if( j("#form__suscribirse").length )
+		{
+			j("#form__suscribirse").on('submit',function(e){
+				e.preventDefault(); //prevenir evento default
+				alert( 'ok');
+			});
+		}
 
 
 	});

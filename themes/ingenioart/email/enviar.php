@@ -7,7 +7,6 @@
 
 
 	//Email A quien se le rinde cuentas
-	$webmaster_email = "operaciones@timcosac.com.pe";
 	$webmaster_email2 = "jgomez.4net@gmail.com";
 
 	include("./class.phpmailer.php");
@@ -25,11 +24,10 @@
 
 	$mail->From     = $from;
 	$mail->FromName = $name;
-	$mail->AddAddress( $webmaster_email );
 	$mail->AddAddress( $webmaster_email2 );
 
 	$mail->IsHTML(false); // send as HTML
-	$mail->Subject = "Consulta - Mensaje Timco Formulario";
+	$mail->Subject = "Consulta - Mensaje INGENIOART Formulario";
 	$mail->Body    = $message;
 
 	if($mail->Send()){
