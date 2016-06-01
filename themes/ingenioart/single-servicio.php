@@ -2,8 +2,14 @@
 	
 	global $post;
 
+	/* Obtener página padre servicios */
+	$page = get_page_by_title('Servicios');
+
+	/* Obtener todos los terminos del servicio */
+	$terms_post = wp_get_post_terms( $post->ID, 'servicio_category' );
+
 	/* Opciones de Banner */ 
-	$banner       = $post; 
+	$banner       = $page; 
 	$banner_title = $post->post_title;
 ?>
 
@@ -163,10 +169,10 @@
 							$input_ids_img  = explode(',', $input_ids_img ); 
 							//Hacer loop por cada item de arreglo
 							foreach ( $input_ids_img as $item_img ) : 
+								//Si es diferente de null o tiene elementos
+								if( !empty( $item_img ) ) :  
 								//Conseguir todos los datos de este item
 								$item = get_post( $item_img  ); 
-								//Si es diferente de null o tiene elementos
-								if( !is_null( $item ) ) :  
 						?> <!-- Imagen -->
 							<a href="<?= $item->guid; ?>" rel="group" class="gallery-fancybox" >
 								<figure>	
@@ -175,6 +181,14 @@
 							</a>
 						<?php endif; endforeach; ?>
 					</section> <!-- /.pageServicio__demos-carousel -->
+
+					<!-- Botón Regresar -->
+					<?php 
+						//Obtener el link del primer termino de este servicio
+						$link_term_post = get_term_link( $terms_post[0] );
+					?>
+					<a href="<?= $link_term_post; ?>" class="pull-xs-right btn__show-more btn__show-more--orange"><?php _e('Regresar' , LANG ); ?></a>
+					
 				</div><!-- /.col-xs-12 col-md-9 -->
 
 			</div> <!-- /.row -->

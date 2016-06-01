@@ -33,8 +33,7 @@
 		?> <!-- Articulo de Servicio -->		
 			<?php 
 				/* Controles de Clases */
-				$first_class = $i == 0 ? 'first-item' : ''; 
-				$image_class = ( ($i%2) == 0 ) && ( $i != 0 ) ? 'image-left' : ""; 
+				$image_class = ( ($i%2) == 0 ) ? 'image-left' : ""; 
 			?>
 			<article class="pageServicios__item <?= $first_class ?>">
 

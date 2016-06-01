@@ -139,7 +139,12 @@
 		<article class="item-proyecto relative">
 			<!-- Imagen -->
 			<figure>
-				<?= get_the_post_thumbnail($proyecto->ID,'full',array('class'=>'img-fluid')); ?>
+				<?php if( has_post_thumbnail( $proyecto->ID ) ) :  
+					echo get_the_post_thumbnail($proyecto->ID,'full',array('class'=>'img-fluid'));
+					else : 
+				?>
+					<img src="<?= IMAGES ?>/actualizando-info.jpg" alt="actualizando-ingenioart-info" class="img-fluid" />
+				<?php endif;  ?>
 			</figure> <!-- /figure -->
 			<!-- Links del Artículo -->
 			<section class="item-proyecto__links container-flex align-content text-xs-center">

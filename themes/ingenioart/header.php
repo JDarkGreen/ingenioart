@@ -134,9 +134,6 @@
 
 <!-- Contenedor Derecha version mobile -->
 <aside class="sb-slidebar sb-right sb-style-push">
-	<section class="pageBlog__categories">
-		<?php include( locate_template('partials/content-category-post.php') ) ?>
-	</section> <!-- /.pageBlog__categories -->
 </aside> <!-- /.sb-slidebar sb-right sb-style-push -->
 
 

@@ -164,7 +164,6 @@ function attached_images_meta() {
 
 function attached_images_meta_box($post){
 	
-	$input_ids_img  = -1;
 	$input_ids_img  = get_post_meta($post->ID, 'imageurls_'.$post->ID , true);
 	//convertir en arreglo
 	$input_ids_img  = explode(',', $input_ids_img ); 
@@ -172,16 +171,16 @@ function attached_images_meta_box($post){
 	#$input_ids_img  = array_unique( $input_ids_img );
 	//colocar en una sola cadena para el input
 	$string_ids_img = "";
-	$string_ids_img = implode(',', $input_ids_img);
+	$string_ids_img = implode(',', $input_ids_img); 
 
 	echo "<section style='display:flex; flex-wrap: wrap;'>";
 
 	//Hacer loop por cada item de arreglo
 	foreach ( $input_ids_img as $item_img ) : 
-		//Conseguir todos los datos de este item
-		$item = get_post( $item_img  ); #var_dump($item);
 		//Si es diferente de null o tiene elementos
-		if( !is_null( $item ) ) : 
+		if( !empty($item_img) ) : 
+		//Conseguir todos los datos de este item
+		$item = get_post( $item_img  ); 
 	?>
 		<figure style="width: 25%;height: 120px; margin: 0 10px 20px; display: inline-block; vertical-align: top; position: relative;">
 			<a href="#" class="js-delete-image" data-id-post="<?= $post->ID; ?>" data-id-img="<?= $item->ID ?>" style="border-radius: 50%; width: 20px;height: 20px; border: 2px solid red; color: red; position: absolute; top: -10px; right: -8px; text-decoration: none; text-align: center; background: black; font-weight: 700;">X</a>
@@ -191,7 +190,7 @@ function attached_images_meta_box($post){
 				<img src="<?= $item->guid; ?>" alt="<?= $item->post_title; ?>" class="" style="width: 100%; height: 100%; margin: 0 auto;" />
 			</a> 
 		</figure>
-	<?php endif; endforeach;
+	<?php endif; endforeach; 
 	echo "</section>";
 
 	/*----------------------------------------------------------------------------------------------*/

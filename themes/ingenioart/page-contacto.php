@@ -231,6 +231,10 @@
 </main> <!-- /.pageWrapper -->
 
 <!-- Script Google Mapa -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNMUy9phyQwIbQgX3VujkkoV26-LxjbG0"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+<!-- Scripts Solo para esta plantilla -->
 <?php 
 	if( !empty($options['contact_mapa']) ) : 
 	$mapa = explode(',', $options['contact_mapa'] ); 
@@ -331,6 +335,8 @@
 
 	</script>
 <?php endif; ?>
+
+
 
 <!-- Get Footer -->
 <?php get_footer(); ?>
