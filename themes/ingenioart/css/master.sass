@@ -197,9 +197,9 @@ body,html
 //* Banner Común de Servicios
 .pageCommon__banner-services
 	background     : url("../images/pages/inicio/banner-service-common.jpg") no-repeat
-	background-size: 100% 100% 
+	background-size: 100%
 	color          : white
-	padding        : 39px 0  
+	padding        : 26px 0  
 	//Titulo
 	h2 
 		font-family: "BloggerSans"
@@ -307,28 +307,34 @@ body,html
 
 				//SUBMENU
 				ul.sub-menu
-					background   : $ingenioart_orange
 					//border-bottom: 4px solid $ingenioart_orange
 					//border-top   : 4px solid $ingenioart_orange
-					left         : -60px
-					padding      : 10% 0
-					padding      : 10px
-					position     : absolute
-					right        : -60px
-					top          : 250%
-					visibility   : hidden
-					z-index      : -5
+					background: $ingenioart_orange
+					left      : -40px
+					padding   : 10% 0
+					padding   : 10px
+					position  : absolute
+					right     : 0px
+					text-align: left
+					top       : 250%
+					visibility: hidden
+					width     : 215px 
+					z-index   : -5
 					+opacity( 0 )
 					+transition( all 800ms ease )
 					//li 
 					li 
+						display: block
+						padding: 0 !important 
 						a 
-							border: none
-							color : white 
+							border   : none
+							color    : white 
+							font-size: 16px
 						//active u hover
 						&.current-menu-item , &:hover
 							a 
-								color: $ingenioart_blue
+								background: rgba( 0, 0 , 0 , .05 )
+								color     : white
 
 
 								
@@ -399,17 +405,19 @@ body,html
 		word-break: break-word
 		//Imagen
 		figure
-			background-size: 100% 100%
-			border         : 4px solid $ingenioart_gray
-			border-radius  : 50%
-			height         : 150px
-			margin         : 0 auto 20px
-			overflow       : hidden
-			width          : 150px
+			background-position: -25px
+			background-repeat  : no-repeat
+			background-size    : 200px
+			border             : 4px solid $ingenioart_gray
+			border-radius      : 50%
+			height             : 150px
+			margin             : 0 auto 20px
+			overflow           : hidden
+			width              : 150px
 			+transition( all 900ms ease )
 			//Hover
 			&:hover 
-				background-size: 150% 150%
+				background-size: 210px
 		//Título
 		h2 
 			color      : black 
@@ -1192,7 +1200,7 @@ body,html
 //Contenedor Consulta
 .pageContacto__consulta
 	background: $ingenioart_gray_claro
-	padding   : 50px 0 118px
+	padding   : 50px 0
 
 //Sección de Cuentas Bancarias
 .pageContacto__list-bank

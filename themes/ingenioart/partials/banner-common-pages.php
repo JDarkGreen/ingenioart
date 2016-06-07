@@ -1,6 +1,6 @@
 
 <!-- Si existe el post  -->
-<?php if( isset($banner) ) : ?>
+<?php if( isset($banner) ) :  #var_dump($banner); ?>
 	
 	<!-- BANNER DE LA PAGINA -->
 	<section class="pageCommon__banner relative">

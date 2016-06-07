@@ -27,7 +27,7 @@
 			
 			<!-- Extraer Imagen de Taxonomía -->
 			<?php 
-				echo $taxonomy->ID;
+				//echo $taxonomy->ID;
 				$term_meta = get_option( "taxonomy_term_$taxonomy->term_id");
 				$input_img = $term_meta["theme_tax_img_$taxonomy->term_id"]; 
 			?>

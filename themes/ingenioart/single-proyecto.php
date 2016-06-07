@@ -4,8 +4,7 @@
 	global $post; 
 	$options = get_option('ingenioart_custom_settings'); 
 
-	/*Buscar Página portafolio*/
-	$page = get_page_by_title('portafolio'); #var_dump($page);
+	
 ?>
 
 <!-- Get Header -->
@@ -13,6 +12,8 @@
 
 <!-- Incluir banner de la página -->
 <?php  
+	/*Buscar Página portafolio*/
+	$page         = get_page_by_title('Portafolio'); #var_dump($page);
 	$banner       = $page;
 	$banner_title = "portafolio";
 	include( locate_template("partials/banner-common-pages.php") );

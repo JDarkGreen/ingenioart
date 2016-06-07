@@ -21,28 +21,32 @@
 		<!-- Contenedor de Servicios -->
 		<section class="relative">
 			<div id="pageInicio__services__gallery" class="pageInicio__services__gallery">
-				<?php /*Extraer servicios*/ 
-					$args = array(
+				<?php /*Extraer categorias de servicios [ taxonomías ]*/ 
+					/*$args = array(
 						'order'          => 'ASC',
 						'orderby'        => 'menu_order',
 						'post_status'    => 'publish',
 						'post_type'      => 'servicio',
 						'posts_per_page' => -1,
 					);
-					$servicios = get_posts( $args );
+					$servicios = get_posts( $args ); */
 
-					foreach( $servicios as $servicio ) :
+					$servicios = get_terms( array(
+						'taxonomy'   => 'servicio_category',
+						'hide_empty' => false,
+					) );
+					foreach( $servicios as $servicio ) : 
 				?>
 					<article class="item-service text-xs-center">
 						<!-- Imagen --> 
-						<?php 
-							$image = wp_get_attachment_url( get_post_thumbnail_id( $servicio->ID ) );
+						<?php //$image = wp_get_attachment_url( get_post_thumbnail_id( $servicio->ID ) );
+							$term_meta = get_option( "taxonomy_term_$servicio->term_id");
+							$image     = $term_meta["theme_tax_img_$servicio->term_id"]; 
 						?>
 						<figure style="background-image: url('<?= $image ?>')">
-							
 						</figure>
-						<!-- Titulo --> <h2 class="text-uppercase"><?= $servicio->post_title ?></h2>
-						<!-- Botón ver Detalle --> <a href="<?= get_permalink($servicio->ID); ?>" class="btn__read-more">Leer más</a>
+						<!-- Titulo --> <h2 class="text-uppercase"><?= $servicio->name ?></h2>
+						<!-- Botón ver Detalle --> <a href="<?= get_term_link($servicio ); ?>" class="btn__read-more">Leer más</a>
 					</article> <!-- /.item-service -->
 				<?php endforeach; ?>
 			</div> <!-- /.pageInicio__services__gallery -->
@@ -139,7 +143,7 @@
 		<!-- Subtitle --> <h3 class="pageCommon__subtitle text-xs-center"> Les ofrecemos el mejor servicio en todas las áreas de <strong>DISEÑO</strong> y <strong>PROGRAMACIÓN DIGITAL</strong> </h3>	
 	</div> <!-- /.container -->
 
-	<!-- Obtener todos las imágenes destacadas del Portafolio -->
+	<!-- Obtener todos las imágenes destacadas del Portafolio - maximo 12  de preferencia web -->
 	<section class="pageInicio__portafolio__content container-flex">
 		<?php 
 			$args = array(
@@ -147,7 +151,14 @@
 				'orderby'        => 'date',
 				'post_status'    => 'publish',
 				'post_type'      => 'proyecto',
-				'posts_per_page' => -1,
+				'posts_per_page' => 6,
+				'tax_query' => array(
+					array(
+						'taxonomy' => 'portafolio_category',
+						'field'    => 'slug',
+						'terms'    => 'diseno-web',
+					),
+				),
 			);
 			$proyectos = get_posts( $args );
 			if( !empty($proyectos) ) :
