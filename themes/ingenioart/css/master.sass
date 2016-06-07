@@ -252,10 +252,14 @@ body,html
 //Información Header
 .mainHeader__info
 	p 	
-		color      : rgba(0,0,0,.7)
+		color      : $ingenioart_blue
 		font-size  : 13px
 		font-weight: 600
 		margin     : 0 auto
+
+		//Icono
+		i 
+			color: black
 
 //Navegación Principal
 .mainNav
@@ -303,14 +307,14 @@ body,html
 
 				//SUBMENU
 				ul.sub-menu
-					background   : rgba( 0,0,0,.8 )
-					border-bottom: 4px solid $ingenioart_orange
-					border-top   : 4px solid $ingenioart_orange
-					left         : -20px
+					background   : $ingenioart_orange
+					//border-bottom: 4px solid $ingenioart_orange
+					//border-top   : 4px solid $ingenioart_orange
+					left         : -60px
 					padding      : 10% 0
 					padding      : 10px
 					position     : absolute
-					right        : -20px
+					right        : -60px
 					top          : 250%
 					visibility   : hidden
 					z-index      : -5
@@ -320,10 +324,11 @@ body,html
 					li 
 						a 
 							border: none
+							color : white 
 						//active u hover
 						&.current-menu-item , &:hover
 							a 
-								color: $ingenioart_orange
+								color: $ingenioart_blue
 
 
 								

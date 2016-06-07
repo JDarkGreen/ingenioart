@@ -79,7 +79,7 @@
 		</div> <!-- /.row -->
 
 		<!-- Navegacion principal -->
-		<nav class="mainNav text-xs-center">
+		<nav class="mainNav text-xs-center text-uppercase">
 			<?php wp_nav_menu(
 				array(
 					'menu_class'     => 'main-menu',
@@ -122,7 +122,7 @@
 <!-- Contenedor Izquierda Version Mobile -->
 <aside class="sb-slidebar sb-left sb-style-push">
 	<!-- Navegación Principal -->
-	<nav class="mainNav">
+	<nav class="mainNav text-uppercase">
 		<?php wp_nav_menu(
 			array(
 				'menu_class'     => 'main-menu text-center',
