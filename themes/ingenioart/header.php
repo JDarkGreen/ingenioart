@@ -137,6 +137,9 @@
 </aside> <!-- /.sb-slidebar sb-right sb-style-push -->
 
 
+<!-- Flecha Indicador hacia arriba -->
+<a href="#" id="arrow-up-page"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+
 <!-- Contenedor version mobile libreria sliderbar js -->
 <div id="sb-site" class="">
 

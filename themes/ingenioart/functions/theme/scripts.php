@@ -40,9 +40,8 @@ function load_custom_scripts()
   	
   	//cargar sbslidebar js 
 	wp_enqueue_script('slidebars', THEMEROOT . '/js/slidebars.min.js', array('jquery'), '0.10.3', true);	 	 
-
 	//script
-	wp_enqueue_script('custom_script', THEMEROOT . '/js/script.js', array('jquery'), false, true);
+	wp_enqueue_script('custom_script', THEMEROOT . '/js/script.min.js', array('jquery'), false, true);
 
 }
 

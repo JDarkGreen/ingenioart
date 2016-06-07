@@ -81,19 +81,19 @@
 							<!-- Facebook -->
 							<?php if( isset($options['red_social_fb']) && !empty($options['red_social_fb']) ) : ?>
 							<li><a target="_blank" href="<?= $options['red_social_fb']; ?>">
-								<img src="<?= IMAGES ?>/redes-sociales/ingenioart_facebook.png" alt="red-social-facebook-ingenioart" class="img-fluid" />
+								<img src="<?= IMAGES ?>/redes-sociales/redes_color_ingenioart_facebook.png" alt="red-social-facebook-ingenioart" class="img-fluid" />
 							</a></li> <?php endif; ?>
 
 							<!-- Twitter -->
 							<?php if( isset($options['red_social_twitter']) && !empty($options['red_social_twitter']) ) : ?>
 							<li><a target="_blank" href="<?= $options['red_social_twitter']; ?>">
-								<img src="<?= IMAGES ?>/redes-sociales/ingenioart_twitter.png" alt="red-social-twitter-ingenioart" class="img-fluid" />
+								<img src="<?= IMAGES ?>/redes-sociales/redes_color_ingenioart_twitter.png" alt="red-social-twitter-ingenioart" class="img-fluid" />
 							</a></li>	<?php endif; ?>						
 
 							<!-- Youtube -->
 							<?php if( isset($options['red_social_ytube']) && !empty($options['red_social_ytube']) ) : ?>
 							<li><a target="_blank" href="<?= $options['red_social_ytube']; ?>">
-								<img src="<?= IMAGES ?>/redes-sociales/ingenioart_youtube.png" alt="red-social-youtube-ingenioart" class="img-fluid" />
+								<img src="<?= IMAGES ?>/redes-sociales/redes_color_ingenioart_youtube.png" alt="red-social-youtube-ingenioart" class="img-fluid" />
 							</a></li> <?php endif; ?>
 
 						</ul> <!-- /.mainFooter__social-links -->

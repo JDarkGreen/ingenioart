@@ -1,7 +1,7 @@
 
 <!-- Extraer opciones  -->
 <?php $options = get_option('ingenioart_custom_settings'); ?>
-	
+
 	<!-- Footer -->
 	<footer class="mainFooter">
 		<!-- Seccion Contenido -->
