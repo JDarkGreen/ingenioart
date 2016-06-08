@@ -360,9 +360,6 @@ var j = jQuery.noConflict();
 	/* ------------ Eventos Scroll ------------------------ */
 	j(window).on('scroll',function(){
 
-		/* Determinar la altura del navegador */
-		var alt_window = j(window).height();
-
 		/* Si existe la flecha hacia arriba */
 		if( j("#arrow-up-page").length ){
 			//Si el scroll del navegador es mayor que la posicion de 300 pixeles
@@ -373,6 +370,13 @@ var j = jQuery.noConflict();
 				/* Si no Ocultar esta flecha */ j("#arrow-up-page").fadeOut('slow');
 			}
 		}
+
+		/* CONTENEDOR ISOTOPE - Permite reorganizar el contenedor del isotope */
+		if( j("#portafolio-proyectos").length ){
+			j("#portafolio-proyectos").isotope( 'layout' );
+		}
+
+
 
 	});
 

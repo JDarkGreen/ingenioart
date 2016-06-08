@@ -103,6 +103,8 @@
 		</div> <!-- /#message-proyecto -->
 
 	</section><!-- /.pagePortafolio__content -->
+	
+	<!-- Limpiar floats --> <p class="clearfix"></p>
 
 </main> <!-- /.pageWrapper -->
 
