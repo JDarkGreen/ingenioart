@@ -254,24 +254,24 @@
 	      //crear mapa
 	      map = new google.maps.Map(document.getElementById('canvas-map'), {
 	        center: {lat: lat_central , lng: lng_central },
-	        zoom  : 17
+	        zoom  : 18
 	      });
 
-			var texto = "Av Bolivia 148 - C.C Centrolima Stand 2281 <br/>";
-			texto     += "Tlf: 433-0250 <br/>";
-			texto     += "RPC: 940 170 365 <br/>";
-			texto     += "RPM: 942 016 105";
+			var texto1 = "Av Bolivia 148 - C.C Centrolima Stand 2281 <br/>";
+			texto1     += "Tlf: 433-0250 <br/>";
+			texto1     += "RPC: 940 170 365 <br/>";
+			texto1     += "RPM: 942 016 105";
 
 	      //infowindow
-	      var infowindow    = new google.maps.InfoWindow({
-	        content: texto
+	      var infowindow1    = new google.maps.InfoWindow({
+	        content: texto1
 	      });
 
 	      //icono
 	      //var icono = "<?= IMAGES ?>/icon/contacto_icono_mapa.jpg";
 
 	      //crear marcador
-	      marker = new google.maps.Marker({
+	      marker1 = new google.maps.Marker({
 	        map      : map,
 	        draggable: false,
 	        animation: google.maps.Animation.DROP,
@@ -280,8 +280,8 @@
 	        //icon     : "<?= IMAGES . '/icon/ingenioart_map.png' ?>",
 	      });
 	      //marker.addListener('click', toggleBounce);
-	      marker.addListener('click', function() {
-	        infowindow.open( map, marker);
+	      marker1.addListener('click', function() {
+	        infowindow1.open( map, marker1 );
 	      });
 	    }
 
@@ -313,21 +313,21 @@
 	        zoom  : 17
 	      });
 
-	     	var texto = "Calle Monserrate 396 - Of. 203 A <br/>";
-			texto     += "Tlf: 746-2934 <br/>";
-			texto     += "RPC: 940 170 365 <br/>";
-			texto     += "RPM: 942 016 105";
+	     	var texto2 = "Calle Monserrate 396 - Of. 203 A <br/>";
+			texto2     += "Tlf: 746-2934 <br/>";
+			texto2     += "RPC: 940 170 365 <br/>";
+			texto2     += "RPM: 942 016 105";
 
 	      //infowindow
-	      var infowindow    = new google.maps.InfoWindow({
-	        content: texto
+	      var infowindow2    = new google.maps.InfoWindow({
+	        content: texto2
 	      });
 
 	      //icono
 	      //var icono = "<?= IMAGES ?>/icon/contacto_icono_mapa.jpg";
 
 	      //crear marcador
-	      marker = new google.maps.Marker({
+	      marker2 = new google.maps.Marker({
 	        map      : map2,
 	        draggable: false,
 	        animation: google.maps.Animation.DROP,
@@ -336,8 +336,8 @@
 	        //icon     : "<?= IMAGES . '/icon/ingenioart_map.png' ?>",
 	      });
 	      //marker.addListener('click', toggleBounce);
-	      marker.addListener('click', function() {
-	        infowindow.open( map, marker);
+	      marker2.addListener('click', function() {
+	        infowindow2.open( map2, marker2 );
 	      });
 	    }
 
