@@ -272,7 +272,7 @@
 	        animation: google.maps.Animation.DROP,
 	        position : {lat: lat, lng: lng},
 	        title    : "<?php _e(bloginfo('name') , LANG )?>",
-	        icon     : "<?= IMAGES . '/icon/ingenioart_map.png' ?>",
+	        //icon     : "<?= IMAGES . '/icon/ingenioart_map.png' ?>",
 	      });
 	      //marker.addListener('click', toggleBounce);
 	      marker.addListener('click', function() {
@@ -323,7 +323,7 @@
 	        animation: google.maps.Animation.DROP,
 	        position : {lat: lat, lng: lng},
 	        title    : "<?php _e(bloginfo('name') , LANG )?>",
-	        icon     : "<?= IMAGES . '/icon/ingenioart_map.png' ?>",
+	        //icon     : "<?= IMAGES . '/icon/ingenioart_map.png' ?>",
 	      });
 	      //marker.addListener('click', toggleBounce);
 	      marker.addListener('click', function() {
