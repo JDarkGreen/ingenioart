@@ -208,19 +208,19 @@
 		<!-- Titulo --> <h2 class="pageCommon__title text-xs-center text-uppercase"><?php _e('mapa' ); ?></h2>
 		<!-- Contenedor de Mapas -->
 
-		<!-- Surco -->
+		<!-- Centrolima -->
 		<section class="pageContacto__maps__container">
 			<div class="container">
-			<!-- Titulo --> <h2 class="text-uppercase">Surco</h2>
+			<!-- Titulo --> <h2 class="text-uppercase">Centro Lima</h2>
 			</div> <!-- /.container -->
 
 			<!-- Mapa --> <div id="canvas-map" class="canvas-map"></div>
 		</section> <!-- /.pageContacto__maps__container -->
 
-		<!-- CentroLima -->
+		<!-- Surco -->
 		<section class="pageContacto__maps__container">
 			<div class="container">
-				<!-- Titulo --> <h2 class="text-uppercase">Centro Lima</h2>
+				<!-- Titulo --> <h2 class="text-uppercase">Surco</h2>
 			</div> <!-- /.container -->
 
 			<!-- Mapa --> <div id="canvas-map2" class="canvas-map"></div>
@@ -237,24 +237,24 @@
 <!-- Scripts Solo para esta plantilla -->
 <?php 
 	if( !empty($options['contact_mapa']) ) : 
-	$mapa = explode(',', $options['contact_mapa'] ); 
+	$mapa_central = explode(',', $options['contact_mapa'] ); 
 ?>
 	<script type="text/javascript">	
 
 		<?php  
-			$lat = $mapa[0];
-			$lng = $mapa[1];
+			$lat_central = $mapa_central[0];
+			$lng_central = $mapa_central[1];
 		?>
 
 	    var map;
-	    var lat = <?= $lat ?>;
-	    var lng = <?= $lng ?>;
+	    var lat_central = <?= $lat_central ?>;
+	    var lng_central = <?= $lng_central ?>;
 
 	    function initialize() {
 	      //crear mapa
 	      map = new google.maps.Map(document.getElementById('canvas-map'), {
-	        center: {lat: lat, lng: lng},
-	        zoom  : 16
+	        center: {lat: lat_central , lng: lng_central },
+	        zoom  : 17
 	      });
 
 	      //infowindow
@@ -270,7 +270,7 @@
 	        map      : map,
 	        draggable: false,
 	        animation: google.maps.Animation.DROP,
-	        position : {lat: lat, lng: lng},
+	        position : {lat: lat_central , lng: lng_central },
 	        title    : "<?php _e(bloginfo('name') , LANG )?>",
 	        //icon     : "<?= IMAGES . '/icon/ingenioart_map.png' ?>",
 	      });
@@ -297,15 +297,15 @@
 			$lng = $mapa[1];
 		?>
 
-	    var map;
+	    var map2;
 	    var lat = <?= $lat ?>;
 	    var lng = <?= $lng ?>;
 
 	    function initialize() {
 	      //crear mapa
-	      map = new google.maps.Map(document.getElementById('canvas-map2'), {
+	      map2 = new google.maps.Map(document.getElementById('canvas-map2'), {
 	        center: {lat: lat, lng: lng},
-	        zoom  : 16
+	        zoom  : 17
 	      });
 
 	      //infowindow
@@ -318,7 +318,7 @@
 
 	      //crear marcador
 	      marker = new google.maps.Marker({
-	        map      : map,
+	        map      : map2,
 	        draggable: false,
 	        animation: google.maps.Animation.DROP,
 	        position : {lat: lat, lng: lng},
