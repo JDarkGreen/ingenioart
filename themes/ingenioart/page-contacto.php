@@ -234,7 +234,7 @@
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNMUy9phyQwIbQgX3VujkkoV26-LxjbG0"></script>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
-<!-- Scripts Solo para esta plantilla -->
+<!-- Scripts Solo para esta plantilla CENTROLIMA -->
 <?php 
 	if( !empty($options['contact_mapa']) ) : 
 	$mapa_central = explode(',', $options['contact_mapa'] ); 
@@ -257,9 +257,14 @@
 	        zoom  : 17
 	      });
 
+			var texto = "Av Bolivia 148 - C.C Centrolima Stand 2281 <br/>";
+			texto     += "Tlf: 433-0250 <br/>";
+			texto     += "RPC: 940 170 365 <br/>";
+			texto     += "RPM: 942 016 105";
+
 	      //infowindow
 	      var infowindow    = new google.maps.InfoWindow({
-	        content: '<?= "IngenioArt" ?>'
+	        content: texto
 	      });
 
 	      //icono
@@ -308,9 +313,14 @@
 	        zoom  : 17
 	      });
 
+	     	var texto = "Calle Monserrate 396 - Of. 203 A <br/>";
+			texto     += "Tlf: 746-2934 <br/>";
+			texto     += "RPC: 940 170 365 <br/>";
+			texto     += "RPM: 942 016 105";
+
 	      //infowindow
 	      var infowindow    = new google.maps.InfoWindow({
-	        content: '<?= "IngenioArt" ?>'
+	        content: texto
 	      });
 
 	      //icono
