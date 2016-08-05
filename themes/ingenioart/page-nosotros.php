@@ -133,12 +133,12 @@
 			<!-- Subtitulo --> <h3 class="pageCommon__subtitle text-xs-center"> <?php _e('Tener los profesionales más cualificados y dedicado es grande, pero excelencia sólo se puede lograr mediante el trabajo organizado.' , LANG ); ?> </h3>
 
 			<!-- Contenedor de Team -->
-			<section class="pageNosotros__team__content container-flex align-content">
+			<section class="pageNosotros__team__content container-flex">
 				<?php  
 					$args = array(
 						'order'          => 'ASC',
 						'orderby'        => 'menu_order',
-						'post_status'    =>'publish',
+						'post_status'    => 'publish',
 						'post_type'      => 'team',
 						'posts_per_page' => -1,
 					);
