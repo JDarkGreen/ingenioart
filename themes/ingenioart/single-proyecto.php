@@ -31,18 +31,64 @@
 		<!-- Sección Contenido Post Content -->
 		<div class="container">
 			<div class="row">
+
 				<!-- Imagen de Proyecto -->
 				<div class="col-xs-8">
-					<figure class="pagePortafolio__featured-image">
-						<?php 
-							if( has_post_thumbnail( $post->ID ) ) : 
-							echo get_the_post_thumbnail( $post->ID ,'full', array('class'=>'img-fluid') ); 
-							else: 
-						?>
-							<img src="<?= IMAGES ?>/actualizando-info.jpg" alt="actualizando-ingenioart-info" class="img-fluid" />
-						<?php endif; ?>
-					</figure> <!-- /.pagePortafolio__featured-image -->
+
+					<?php  
+						#1.- Obtener galería de imagenes 
+						# Si hay mas de dos hacer galería sino solo mostrar
+						#Imágen Destacada
+
+						$carousel_img    = get_post_meta( $post->ID, 'imageurls_'.$post->ID , true);
+						#convertir en arreglo
+						$carousel_img    = explode(',', $carousel_img ); 
+						#Eliminar elementos negativos
+						$carousel_img    = array_diff( $carousel_img , array(-1) );
+						#Contar elementos
+						$number_elements = count( $carousel_img );
+
+						#Si hay más de dos imágenes hacer carousel
+						if( $number_elements >= 2 ) :
+					?>
+						
+						<!-- Carousel de Proyecto  -->
+						<section id="slider-proyecto-<?= $post->ID ?>" class="js-carosel-proyect">
+							<?php
+								//Hacer loop por cada item de arreglo
+								foreach ( $carousel_img as $item_img ) : 
+									//Si es diferente de null o tiene elementos
+									if( !empty( $item_img ) ) :  
+									//Conseguir todos los datos de este item
+									$item = get_post( $item_img  ); 
+							?> <!-- Imagen -->
+								<a href="<?= $item->guid; ?>" rel="group" class="gallery-fancybox" >
+									<figure>	
+										<img src="<?= $item->guid; ?>" alt="<?= $item->post_name; ?>" class="img-fluid" />
+									</figure> <!-- /figure -->
+								</a>
+							<?php endif; endforeach; ?>
+
+						</section> <!-- /. -->
+
+					<?php else:  ?>
+						
+						<!-- Mostrar Solo La Imagen Destacada -->
+						<figure class="pagePortafolio__featured-image">
+							<?php 
+								if( has_post_thumbnail( $post->ID ) ) : 
+								echo get_the_post_thumbnail( $post->ID ,'full', array('class'=>'img-fluid') ); 
+								else: 
+							?>
+								<img src="<?= IMAGES ?>/actualizando-info.jpg" alt="actualizando-ingenioart-info" class="img-fluid" />
+							<?php endif; ?>
+						</figure> <!-- /.pagePortafolio__featured-image -->
+					
+					<?php endif; ?>
+
 				</div> <!-- /.col-xs-7 -->
+
+
 				<!-- Detalles de Proyecto -->
 				<div class="col-xs-4">
 					<section class="pagePortafolio__details">

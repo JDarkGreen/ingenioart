@@ -211,6 +211,28 @@ var j = jQuery.noConflict();
 		});
 
 
+
+		/*|----------------------------------------------------------------------|*/
+		/*|-----  CAROUSEL PROYECTOS - PAGINA PROYECTOS  -----|*/
+		/*|----------------------------------------------------------------------|*/
+
+		var carousel_proyect = j('.js-carosel-proyect');
+		carousel_proyect.owlCarousel({
+			autoplay       : true,
+			autoplayTimeout: 4000,
+			fluidSpeed     : 3000,
+			items          : 1,
+			lazyLoad       : false,
+			loop           : true,
+			margin         : 5,
+			mouseDrag      : true,
+			nav            : false,
+			responsiveClass: true,
+			smartSpeed     : 3000,
+			touchDrag      : true,			
+		});
+
+
 		/*|----------------------------------------------------------------------|*/
 		/*|-----  ISOTOPE DE PROYECTOS   -----|*/
 		/*|----------------------------------------------------------------------|*/
