@@ -108,7 +108,7 @@
 						<div class="text-featured--blue">
 						<?php if( !empty( $post->post_excerpt ) ) : ?>
 							<?php _e('VER WEB',LANG); ?> <a href="<?= "http://" . $post->post_excerpt ?>" target="_blank"> <?= $post->post_excerpt; ?></a>
-						<?php else: _e('Actualizando Web',LANG); ?>
+						<?php else: _e('',LANG); ?>
 						<?php endif; ?>
 						</div> <!-- /.text-featured--blue -->
 
