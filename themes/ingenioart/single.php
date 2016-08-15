@@ -10,7 +10,9 @@
 <?php get_header(); ?>
 
 <!-- Incluir banner de la página -->
-<?php  $banner = $post; 
+<?php  
+	/** Obtener Página de Blog **/
+	$banner       = get_page_by_title("blog"); 
 	$banner_title = "Artículo";
 	include( locate_template("partials/banner-common-pages.php") ); 
 ?>
