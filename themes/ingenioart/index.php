@@ -72,7 +72,9 @@
 <section class="pageInicio__our">
 	<div class="container">
 		<div class="row container-flex align-content">
+
 			<div class="col-xs-12 col-md-6 text-xs-center">
+
 				<!-- Titulo --> <h2 class="pageCommon__title text-uppercase"> <?php _e( 'estratégia & creatividad' , LANG ); ?> </h2>
 
 				<!-- Contenido --> 
@@ -89,7 +91,10 @@
 
 				<!-- Boton leer más --> <a href="<?= get_permalink( $page_nosotros->ID ); ?>" class="btn__read-more"><?php _e('Leer más', LANG ); ?></a>
 
+				<!-- Espacio --> <p class="hidden-sm-up"></p>
+
 			</div> <!-- /.col-xs-12 -->
+
 			<div class="col-xs-12 col-md-6">
 				<!-- Imagen -->
 				<figure class="pageInicio__our__image">

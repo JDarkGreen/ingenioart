@@ -36,7 +36,7 @@
 	?>
 
 <!-- Header -->
-<header class="mainHeader sb-slide <?= $admin_bar ?>">
+<header class="mainHeader <?= $admin_bar ?>">
 	<div class="container">
 		
 		<!-- Solo en version de escritorio -->
@@ -94,7 +94,7 @@
 		</div> <!-- /.hidden-xs-down -->
 		
 		<!-- Solo en version mobile -->
-		<section class="hidden-sm-up">
+		<section class="hidden-sm-up sb-slide">
 			<div class="mainHeader__mobile ">
 
 					<!-- Icono abrir menu lateral -->

@@ -22,8 +22,9 @@
 	
 	<div class="container">
 		<div class="row pageCommon__preview-blog">
+
 			<!--  Sección Artículo  -->
-			<div class="col-xs-8">
+			<div class="col-xs-12 col-sm-8">
 				<article class="item-blog">
 					<!-- Imagen -->
 					<figure class="pageBlog__image-featured">
@@ -58,13 +59,14 @@
 					</section> <!-- end comments-area -->
 
 				</article> <!-- /.article -->
-			</div> <!-- /.col-xs-8 -->
+			</div> <!-- /.col-xs-12 col-sm-8 -->
 
 			<!-- Aside Categorías-->
-			<div class="col-xs-4">
+			<div class="col-xs-12 col-sm-4">
 				<!-- Incluir template categorias -->
 				<?php include( locate_template("partials/sidebar-categories.php" ) ); ?>
-			</div> <!-- /.col-xs-4 -->
+			</div> <!-- /.col-xs-12 col-sm-4 -->
+
 		</div> <!-- /.row -->
 	</div> <!-- /.container -->
 

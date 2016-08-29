@@ -43,10 +43,13 @@
 
 				<!-- Sección Detalles -->
 				<section class="pageServicios__item__details">
-					<!-- Titulo --> <h2 class="pageCommon__title text-uppercase"><?php _e($servicio->post_title,LANG); ?></h2>
+
+					<!-- Titulo --> <h2 class="pageCommon__title text-xs-center text-sm-left text-uppercase"><?php _e($servicio->post_title,LANG); ?></h2>
+
 					<!-- Contenido --> <div class="text-justify">
 					<?php if( !empty($servicio->post_content) ) :
 						echo apply_filters('the_content', $servicio->post_content); ?>
+
 						<!-- Botón ver más -->
 						<a href="<?= $servicio->guid ?>" class="btn__show-more btn__show-more--orange text-xs-center"><?php _e( "Ver más" , LANG ); ?></a>
 					<?php else: echo "Actualizando Contenido"; endif;

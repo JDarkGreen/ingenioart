@@ -33,7 +33,7 @@
 			<div class="row">
 
 				<!-- Imagen de Proyecto -->
-				<div class="col-xs-8">
+				<div class="col-xs-12 col-sm-8">
 
 					<?php  
 						#1.- Obtener galería de imagenes 
@@ -86,11 +86,12 @@
 					
 					<?php endif; ?>
 
-				</div> <!-- /.col-xs-7 -->
+				</div> <!-- /.col-xs-12 col-sm-8 -->
 
+				<!-- Espacio --> <p class="clearfix hidden-sm-up"></p>
 
 				<!-- Detalles de Proyecto -->
-				<div class="col-xs-4">
+				<div class="col-xs-12 col-sm-4">
 					<section class="pagePortafolio__details">
 						<!-- Titulo -->
 						<h2 class="text-uppercase"><?php _e( $post->post_title , LANG ); ?></h2>
@@ -119,7 +120,8 @@
 						</a>
 
 					</section> <!-- /.pagePortafolio__details -->
-				</div> <!-- /.col-xs-5 -->
+				</div> <!-- /.col-xs-12 col-sm-4 -->
+
 			</div> <!-- /.row -->
 		</div> <!-- /.container -->
 

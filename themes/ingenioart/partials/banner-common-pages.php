@@ -16,7 +16,7 @@
 		<figure style="background-image: url(<?= $url_image; ?>)"></figure>
 
 		<!-- Título de la pagina posicion absoluta -->
-		<h2 class="pageCommon__banner__title text-uppercase container-flex align-content"> 
+		<h2 class="pageCommon__banner__title text-xs-center text-sm-left text-uppercase container-flex align-content"> 
 			<?php
 				if( isset($banner_title) && !empty($banner_title) ){
 				 _e(  $banner_title , LANG ); 

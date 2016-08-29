@@ -32,6 +32,18 @@
 				//Primer Elemento
 				&:first-child
 					padding-left: 24px
+				
+				//Submenu
+				ul.sub-menu
+					left      : 0 
+					margin    : 10px auto 0
+					width     : auto 
+
+				//Hover li 
+				&:hover 
+					//submenu 
+					ul.sub-menu
+						position: relative
 
 	//********************************
 	//* FOOTER
@@ -39,6 +51,10 @@
 	.mainFooter
 		.logo 
 			width: 90%
+
+	.mainFooter__content
+		background-size: cover 
+		padding        : 30px 0
 
 	//********************************
 	//* SECCIONES COMUNES 
@@ -48,6 +64,10 @@
 	.pageCommon__banner 
 		figure
 			height: 110px
+
+	//Título
+	.pageCommon__banner__title
+		font-size : 35px
 
 	//****** [ BANNERS DE SERVICIOS ]
 	.pageCommon__banner-services
@@ -77,3 +97,53 @@
 	.pageNosotros__team
 		padding: 55px 0 15px
 
+	//********************************
+	//* PÁGINA SERVICIOS
+	//********************************
+	.pageServicios__item 
+		//Imágen
+		.pageServicios__item__image
+			width : 100%
+			margin: 0 auto 15px
+			//Imagen left 
+			&.image-left
+				margin: 0 auto 15px
+
+		//Detalles
+		.pageServicios__item__details
+			width: 100%
+
+	//Tabs de detalles
+	.pageServicios__single-tabs 
+		.nav-tabs 
+			.nav-item 
+				width : 100%
+				.nav-link
+					margin: 0 0 5px
+
+
+	//********************************
+	//* PÁGINA MULTIMEDIA
+	//********************************
+	.pageMedia__multimedia
+		padding: 0
+	.multimedia__item
+		min-height: inherit
+		width     : 100%
+
+	//********************************
+	//* PÁGINA PREGUNTAS
+	//********************************
+	.pagePreguntas__section 
+		.panel 
+			.panel-heading 
+				.panel-title 
+					a:before
+						display: none
+
+	//********************************
+	//* PÁGINA CONTACTO
+	//********************************
+	
+	.pageContacto__item
+		margin: 0 auto 25px

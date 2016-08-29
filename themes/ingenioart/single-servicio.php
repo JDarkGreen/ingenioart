@@ -27,11 +27,13 @@
 		<div class="row">
 			<!-- Descripción -->
 			<div class="col-xs-12 col-md-6">
-				<!-- Titulo --> <h2 class="pageCommon__title text-uppercase"><?php _e( $post->post_title , LANG ); ?></h2>
+				<!-- Titulo --> <h2 class="pageCommon__title text-xs-center text-sm-left text-uppercase"><?php _e( $post->post_title , LANG ); ?></h2>
+
 				<!-- Descripción Completa -->
 				<div class="text-justify">
 					<?= apply_filters('the_content' , $post->post_content ); ?>
 				</div> <!-- /."text-justify -->
+				
 			</div> <!-- /.col-xs-12 col-md-6 -->
 			<!-- Imagen -->
 			<div class="col-xs-12 col-md-6">
@@ -99,6 +101,8 @@
 					
 				</section> <!-- /.pageServicios__single-tabs" -->
 			</div> <!-- /.col-xs-12 col-md-8 -->	
+
+			<!-- Espacio --> <p class="clearfix hidden-sm-up"></p>
 
 			<!-- Seccion Servicios Relacionados -->
 			<div class="col-xs-12 col-md-4">

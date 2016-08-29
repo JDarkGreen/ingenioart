@@ -1,5 +1,5 @@
 <?php /*Obtener página de Servicios*/ 
-	$page_servicios = get_page_by_title('Servicios');
+	$page_servicios = get_page_by_title('Contacto');
 ?>
 
 <!-- Incluir Seccion banner de servicios -->
