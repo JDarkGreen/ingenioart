@@ -96,7 +96,16 @@ var j = jQuery.noConflict();
 			mouseDrag      : false,
 			nav            : false,
 			responsiveClass: true,
-			smartSpeed     : 2000,		
+			smartSpeed     : 2000,
+			responsive:{
+				320:{
+				    items: 1
+				},
+				650:{
+				    items: 4
+				},
+			}		
+
 		});
 
 		/* Eventos de flechas */
@@ -125,7 +134,7 @@ var j = jQuery.noConflict();
 			smartSpeed     : 2000,
 			responsive:{
 		        320:{
-		            items: 2
+		            items: 1
 		        },
 		      	640:{
 		            items: 4

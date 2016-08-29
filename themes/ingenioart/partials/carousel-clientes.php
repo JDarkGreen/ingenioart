@@ -29,13 +29,17 @@
 			</div> <!-- /.pageInicio_clientes__gallery -->
 
 			<!-- Flechas de Carousel  -->
-			<a href="#" id="arrow__cliente--prev" class="arrow__common-slider arrow__common-slider--prev">
-				<i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
-			</a>
+			<div class="hidden-xs-down">
+				
+				<a href="#" id="arrow__cliente--prev" class="arrow__common-slider arrow__common-slider--prev">
+					<i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+				</a>
 
-			<a href="#" id="arrow__cliente--next" class="arrow__common-slider arrow__common-slider--next">
-				<i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
-			</a>
+				<a href="#" id="arrow__cliente--next" class="arrow__common-slider arrow__common-slider--next">
+					<i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+				</a>
+				
+			</div> <!-- /.hidden-xs-down -->
 
 		</div> <!-- /.relative -->
 

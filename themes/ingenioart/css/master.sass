@@ -168,6 +168,11 @@ body,html
 //Contenedor banner de Páginas
 .pageCommon__banner
 	margin: 20px auto 0
+	//Figure o Imágen
+	figure 
+		background-size: cover 
+		height         : 240px 
+
 //Título Banners
 .pageCommon__banner__title
 	bottom         : 0
@@ -194,8 +199,6 @@ body,html
 			height       : 14px
 			margin       : 0 5px
 			width        : 14px
-			//active
-			&.active
 
 //Títulos de Secciones
 .pageCommon__title
@@ -372,10 +375,6 @@ body,html
 /**--------------------------  PAGINA INICIO  ---------------------------------------**/
 /***************************************************************************************/
 
-//Contenedor Slider
-.pageInicio__slider
-	.item-slider
-
 //Contenido de Slider
 .pageInicio__slider__content
 	color      : white
@@ -459,7 +458,7 @@ body,html
 //Sección Testimonios
 .pageInicio__testimonio
 	background     : url("../images/pages/inicio/bg-testimonios.jpg") no-repeat
-	background-size: 100% 
+	background-size: cover 
 	font-family    : "BloggerSans"
 	padding        : 50px 0
 	//Artículos
@@ -622,8 +621,10 @@ body,html
 
 //Seccion de Contacto
 .pageInicio__contact
-	background: url("../images/pages/inicio/inicio_fondo_inferior_formulario.jpg") no-repeat
-	padding   : 40px 0
+	background     : url("../images/pages/inicio/inicio_fondo_inferior_formulario.jpg") no-repeat
+	background-size: cover 
+	padding        : 40px 0
+	
 //Imagen Contacto
 .pageInicio__contact__image
 	margin   : 0 auto 
@@ -1254,7 +1255,6 @@ body,html
 /**-------------------------------  MAIN FOOTER  -------------------------------------**/
 /***************************************************************************************/
 
-.mainFooter
 
 //Seccion Contenido
 .mainFooter__content
@@ -1262,6 +1262,7 @@ body,html
 	background-size: 100% 100%
 	min-height     : 490px
 	padding        : 80px 0 0 0
+
 //Lista de redes sociales en el footer -ul
 .mainFooter__social-links
 	list-style-type: none 
@@ -1316,6 +1317,6 @@ body,html
 /*-- MEDIA QUERIES ---------------------------------------------------------*/
 /************************************************************************************/
 
-//480px
-@media ( max-width: 568px )
+/** [Importar archivo Media Queries ] **/
+@import "_media_queries"
 

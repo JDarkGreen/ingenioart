@@ -4,16 +4,16 @@
 	
 	<!-- BANNER DE LA PAGINA -->
 	<section class="pageCommon__banner relative">
-		<figure>
-			<!-- Conseguir el banner por defecto -->
-			<?php $img_banner = get_post_meta($banner->ID, 'input_img_banner_'.$banner->ID , true); 
-				if( !empty($img_banner) && $img_banner != -1 ) :
-			?>
-				<img src="<?= $img_banner ?>" alt="banner-nosotros-empresa-pbg" class="img-responsive" />
-			<?php else: ?>
-				<img src="http://placekitten.com/1920/236" alt="banner-nosotros-empresa-pbg" class="img-responsive" />
-			<?php endif; ?>
-		</figure>
+
+		<!-- Conseguir el banner por defecto -->
+		<?php 
+			$img_banner = get_post_meta($banner->ID, 'input_img_banner_'.$banner->ID , true);
+
+			//Imagen Url
+			$url_image =  !empty($img_banner) && $img_banner != -1 ? $img_banner : "http://placekitten.com/1920/236";
+		?>
+		
+		<figure style="background-image: url(<?= $url_image; ?>)"></figure>
 
 		<!-- Título de la pagina posicion absoluta -->
 		<h2 class="pageCommon__banner__title text-uppercase container-flex align-content"> 

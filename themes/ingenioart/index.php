@@ -52,13 +52,17 @@
 			</div> <!-- /.pageInicio__services__gallery -->
 
 			<!-- Flechas de Carousel -->
-			<a href="#" id="arrow__serv--prev" class="arrow__common-slider arrow__common-slider--prev">
-				<i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
-			</a>
+			<div class="hidden-xs-down">
+	
+				<a href="#" id="arrow__serv--prev" class="arrow__common-slider arrow__common-slider--prev">
+					<i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+				</a>
 
-			<a href="#" id="arrow__serv--next" class="arrow__common-slider arrow__common-slider--next">
-				<i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
-			</a>
+				<a href="#" id="arrow__serv--next" class="arrow__common-slider arrow__common-slider--next">
+					<i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+				</a>
+				
+			</div> <!-- /.hidden-xs-down -->
 
 		</section> <!-- /.relative -->
 	</div> <!-- /.container -->
@@ -193,9 +197,10 @@
 
 </section> <!-- /.pageInicio__portafolio -->
 
+
 <!-- Banner A Portafolio -->
 <section class="pageInicio__portafolio__banner container-flex align-content">
-	<!-- Titulo --> <h2 class=""> <strong class="text-uppercase"> <?php _e( 'deseas ver más' , LANG ); ?> </strong>
+	<!-- Titulo --> <h2 class="text-xs-center"> <strong class="text-uppercase"> <?php _e( 'deseas ver más' , LANG ); ?> </strong>
 	<?php _e( 'de nuestros trabajos realizados' , LANG ); ?> </h2>
 	<!-- Link -->
 	<?php  
@@ -204,6 +209,7 @@
 	?>
 	<a href="<?= get_permalink($page_portafolio->ID); ?>" class="btn__show-more btn__show-more--orange"><?php _e('Click aquí' , LANG ); ?></a>
 </section> <!-- /.pageInicio__portafolio__banner -->
+
 
 <!-- Sección Blog Carousel -->
 <section class="pageCommon__preview-blog">
@@ -247,13 +253,17 @@
 			</section> <!-- /.pageCommon__preview-blog__carousel -->
 
 			<!-- Flechas de Carousel -->
-			<a href="#" id="arrow__blog--prev" class="arrow__common-slider arrow__common-slider--prev">
-				<i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
-			</a>
+			<div class="hidden-xs-down">
 
-			<a href="#" id="arrow__blog--next" class="arrow__common-slider arrow__common-slider--next">
-				<i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
-			</a>
+				<a href="#" id="arrow__blog--prev" class="arrow__common-slider arrow__common-slider--prev">
+					<i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+				</a>
+
+				<a href="#" id="arrow__blog--next" class="arrow__common-slider arrow__common-slider--next">
+					<i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+				</a>
+
+			</div> <!-- /.hidden-xs-down -->
 
 		</div> <!-- /.relative -->
 
@@ -264,7 +274,8 @@
 <section class="pageInicio__miscelaneo">
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-8">
+
+			<div class="col-xs-12 col-sm-8">
 				<!-- Sección Suscribirse -->
 				<section class="pageInicio__miscelaneo__content">
 					<!-- Título --> <h2 class="pageCommon__title text-xs-center text-uppercase"><?php _e('suscribete',LANG ); ?></h2>
@@ -290,7 +301,8 @@
 					</form> <!-- /.pageInicio__miscelaneo__form -->
 				</section> <!-- /.pageInicio__miscelaneo__content -->
 			</div> <!-- /col-xs-9 -->
-			<div class="col-xs-4">
+
+			<div class="col-xs-12 col-sm-4">
 				<!-- Sección Facebook -->
 				<section class="pageInicio__miscelaneo__content">
 					<!-- Título --> <h2 class="pageCommon__title text-xs-center text-uppercase"><?php _e('facebook',LANG ); ?></h2>
@@ -321,6 +333,7 @@
 
 				</section> <!-- /.pageInicio__miscelaneo__content -->
 			</div>  <!-- /col-xs-4 -->
+
 		</div> <!-- /.row -->
 	</div> <!-- /.container -->
 </section> <!-- /container -->
@@ -328,51 +341,58 @@
 <!-- Sección Formulario de Contacto -->
 <section class="pageInicio__contact">
 	<div class="container">
-		<div class="col-xs-6">
-			<!-- Imagen -->
-			<figure class="pageInicio__contact__image">
-				<img src="<?= IMAGES ?>/pages/inicio/inicio_vector_formulario.png" alt="inicio-formulario-contacto-ingenioart" class="img-fluid" />
-			</figure> <!-- /.pageInicio__contact__image -->
-		</div> <!-- /col-xs-6 -->
-		<div class="col-xs-6">
-			<section class="pageInicio__contact__content">
-				<!-- Titulo --> <h2 class="pageCommon__title text-xs-center text-uppercase"><?php _e('formulario',LANG ); ?></h2>
-				<!-- Formulario -->
-				<form action="" class="pageInicio__contact__form">
-					<p class="description"><?php _e('Para mayor información comuníquese con nosotros', LANG ); ?></p>
 
-					<div class="row">
+		<div class="row">
+	
+			<div class="col-xs-12 col-sm-6">
+				<!-- Imagen -->
+				<figure class="pageInicio__contact__image">
+					<img src="<?= IMAGES ?>/pages/inicio/inicio_vector_formulario.png" alt="inicio-formulario-contacto-ingenioart" class="img-fluid" />
+				</figure> <!-- /.pageInicio__contact__image -->
+			</div> <!-- /col-xs-6 -->
 
-						<!-- Nombre --> 
-						<div class="col-xs-12">
-							<input type="text" name="input_nombre" placeholder="<?php _e('Nombre',LANG); ?>" />
-						</div> <!-- /col-xs-12 -->						
+			<div class="col-xs-12 col-sm-6">
+				<section class="pageInicio__contact__content">
+					<!-- Titulo --> <h2 class="pageCommon__title text-xs-center text-uppercase"><?php _e('formulario',LANG ); ?></h2>
+					<!-- Formulario -->
+					<form action="" class="pageInicio__contact__form">
+						<p class="description"><?php _e('Para mayor información comuníquese con nosotros', LANG ); ?></p>
 
-						<!-- Correo --> 
-						<div class="col-xs-6">
-							<input type="email" name="input_email" placeholder="<?php _e('Correo',LANG); ?>" />
-						</div> <!-- /col-xs-12 -->						
+						<div class="row">
 
-						<!-- Telefono --> 
-						<div class="col-xs-6">
-							<input type="text" name="input_phone" placeholder="<?php _e('Teléfono',LANG); ?>" />
-						</div> <!-- /col-xs-12 -->						
+							<!-- Nombre --> 
+							<div class="col-xs-12">
+								<input type="text" name="input_nombre" placeholder="<?php _e('Nombre',LANG); ?>" />
+							</div> <!-- /col-xs-12 -->						
 
-						<!-- Mensaje --> 
-						<div class="col-xs-12">
-							<textarea name="input_message" id="" placeholder="<?php _e('Mensaje',LANG); ?>" ></textarea>
-						</div> <!-- /col-xs-12 -->
+							<!-- Correo --> 
+							<div class="col-xs-12 col-sm-6">
+								<input type="email" name="input_email" placeholder="<?php _e('Correo',LANG); ?>" />
+							</div> <!-- /col-xs-12 -->						
 
-					</div> <!-- /.row -->
-					
-					<!-- Boton Enviar -->
-					<div class="text-xs-center">
-						<a href="#" class="btn__show-more btn__show-more--orange"><?php _e('Enviar',LANG); ?></a>
-					</div> <!-- /.text-xs-center -->
+							<!-- Telefono --> 
+							<div class="col-xs-12 col-sm-6">
+								<input type="text" name="input_phone" placeholder="<?php _e('Teléfono',LANG); ?>" />
+							</div> <!-- /col-xs-12 -->						
 
-				</form> <!-- /.pageInicio__contact__form -->
-			</section>	
-		</div>  <!-- /col-xs-6 -->
+							<!-- Mensaje --> 
+							<div class="col-xs-12">
+								<textarea name="input_message" id="" placeholder="<?php _e('Mensaje',LANG); ?>" ></textarea>
+							</div> <!-- /col-xs-12 -->
+
+						</div> <!-- /.row -->
+						
+						<!-- Boton Enviar -->
+						<div class="text-xs-center">
+							<a href="#" class="btn__show-more btn__show-more--orange"><?php _e('Enviar',LANG); ?></a>
+						</div> <!-- /.text-xs-center -->
+
+					</form> <!-- /.pageInicio__contact__form -->
+				</section>	
+			</div>  <!-- /col-xs-6 -->
+			
+		</div> <!-- /.row -->
+
 	</div> <!-- /.container -->
 </section> <!-- /.pageInicio__contact -->
 

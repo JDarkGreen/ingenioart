@@ -9,9 +9,9 @@
 			<div class="container">
 				<div class="row">
 
-					<div class="col-xs-4">
+					<div class="col-xs-12 col-sm-4">
 						<!-- Logo tipo  -->
-						<h1 class="logo"><img src="<?= IMAGES ?>/footer/logotipo_ingenioart_blanco.png" alt="logotipo_ingenioart_blanco" class="img-fluid center-block" /></h1> <!-- /.logo -->
+						<h1 class="logo d-block m-x-auto"><img src="<?= IMAGES ?>/footer/logotipo_ingenioart_blanco.png" alt="logotipo_ingenioart_blanco" class="img-fluid center-block" /></h1> <!-- /.logo -->
 
 						<!-- Redes Sociales -->
 						<ul class="mainFooter__social-links text-xs-center">
@@ -36,9 +36,9 @@
 
 						</ul> <!-- /.mainFooter__social-links -->
 
-					</div> <!-- /.col-xs-4 -->
+					</div> <!-- /.col-xs-12 col-sm-4 -->
 
-					<div class="col-xs-4">
+					<div class="col-xs-12 col-sm-4 text-xs-center text-sm-left">
 						<!-- Informacion -->
 						<section class="mainFooter__information">
 							<!-- Titulo --> <h3 class="text-uppercase"><?php _e('surco',LANG); ?></h3>
@@ -59,9 +59,11 @@
 								<p class="text-featured"><?= $options['contact_email']; ?></p>
 							<?php endif; ?>
 						</section> <!-- /.mainFooter__information -->	
-					</div>  <!-- /.col-xs-4 -->
+					</div>  <!-- /.col-xs-12 col-sm-4 -->
+
+					<!-- Espacio --> <p class="clearfix hidden-sm-up"></p>
 					
-					<div class="col-xs-4">
+					<div class="col-xs-12 col-sm-4 text-xs-center text-sm-left">
 						<!-- Informacion -->
 						<section class="mainFooter__information">
 							<!-- Titulo --> <h3 class="text-uppercase"><?php _e('centro de lima',LANG); ?></h3>
@@ -82,7 +84,7 @@
 							<a href="<?= site_url(); ?> " class="text-featured text-featured--web"> www.Ingenioart.com </a>		
 
 						</section> <!-- /.mainFooter__information -->							
-					</div>  <!-- /.col-xs-4 -->
+					</div>  <!-- /.col-xs-12 col-sm-4 -->
 				</div> <!-- ./row -->
 			</div> <!-- /.container -->
 		</section>

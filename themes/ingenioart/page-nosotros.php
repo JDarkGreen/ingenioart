@@ -33,14 +33,17 @@
 				<div class="col-xs-12 col-md-6">
 					<section class="">
 						<!-- Titulo --> <h2 class="pageCommon__title text-uppercase"> <?php _e( 'quienes somos?' , LANG ); ?></h2> <!-- /.pageCommon__title -->
+
 						<!-- Contenido -->
 						<?php if( !empty($post->post_content) ) : ?>
-						<div class="text-justify">
+						<div class="">
 							<?= apply_filters( 'the_content', $post->post_content ); ?>
 						</div> <!-- /.text-justify -->
 						<?php else: echo "Actualizando Contenido." ; endif; ?>	
+
 					</section> <!-- /. -->
 				</div> <!-- /.col-xs-12 col-md-6 -->
+
 				<div class="col-xs-12 col-md-6 text-xs-center">
 					<!-- Imagen  Destacada -->
 					<?php if( has_post_thumbnail( $post->ID ) ) : ?>
@@ -61,7 +64,7 @@
 		<div class="container">
 
 			<div class="row">
-				<div class="col-xs-4">
+				<div class="col-xs-12 col-sm-4">
 					<!-- Misión -->
 					<article class="item-aptitud text-xs-center">
 						<!-- Imagen <-->
@@ -75,7 +78,8 @@
 						else: "Actualizando Contenido" ; endif; ?>
 					</article> <!-- /.item-aptitud -->
 				</div> <!-- /.col-xs-4 -->
-				<div class="col-xs-4">
+
+				<div class="col-xs-12 col-sm-4">
 					<!-- Visión -->
 					<article class="item-aptitud text-xs-center">
 						<!-- Imagen <-->
@@ -89,7 +93,8 @@
 						else: "Actualizando Contenido" ; endif; ?>
 					</article> <!-- /.item-aptitud -->
 				</div> <!-- /.col-xs-4 -->
-				<div class="col-xs-4">
+				
+				<div class="col-xs-12 col-sm-4">
 					<!-- Visión -->
 					<article class="item-aptitud text-xs-center">
 						<!-- Imagen <-->

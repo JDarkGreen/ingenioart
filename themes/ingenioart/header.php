@@ -36,60 +36,65 @@
 	?>
 
 <!-- Header -->
-<header class="mainHeader <?= $admin_bar ?>">
+<header class="mainHeader sb-slide <?= $admin_bar ?>">
 	<div class="container">
 		
 		<!-- Solo en version de escritorio -->
-		<div class="row hidden-xs-down">
-			<div class="col-xs-6">
-				<!-- Logo -->
-				<h1 class="logo">
-					<a href="<?= site_url() ?>">
-						<?php if( !empty($options['logo']) ) : ?>
-							<img src="<?= $options['logo'] ?>" alt="<?= "-logo-" . bloginfo('name') ?>" class="img-responsive" />
-						<?php else: ?>
-							<img src="<?= IMAGES ?>/logo.png" alt="<?= "-logo-" . bloginfo('name') ?>" class="img-responsive" />
-						<?php endif; ?>
-					</a>
-				</h1> <!-- /.lgoo -->				
-			</div> <!-- /.col-xs-6 -->
-			<div class="col-xs-6">
-				<!-- Informacion -->
-				<section class="mainHeader__info text-xs-right">
-					<p>
-						<i class="fa fa-mobile" aria-hidden="true"></i>
-						<!-- Telefono -->
-						<?php if( isset($options['contact_tel']) && !empty($options['contact_tel']) ) : ?> <?= $options['contact_tel'] . " | " ; ?>
-						<?php endif; ?>
-						<!-- RPC -->
-						<?php if( isset($options['contact_cel_rpc']) && !empty($options['contact_cel_rpc']) ) : ?> <?= "RPC: " . $options['contact_cel_rpc'] . " | " ; ?>
-						<?php endif; ?>
-						<!-- RPM -->
-						<?php if( isset($options['contact_cel_rpm']) && !empty($options['contact_cel_rpm']) ) : ?> <?= "RPM: " . $options['contact_cel_rpm']; ?>
-						<?php endif; ?>
-					</p>
-					<!-- Email -->
-					<p>
-						<i class="fa fa-envelope-o" aria-hidden="true"></i>
-						<?php if( isset($options['contact_email']) && !empty($options['contact_email']) ) : ?> <i></i> <?= $options['contact_email']; ?>
-						<?php endif; ?>
-					</p>
-				</section> <!-- /.mainHeader__info -->
-			</div> <!-- /.col-xs-6 -->
-		</div> <!-- /.row -->
+		<div class="hidden-xs-down">
+			
+			<!-- Primera parte -->
+			<div class="row">
+				<div class="col-xs-6">
+					<!-- Logo -->
+					<h1 class="logo">
+						<a href="<?= site_url() ?>">
+							<?php if( !empty($options['logo']) ) : ?>
+								<img src="<?= $options['logo'] ?>" alt="<?= "-logo-" . bloginfo('name') ?>" class="img-fluid" />
+							<?php else: ?>
+								<img src="<?= IMAGES ?>/logo.png" alt="<?= "-logo-" . bloginfo('name') ?>" class="img-fluid" />
+							<?php endif; ?>
+						</a>
+					</h1> <!-- /.lgoo -->				
+				</div> <!-- /.col-xs-6 -->
+				<div class="col-xs-6">
+					<!-- Informacion -->
+					<section class="mainHeader__info text-xs-right">
+						<p>
+							<i class="fa fa-mobile" aria-hidden="true"></i>
+							<!-- Telefono -->
+							<?php if( isset($options['contact_tel']) && !empty($options['contact_tel']) ) : ?> <?= $options['contact_tel'] . " | " ; ?>
+							<?php endif; ?>
+							<!-- RPC -->
+							<?php if( isset($options['contact_cel_rpc']) && !empty($options['contact_cel_rpc']) ) : ?> <?= "RPC: " . $options['contact_cel_rpc'] . " | " ; ?>
+							<?php endif; ?>
+							<!-- RPM -->
+							<?php if( isset($options['contact_cel_rpm']) && !empty($options['contact_cel_rpm']) ) : ?> <?= "RPM: " . $options['contact_cel_rpm']; ?>
+							<?php endif; ?>
+						</p>
+						<!-- Email -->
+						<p>
+							<i class="fa fa-envelope-o" aria-hidden="true"></i>
+							<?php if( isset($options['contact_email']) && !empty($options['contact_email']) ) : ?> <i></i> <?= $options['contact_email']; ?>
+							<?php endif; ?>
+						</p>
+					</section> <!-- /.mainHeader__info -->
+				</div> <!-- /.col-xs-6 -->
+			</div> <!-- /.row -->
 
-		<!-- Navegacion principal -->
-		<nav class="mainNav text-xs-center text-uppercase">
-			<?php wp_nav_menu(
-				array(
-					'menu_class'     => 'main-menu',
-					'theme_location' => 'main-menu'
-				));
-			?>						
-		</nav> <!-- /.mainNav -->  
+			<!-- Navegacion principal -->
+			<nav class="mainNav text-xs-center text-uppercase">
+				<?php wp_nav_menu(
+					array(
+						'menu_class'     => 'main-menu',
+						'theme_location' => 'main-menu'
+					));
+				?>						
+			</nav> <!-- /.mainNav -->  
+			
+		</div> <!-- /.hidden-xs-down -->
 		
 		<!-- Solo en version mobile -->
-		<section class="hidden-xs-up">
+		<section class="hidden-sm-up">
 			<div class="mainHeader__mobile ">
 
 					<!-- Icono abrir menu lateral -->
@@ -101,9 +106,9 @@
 					<h1 class="logo">
 						<a href="<?= site_url() ?>">
 							<?php if( !empty($options['logo']) ) : ?>
-								<img src="<?= $options['logo'] ?>" alt="<?= "-logo-" . bloginfo('name') ?>" class="img-responsive center-block" />
+								<img src="<?= $options['logo'] ?>" alt="<?= "-logo-" . bloginfo('name') ?>" class="img-fluid center-block" />
 							<?php else: ?>
-								<img src="<?= IMAGES ?>/logo.png" alt="<?= "-logo-" . bloginfo('name') ?>" class="img-responsive center-block" />
+								<img src="<?= IMAGES ?>/logo.png" alt="<?= "-logo-" . bloginfo('name') ?>" class="img-fluid center-block" />
 							<?php endif; ?>
 						</a>
 					</h1> <!-- /.lgoo -->	

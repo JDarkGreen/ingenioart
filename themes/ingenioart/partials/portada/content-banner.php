@@ -22,7 +22,9 @@
 <div id="" class="banner-container relative"> <span class="Apple-tab-span"> </span>
 
 	<section id="carousel-home" class="pageInicio__slider">
-		<ul class="">
+	
+		<ul style="padding:0; margin:0; list-style-type: none;">
+
 		<?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
 			
 			<!-- Clase Control i  -->
