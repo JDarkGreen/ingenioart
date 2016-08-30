@@ -3,10 +3,19 @@
 <!--[if !IE]><!--> <html <?php language_attributes(); ?>> <!--<![endif]-->
 <head>
   	<meta charset="<?php bloginfo('charset'); ?>">
-	<title><?php wp_title('|', true, 'right'); ?><?php bloginfo('name'); ?></title>
-	<meta name="description" content="<?php bloginfo('description'); ?>">
-	<meta name="author" content="">
 
+	<?php if ( !defined( 'WPSEO_VERSION' ) ) : ?>
+		
+		<title><?php wp_title('|', true, 'right'); ?><?php bloginfo('name'); ?></title>
+		
+		<meta name="description" content="Estrategias para Publicidad por Internet. Diseño Paginas Web, Posicionamiento Google. Contamos con un equipo creativo e innovador buscando el éxito de venta">
+		
+		<meta name="author" content="" />
+
+	<?php endif; ?>
+
+	<meta name="google-site-verification" content="T1cjIKt86nym_QtXqW1c-lwMG5CRL-EdGTYfuxxtYmM" />
+	
 	<!-- Mobile Specific Meta -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -60,21 +69,28 @@
 					<!-- Informacion -->
 					<section class="mainHeader__info text-xs-right">
 						<p>
-							<i class="fa fa-mobile" aria-hidden="true"></i>
-							<!-- Telefono -->
-							<?php if( isset($options['contact_tel']) && !empty($options['contact_tel']) ) : ?> <?= $options['contact_tel'] . " | " ; ?>
-							<?php endif; ?>
+							<!-- Icono  -->
+							<i class="icon">
+								<img src="<?= IMAGES ?>/icon/whatsapp-icon.png" alt="whatsapp-ingenioart-paginas-web" class="img-fluid" />
+							</i>
+
 							<!-- RPC -->
 							<?php if( isset($options['contact_cel_rpc']) && !empty($options['contact_cel_rpc']) ) : ?> <?= "RPC: " . $options['contact_cel_rpc'] . " | " ; ?>
 							<?php endif; ?>
+
 							<!-- RPM -->
-							<?php if( isset($options['contact_cel_rpm']) && !empty($options['contact_cel_rpm']) ) : ?> <?= "RPM: " . $options['contact_cel_rpm']; ?>
+							<?php if( isset($options['contact_cel_rpm']) && !empty($options['contact_cel_rpm']) ) : ?> <?= "RPM: " . $options['contact_cel_rpm'] . " | " ; ?>
+							<?php endif; ?>
+
+							<i class="fa fa-mobile" aria-hidden="true"></i>
+							<!-- Telefono -->
+							<?php if( isset($options['contact_tel']) && !empty($options['contact_tel']) ) : ?> <?= $options['contact_tel']; ?>
 							<?php endif; ?>
 						</p>
 						<!-- Email -->
 						<p>
 							<i class="fa fa-envelope-o" aria-hidden="true"></i>
-							<?php if( isset($options['contact_email']) && !empty($options['contact_email']) ) : ?> <i></i> <?= $options['contact_email']; ?>
+							<?php if( isset($options['contact_email']) && !empty($options['contact_email']) ) : ?> <?= $options['contact_email']; ?>
 							<?php endif; ?>
 						</p>
 					</section> <!-- /.mainHeader__info -->
