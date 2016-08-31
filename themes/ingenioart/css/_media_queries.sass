@@ -5,10 +5,22 @@
 //568px
 @media ( max-width: 568px )
 
+	//*******[ SLIDEBAR VERSION MOBILE ]
+	.sb-slidebar
+		z-index: 999
+
+	#sb-site
+		padding: 70px 0 0 0
+
 	//****** [ MAIN HEADER MOBILE ]
 	//Header
 	.mainHeader 
-		padding: 0
+		background: white
+		left      : 0
+		padding   : 0
+		position  : fixed
+		right     : 0
+		z-index   : 2
 	.mainHeader__mobile
 		align-items: center   
 		display    : flex 
@@ -18,7 +30,7 @@
 			font-size: 45px
 		//Logo
 		.logo 
-			margin   : 0 12px 
+			margin   : 0 18px 
 			max-width: 180px
 
 
@@ -86,6 +98,17 @@
 			padding: 5px 15px 
 			width  : 100%
 
+	/** [ SLIDER HOME ] **/
+	.pageInicio__slider__content
+		+text-shadow( 2px 1px 12px black )
+		word-break: initial 
+		//Titulo y párrafo
+		h2 
+			font-size: 35px
+		p 
+			font-size  : 15px 
+			font-weight: 700
+			line-height: 1.4em 
 
 	//********************************
 	//* PÁGINA NOSOTROS
@@ -130,6 +153,23 @@
 	.multimedia__item
 		min-height: inherit
 		width     : 100%
+
+	//********************************
+	//* PÁGINA BLOH
+	//********************************
+	
+	//Sidebar
+	.pageBlog__sidebar
+		background: white 
+		padding   : 15px 10px 
+
+	.pageBlog__sidebar__features 
+		.articles-features 
+			.item-article 
+				figure
+					margin   : 0 auto 10px
+					max-width: 100%
+	
 
 	//********************************
 	//* PÁGINA PREGUNTAS

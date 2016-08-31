@@ -62,7 +62,7 @@
 			</div> <!-- /.col-xs-12 col-sm-8 -->
 
 			<!-- Aside Categorías-->
-			<div class="col-xs-12 col-sm-4">
+			<div class="col-sm-4 hidden-xs-down">
 				<!-- Incluir template categorias -->
 				<?php include( locate_template("partials/sidebar-categories.php" ) ); ?>
 			</div> <!-- /.col-xs-12 col-sm-4 -->

@@ -155,6 +155,10 @@
 
 <!-- Contenedor Derecha version mobile -->
 <aside class="sb-slidebar sb-right sb-style-push">
+	
+	<!-- Incluir template categorias -->
+	<?php include( locate_template("partials/sidebar-categories.php" ) ); ?>
+
 </aside> <!-- /.sb-slidebar sb-right sb-style-push -->
 
 
