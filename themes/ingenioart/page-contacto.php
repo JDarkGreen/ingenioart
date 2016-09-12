@@ -137,35 +137,35 @@
 						<!-- Titulo --> <h2 class="pageCommon__title text-xs-center text-sm-left text-uppercase"><?php _e('envíenos su consulta' ); ?></h2>
 
 						<!-- Formulario -->
-						<form action="" class="pageInicio__contact__form">
+						<form id="form-contacto" class="pageInicio__contact__form">
 							<p class="description text-xs-center text-sm-left"><?php _e('A la brevedad nos estaremos comunicando con usted', LANG ); ?></p>
 
 							<div class="row">
 
 								<!-- Nombre --> 
 								<div class="col-xs-12">
-									<input type="text" name="input_nombre" placeholder="Nombre">
+									<input type="text" id="input_name" name="input_name" placeholder="Nombre" required="" />
 								</div> <!-- /col-xs-12 -->						
 
 								<!-- Correo --> 
 								<div class="col-xs-6">
-									<input type="email" name="input_email" placeholder="Correo">
+									<input type="email" id="input_email" name="input_email" placeholder="Correo" ata-parsley-trigger="change" required="" data-parsley-type-message="Escribe un email válido"  />
 								</div> <!-- /col-xs-12 -->						
 
 								<!-- Telefono --> 
 								<div class="col-xs-6">
-									<input type="text" name="input_phone" placeholder="Teléfono">
+									<input type="text" id="input_phone" name="input_phone" placeholder="Teléfono" data-parsley-type-message="Solo debe contener números" required="" />
 								</div> <!-- /col-xs-12 -->						
 
-								<!-- Mensaje --> 
+								<!-- Mensaje -->
 								<div class="col-xs-12">
-									<textarea name="input_message" id="" placeholder="Mensaje"></textarea>
+									<textarea name="input_message" id="input_message" placeholder="Mensaje" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Necesitas más de 20 caracteres" data-parsley-validation-threshold="10" ></textarea>
 								</div> <!-- /col-xs-12 -->
 
 							</div> <!-- /.row -->
 							
 							<!-- Boton Enviar -->
-							<a href="#" class="btn__show-more btn__show-more--orange"><?php _e('Enviar',LANG); ?></a>
+							<button type="submit" class="btn__show-more btn__show-more--orange"><?php _e('Enviar',LANG); ?></button>
 
 						</form> <!-- /.pageInicio__contact__form -->
 

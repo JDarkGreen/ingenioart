@@ -343,24 +343,41 @@ var j = jQuery.noConflict();
 		/*|-----  VALIDADOR FORMULARIO.  ------|*/
 		/*|--------------------------------------------------------------|*/
 
-		j('#form-contacto').parsley();
+		/*|----------------------------------------------------------------------|*/
+		/*|-----  VALIDAR FORMULARIO   -----|*/
+		/*|----------------------------------------------------------------------|*/
 
-		/*j(document).on('submit', j('#form-contacto') , function(e){
-			e.preventDefault();
-			//Subir el formulario mediante ajax
-			j.post( url + '/email/enviar.php', 
-			{ 
-				nombre : j("#input_name").val(),
-				email  : j("#input_email").val(),
-				message: j("#input_consulta").val(),
-			},function(data){
-				alert( data );
+		if( j('#form-contacto').length )
+		{
+			var formulario = j('#form-contacto');
 
-				j("#input_name").val("");
-				j("#input_email").val("");
-				j("#input_consulta").val("");
-			});			
-		});*/
+			formulario.parsley();
+
+			formulario.submit( function(e){
+				e.preventDefault();
+				//Subir el formulario mediante ajax
+				j.post( url + '/email/enviar.php', 
+				{ 
+					name   : j("#input_name").val(),
+					email  : j("#input_email").val(),
+					phone  : j("#input_phone").val(),
+					message: j("#input_message").val(),
+				},function(data){
+
+					alert( data );
+
+					j("#input_name").val("");
+					j("#input_email").val("");
+					j("#input_phone").val("");
+					j("#input_message").val("");
+
+					window.location.reload(false);
+				});			
+			}); 
+
+		}
+
+
 
 		/*|-------------------------------------------------------------|*/
 		/*|-----  ENVIAR FORMULARIO.  ------|*/
