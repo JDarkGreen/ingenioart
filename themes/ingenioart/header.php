@@ -30,6 +30,7 @@
 	<![endif]-->
 
 	<!-- Favicon and Apple Icons -->
+	<link href="<?= IMAGES ?>/icon/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 	
 	
 	<?php wp_head(); ?>
