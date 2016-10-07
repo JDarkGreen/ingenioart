@@ -29,7 +29,7 @@ function create_category_taxonomy() {
     'show_ui'          => true,
     'show_admin_column'=> true,
     'query_var'        => true,
-    'rewrite'          => array( 'slug' => 'servicio-category' ),
+    'rewrite'          => array( 'slug' => 'servicios-web' ),
   ));
 
 /* categorias clientes */
