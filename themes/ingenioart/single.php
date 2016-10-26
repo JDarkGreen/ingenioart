@@ -28,7 +28,17 @@
 				<article class="item-blog">
 					<!-- Imagen -->
 					<figure class="pageBlog__image-featured">
-						<?= get_the_post_thumbnail( $post->ID ,'full', array('class'=>'img-fluid') ); ?>
+
+						<?php if( has_post_thumbnail($post->ID) ): ?>
+							
+							<?= get_the_post_thumbnail( $post->ID ,'full', array('class'=>'img-fluid') ); ?>
+							
+						<?php else: ?>
+
+							<img src="<?= IMAGES . '/no-disponible.jpg'; ?>" alt="<?= $post->post_name; ?>" class="img-fluid" />
+
+						<?php endif; ?>
+
 						<!-- Figcaption fecha -->
 						<figcaption class="container-flex align-content text-xs-center text-uppercase"><?= mysql2date('j M', $post->post_date); ?></figcaption>
 					</figure> <!-- /.pageBlog__image-featured -->

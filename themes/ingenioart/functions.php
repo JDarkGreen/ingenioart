@@ -87,5 +87,10 @@ include_once("functions/theme/admin/new-columns.php");
 require_once('functions/theme/admin/theme-customizer.php');
 
 
+/**********************************************************************************/
+/* Cargar o registrar nuevos shortcodes  */
+/**********************************************************************************/
 
-?>
+if( stream_resolve_include_path('functions/shortcode/custom-shortcodes.php') ):
+	include('functions/shortcode/custom-shortcodes.php');
+endif;
