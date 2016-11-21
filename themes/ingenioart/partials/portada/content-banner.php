@@ -81,9 +81,10 @@
 						<h2 class="text-uppercase">
 							<?php _e( get_the_title() , LANG ); ?>
 						</h2> <!-- /.pageInicio__slider__title -->
-						<p class="">
-							<?php _e( get_the_content() , LANG ); ?>
-						</p> <!-- /.pageInicio__slider__content -->
+						
+						<!-- Contenido o texto -->
+						<?php the_content(); ?>
+
 					</section> <!-- /.pageInicio__slider__content -->
 				</div> <!-- /. -->	
 		
