@@ -56,10 +56,21 @@
 						<!-- Titulo --> <h3 class="text-uppercase"><?php _e('comparte esta noticia'  , LANG ); ?></h3>
 						<!-- Compartir --> 
 						<div class="multimedia__item__share">
+
 							<!-- Facebook -->
-							<a href="javascript:window.open('https://www.facebook.com/sharer/sharer.php?u=<?= get_permalink( $post->ID ); ?>' , '_blank' , 'width=400 , height=500' ); void(0);"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+							<a href="javascript:window.open('https://www.facebook.com/sharer/sharer.php?u=<?= get_permalink( $post->ID ); ?>' , '_blank' , 'width=400 , height=500' ); void(0);">
+								
+								<img src="<?= IMAGES . '/redes-sociales/facebook.jpg' ?>" alt="share-facebook-<?= $post->post_title; ?>" class="img-fluid" />
+
+							</a>
+
 							<!-- Twitter -->
-							<a href="javascript:window.open('https://twitter.com/intent/tweet?text=<?= '!Hola! este artículo me pareció interesante: ' . get_permalink( $post->ID ) . ' !Visítalo!' ; ?>' , '_blank' , 'width=400 , height=500' ); void(0);"><i class="fa fa-twitter" aria-hidden="true"></i></a>	
+							<a href="javascript:window.open('https://twitter.com/intent/tweet?text=<?= '!Hola! este artículo me pareció interesante: ' . get_permalink( $post->ID ) . ' !Visítalo!' ; ?>' , '_blank' , 'width=400 , height=500' ); void(0);">
+								
+								<img src="<?= IMAGES . '/redes-sociales/twitter.jpg' ?>" alt="share-twitter-<?= $post->post_title; ?>" class="img-fluid" />
+
+							</a>	
+
 						</div>
 					</section> <!-- /.item-blog__share -->
 

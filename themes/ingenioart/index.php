@@ -237,9 +237,19 @@
 					foreach( $articulos as $articulo ) :
 				?> <!-- Articulos -->
 				<article class="item-blog">
-					<!-- Imagen Preview --> <figure class="relative"> <?= get_the_post_thumbnail( $articulo->ID ,'full', array('class'=>'img-fluid') ) ?> <!-- Flecha -->
-						<figcaption class="container-flex align-content text-xs-center text-uppercase"><?= mysql2date('j M', $articulo->post_date); ?></figcaption> 
-						</figure> <!-- /figure -->
+
+					<!-- Imagen Preview --> 
+					<figure class="relative"> 
+
+						<a href="<?= get_the_permalink($articulo->ID); ?>" title="<?= $articulo->post_title; ?>">
+
+							<?= get_the_post_thumbnail( $articulo->ID ,'full', array('class'=>'img-fluid') ) ?> <!-- Flecha -->
+
+							<figcaption class="container-flex align-content text-xs-center text-uppercase"><?= mysql2date('j M', $articulo->post_date); ?></figcaption> 
+
+						</a> <!-- /. -->
+					
+					</figure> <!-- /figure -->
 
 						<!-- Titulo -->
 						<h2 class="text-uppercase"><?php _e( $articulo->post_title , LANG ); ?></h2>

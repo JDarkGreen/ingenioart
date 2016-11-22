@@ -51,15 +51,23 @@
 					<div class="col-xs-12 col-sm-6">
 						<!-- Articulo -->
 						<article class="item-blog">
-							<!-- Imagen Preview --> <figure class="relative"> <?= get_the_post_thumbnail( get_the_ID() ,'full', array('class'=>'img-fluid') ) ?> 
 
-							<!-- Fecha -->
-							<figcaption class="container-flex align-content text-xs-center text-uppercase">
-								<?php 
-									#mysql2date('j M', get_the_date() ); 
-									echo get_the_date( 'j M' , get_the_ID() );
-								?>
-							</figcaption> 
+							<!-- Imagen Preview --> 
+							<figure class="relative"> 
+							
+								<a href="<?= get_the_permalink() ?>" title="<?= get_the_title() ?>">
+									
+									<?= get_the_post_thumbnail( get_the_ID() ,'full', array('class'=>'img-fluid') ) ?> 
+
+									<!-- Fecha -->
+									<figcaption class="container-flex align-content text-xs-center text-uppercase">
+										<?php 
+											#mysql2date('j M', get_the_date() ); 
+											echo get_the_date( 'j M' , get_the_ID() );
+										?>
+									</figcaption> 
+
+								</a> <!-- /. -->
 
 							</figure> <!-- /figure -->
 
