@@ -51,6 +51,32 @@
 						<?= apply_filters('the_content', $post->post_content ); ?>
 					</div> <!-- /.item-blog__content -->
 
+					<!-- Galería  -->
+					<?php  
+						/* Obtener Galería de Imágenes */
+						$mb_gallery = get_post_meta( $post->ID, 'imageurls_'.$post->ID , true);
+
+						if( !empty($mb_gallery) ): 
+
+						$mb_gallery = explode( ',' , $mb_gallery );  
+						$mb_gallery = array_diff( $mb_gallery , array('-1',1,'') ); 
+						$mb_gallery = array_filter($mb_gallery); ?>
+
+						<div id="carousel-single-post" class="js-carousel-gallery">
+							
+							<?php 
+								foreach( $mb_gallery as $item ): 
+								$image = get_post( $item ); 
+							?>
+
+							<img src="<?= $image->guid ?>" alt="<?= $image->post_title ?>" class="img-fluid" />
+
+							<?php endforeach; ?>
+
+						</div> <!-- /#carousel-single-post -->
+
+					<?php endif; ?>
+
 					<!-- Sección Compartir Noticia -->
 					<section class="item-blog__share">
 						<!-- Titulo --> <h3 class="text-uppercase"><?php _e('comparte esta noticia'  , LANG ); ?></h3>
