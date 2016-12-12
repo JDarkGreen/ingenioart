@@ -75,9 +75,7 @@
 					
 					<div class="caption <?= $from ?> big_white" data-x="<?= $pos_x_img; ?>" data-y="<?= $pos_y_img; ?>" data-speed="3000" data-start="<?= $start ?>" data-easing="easeOutBack">
 
-						<figure>
-							<img src="<?= $extra_image['url']; ?>" alt="ingenioart" class="img-fluid" />
-						</figure> <!-- / -->
+						<img src="<?= $extra_image['url']; ?>" alt="ingenioart" class="img-fluid" />
 
 					</div> <!-- /. -->
 
