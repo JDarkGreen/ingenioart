@@ -1,4 +1,36 @@
 
+/* Keyframes */
+
+/* ROTACIÓN X */
+@-webkit-keyframes rotateX
+{
+    0%   { transform: rotateX(0deg);  }
+    50%  { transform: rotateX(360deg);  }
+    100% { transform: rotateX(0deg);  }
+}
+@keyframes rotateX
+{
+    0%   { transform: rotateX(0deg);  }
+    50%  { transform: rotateX(360deg);  }
+    100% { transform: rotateX(0deg);  }
+}
+
+/* TRANSLATE Y */
+@-webkit-keyframes translateY
+{
+    0%   { transform: translateY(0px);  }
+    50%  { transform: translateY(-10px);  }
+    100% { transform: translateY(10px);  }
+}
+@keyframes rotateY
+{
+    0%   { transform: translateY(0px);  }
+    50%  { transform: translateY(-10px);  }
+    100% { transform: translateY(10px);  }
+}
+
+
+/* Item Imáge - Por cada Item */
 .item-image{ position: relative; }
 
 /*Eliminar */
@@ -17,4 +49,32 @@
 	top            : 0;
 	width          : 20px;
 	z-index        : 999;
+}
+
+
+/*
+ * Flechas
+ */
+.js-icon-arrow
+{
+	display: inline-block;
+	height : 18px;
+	margin : 0 15px;
+	width  : 22px;
+}
+
+/*Izquierda*/
+.js-left-arrow
+{
+	background-image: url(images/left-arrow.png);
+	background-size : cover;
+	animation       : rotateX 4s linear infinite;
+}
+
+/*Top*/
+.js-top-arrow
+{
+	background-image: url(images/top-arrow.png);
+	background-size : cover;
+	animation       : translateY 2s linear infinite;
 }

@@ -64,7 +64,7 @@ function add_banner_page_save_postdata($post_id){
 /*|------------ METABOX DE AGREGAR IMAGEN EXTRA PARA BANNER HOME -----------|*/
 /*|-------------------------------------------------------------------------|*/
 
-include('/../metabox/slider-home/metabox-add-extra-images.php');
+require_once( dirname(dirname(__FILE__)) . '/metabox/slider-home/metabox-add-extra-images.php');
 
 /*|-------------------------------------------------------------------------|*/
 /*|-------------- METABOX DE GALERÍA PARA TODAS LAS PAGINAS -----------------|*/

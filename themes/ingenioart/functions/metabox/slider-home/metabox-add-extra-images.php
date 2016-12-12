@@ -61,13 +61,15 @@ function fn_callback_extra_images( $post )
 
 				<br/>
 
-				<label for=""> Posiciòn x de Imàgen </label> <br/>
+				<label for=""> Posiciòn x de Imàgen en px: defecto 550 </label> <br/>
 				<input type="text" name="extraimages[<?= $i ?>][posx]" value="<?= $image['posx'] ?>" />
+				<span class="js-icon-arrow js-left-arrow"></span>
 
 				<br/> 
 
-				<label for=""> Posiciòn y de Imàgen </label> <br/> 
+				<label for=""> Posiciòn y de Imàgen en px: defecto 40 </label> <br/> 
 				<input type="text" name="extraimages[<?= $i ?>][posy]" value="<?= $image['posy'] ?>" />
+				<span class="js-icon-arrow js-top-arrow"></span>
 
 				<hr/><br/>
 

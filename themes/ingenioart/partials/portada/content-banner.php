@@ -55,24 +55,35 @@
 					<?php the_post_thumbnail('full', array('class'=>'img-fluid') ); ?>
 				<?php endif; ?>
 
+
 				<!-- Caption Imagen Extra -->
 				<?php 
-					$extra_img = get_post_meta($post->ID, 'input_img_banner_'.$post->ID , true); 
-					if( !empty($extra_img) ) : 
+					//Extraer metabox de imágenes
+					$extra_images = get_post_meta($post->ID, 'slider_home_extra_images' , true); 
+
+					//Variable de start
+					$start = 1000;
+
+					if( !empty($extra_images) ) : 
+
+					foreach( $extra_images as $extra_image ) :
 
 					/* Posicion de Imagen extra */
-					$pos_x_img = get_post_meta($post->ID, 'input_posx_img_'.$post->ID , true);
-					$pos_x_img = !empty( $pos_x_img ) ? $pos_x_img : "550";					
+					$pos_x_img = !empty( $extra_image['posx'] ) ? $extra_image['posx'] : "550";					
 
-					$pos_y_img = get_post_meta($post->ID, 'input_posy_img_'.$post->ID , true);
-					$pos_y_img = !empty( $pos_y_img ) ? $pos_y_img : "40";
-				?>
-					<div class="caption <?= $from ?> big_white" data-x="<?= $pos_x_img; ?>" data-y="<?= $pos_y_img; ?>" data-speed="3000" data-start="1500" data-easing="easeOutBack">
-						<figure class="item-slider__extra-img">
-							<img src="<?= $extra_img; ?>" alt="image-extra-ingenioart" class="img-fluid" />
-						</figure> <!-- /.item-slider__extra-img -->
-					</div>
-				<?php endif; ?>
+					$pos_y_img = !empty( $extra_image['posy'] ) ? $extra_image['posy'] : "40";  ?>
+					
+					<div class="caption <?= $from ?> big_white" data-x="<?= $pos_x_img; ?>" data-y="<?= $pos_y_img; ?>" data-speed="3000" data-start="<?= $start ?>" data-easing="easeOutBack">
+
+						<figure>
+							<img src="<?= $extra_image['url']; ?>" alt="ingenioart" class="img-fluid" />
+						</figure> <!-- / -->
+
+					</div> <!-- /. -->
+
+				<?php 
+				//Aumentar en 500 
+				$start+= 500; endforeach; endif; //fin de imágenes extra ?>
 
 
 				<!-- Caption Titulo y contenido -->

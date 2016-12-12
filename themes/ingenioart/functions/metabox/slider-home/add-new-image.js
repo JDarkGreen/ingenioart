@@ -33,15 +33,15 @@ j(document).on('ready' , function(){
 
 		string += '<br/>';
 
-		string += '<label for=""> Posiciòn x de Imàgen </label> <br/>'; 
+		string += '<label for=""> Posiciòn x de Imàgen en px: defecto 550 </label> <br/>'; 
 		string += '<input type="text" name="extraimages['+number_elements+'][posx]" />';
-		string += ' Horizontal => ';
+		string += '<span class="js-icon-arrow js-left-arrow"></span>';
 
 		string += '<br/>'; 
 
-		string += '<label for=""> Posiciòn y de Imàgen </label> <br/>'; 
+		string += '<label for=""> Posiciòn y de Imàgen en px: defecto 40</label> <br/>'; 
 		string += '<input type="text" name="extraimages['+number_elements+'][posy]" />';
-		string += 'Vertical ^';
+		string += '<span class="js-icon-arrow js-top-arrow"></span>';
 
 		string += '<hr/><br/>'; 
 
