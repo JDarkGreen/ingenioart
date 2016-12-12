@@ -35,11 +35,13 @@ j(document).on('ready' , function(){
 
 		string += '<label for=""> Posiciòn x de Imàgen </label> <br/>'; 
 		string += '<input type="text" name="extraimages['+number_elements+'][posx]" />';
+		string += ' Horizontal => ';
 
 		string += '<br/>'; 
 
 		string += '<label for=""> Posiciòn y de Imàgen </label> <br/>'; 
 		string += '<input type="text" name="extraimages['+number_elements+'][posy]" />';
+		string += 'Vertical ^';
 
 		string += '<hr/><br/>'; 
 

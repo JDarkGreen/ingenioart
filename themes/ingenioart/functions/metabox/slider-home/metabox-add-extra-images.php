@@ -95,7 +95,7 @@ add_action('save_post', 'fn_extra_images_save_postdata');
 
 function fn_extra_images_save_postdata($post_id)
 {
-	if ( $_POST['extraimages'] )
+	if ( isset($_POST['extraimages']) && !empty($_POST['extraimages']) )
 	{
 		//Arreglo temporal que permite guardar las imágenes pero 
 		//con datos seteados
